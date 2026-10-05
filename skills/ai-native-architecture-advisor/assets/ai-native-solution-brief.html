@@ -1,0 +1,1930 @@
+<!doctype html>
+<!--
+SPDX-FileCopyrightText: 2026 SAP SE or an SAP affiliate company and ai-native-architecture-advisor contributors
+SPDX-License-Identifier: Apache-2.0
+-->
+<!-- Managed presentation: source content belongs in the companion-managed Markdown brief. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>AI Native Solution Brief</title>
+  <!-- PUBLISH:PAYLOAD — publish-brief.mjs replaces this comment with three inline
+       scripts (Marked, the brief Markdown, the ref-arch index), producing a fully
+       self-contained report that renders from file:// with no server or sibling files. -->
+
+  <style>
+    :root {
+      --ink: #081f3d;
+      --body: #263a51;
+      --muted: #61758a;
+      --line: #d4dde6;
+      --blue: #0a6ed1;
+      --blue-dark: #0854a0;
+      --ux-accent: #7157c9;
+      --ux-surface: #eee9ff;
+      --process-accent: #4f72c8;
+      --process-surface: #e5efff;
+      --foundation-accent: #198f97;
+      --foundation-surface: #e1f4f4;
+      --platform-accent: #0a6ed1;
+      --platform-surface: #0a6ed1;
+      --paper: #fff;
+      --canvas: #f3f6f8;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      position: relative;
+      margin: 0;
+      color: var(--body);
+      background: var(--canvas);
+      font-family: "72", "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.58;
+      letter-spacing: 0;
+    }
+    /* Subtle blue→purple color splashes: corner bleed + faint mid-page washes. */
+    body::before {
+      content: "";
+      position: fixed;
+      z-index: 0;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(46rem 34rem at 100% 0%, rgba(113, 87, 201, .10), rgba(113, 87, 201, 0) 60%),
+        radial-gradient(40rem 30rem at 100% 0%, rgba(10, 110, 209, .09), rgba(10, 110, 209, 0) 55%),
+        radial-gradient(42rem 32rem at 0% 100%, rgba(113, 87, 201, .08), rgba(113, 87, 201, 0) 58%),
+        radial-gradient(34rem 26rem at 22% 40%, rgba(79, 114, 200, .05), rgba(79, 114, 200, 0) 60%),
+        radial-gradient(30rem 24rem at 82% 72%, rgba(113, 87, 201, .045), rgba(113, 87, 201, 0) 60%);
+    }
+    .report { position: relative; z-index: 1; }
+    @media print { body::before { display: none; } }
+    a { color: var(--blue-dark); }
+    a:hover { color: var(--blue); }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(10, 110, 209, .32);
+      outline-offset: 3px;
+    }
+
+    .reading-progress {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      pointer-events: none;
+    }
+    .reading-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left center;
+      will-change: transform;
+    }
+
+    .back-to-top {
+      position: fixed;
+      z-index: 20;
+      right: 24px;
+      bottom: 24px;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid rgba(10, 110, 209, .3);
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 7px 20px rgba(8, 31, 61, .2);
+      font: inherit;
+      font-size: 23px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .2s ease, transform .2s ease, background-color .18s ease;
+    }
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top:hover { background: var(--blue-dark); }
+
+    .export-pdf {
+      position: fixed;
+      z-index: 20;
+      right: 24px;
+      bottom: 80px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid rgba(10, 110, 209, .3);
+      border-radius: 22px;
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 7px 20px rgba(8, 31, 61, .2);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: background-color .18s ease, box-shadow .18s ease;
+    }
+    .export-pdf:hover {
+      background: var(--blue-dark);
+      box-shadow: 0 9px 24px rgba(8, 31, 61, .26);
+    }
+    .export-pdf svg { width: 16px; height: 16px; }
+
+    .report {
+      width: min(1120px, calc(100% - 40px));
+      margin: 28px auto 72px;
+      background: var(--paper);
+      box-shadow: 0 10px 30px rgba(21, 48, 75, .08);
+    }
+    .report-inner { padding: 0 42px 58px; }
+    .loading-message,
+    .error-message {
+      margin: 0;
+      padding: 48px 42px;
+      color: var(--muted);
+    }
+    .error-message strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .managed-notice {
+      margin: 0 -42px;
+      padding: 8px 42px;
+      color: #3f5870;
+      background: #edf5fc;
+      border-bottom: 1px solid #d4e7f8;
+      font-size: 12px;
+      text-align: center;
+    }
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      min-height: 50px;
+      border-bottom: 1px solid #99a8b8;
+      color: #35485d;
+      font-size: 12px;
+    }
+    .meta span:nth-child(2) { justify-self: center; }
+    .meta span:last-child { justify-self: end; }
+
+    .title-block {
+      padding: 30px 0 26px;
+      border-bottom: 1px solid #aab6c3;
+    }
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.12;
+    }
+    .subtitle {
+      margin: 6px 0 0;
+      color: #536378;
+      font-size: 21px;
+    }
+
+    .opening-section,
+    .optional-section {
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .opening-section h2,
+    .optional-section h2,
+    .architecture-view > h2 {
+      margin: 0 0 10px;
+      color: var(--blue-dark);
+      font-size: 20px;
+      line-height: 1.25;
+    }
+    .opening-section.reimagination {
+      padding-top: 30px;
+    }
+    .opening-section.reimagination > * { max-width: 920px; }
+
+    .architecture-view {
+      padding: 29px 0 32px;
+      border-bottom: 1px solid var(--line);
+    }
+    .architecture-intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+    .layer-stack {
+      display: grid;
+      gap: 5px;
+    }
+    .layer-band {
+      --accent: var(--blue);
+      --surface: #eef4fa;
+      display: grid;
+      grid-template-columns: minmax(200px, 290px) 1fr;
+      align-items: center;
+      min-height: 58px;
+      padding: 9px 24px;
+      color: var(--ink);
+      background: var(--surface);
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(7px);
+      animation: layer-enter .42s ease forwards;
+      transition: filter .18s ease, transform .18s ease;
+    }
+    .layer-band:nth-child(2) { animation-delay: .06s; }
+    .layer-band:nth-child(3) { animation-delay: .12s; }
+    .layer-band:nth-child(4) { animation-delay: .18s; }
+    .layer-band:hover,
+    .layer-band:focus-visible {
+      color: var(--ink);
+      transform: translateY(-1px);
+      filter: saturate(1.06);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .layer-band strong {
+      font-size: 17px;
+      line-height: 1.25;
+    }
+    .layer-band span {
+      color: #53677c;
+      font-size: 13px;
+    }
+    .layer-band[data-layer="ux"] { --accent: var(--ux-accent); --surface: var(--ux-surface); }
+    .layer-band[data-layer="process"] { --accent: var(--process-accent); --surface: var(--process-surface); }
+    .layer-band[data-layer="foundation"] { --accent: var(--foundation-accent); --surface: var(--foundation-surface); }
+    .layer-band[data-layer="platform"] {
+      --accent: var(--platform-accent);
+      --surface: var(--platform-surface);
+      color: #fff;
+    }
+    .layer-band[data-layer="platform"] span { color: #fff; }
+    .layer-band[data-layer="platform"]:hover,
+    .layer-band[data-layer="platform"]:focus-visible { color: #fff; }
+    @keyframes layer-enter {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .layer-review-heading {
+      margin: 34px 0 7px;
+      color: var(--ink);
+      font-size: 23px;
+    }
+    .layer-review-intro {
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+    .layer-section {
+      --accent: var(--blue);
+      --surface: #eef4fa;
+      padding: 0 0 40px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 18px;
+    }
+    .layer-section + .layer-section { padding-top: 28px; }
+    .layer-section[data-layer="ux"] { --accent: var(--ux-accent); --surface: linear-gradient(90deg, #eee9ff 0%, #c3b3f0 100%); }
+    .layer-section[data-layer="process"] { --accent: var(--process-accent); --surface: linear-gradient(90deg, #e5efff 0%, #b7cbf0 100%); }
+    .layer-section[data-layer="foundation"] { --accent: var(--foundation-accent); --surface: linear-gradient(90deg, #e1f4f4 0%, #a9dcdc 100%); }
+    .layer-section[data-layer="platform"] { --accent: var(--platform-accent); --surface: linear-gradient(90deg, #0a6ed1 0%, #064a8f 100%); }
+
+    .chapter-band {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      min-height: 62px;
+      margin: 0 0 22px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--surface);
+      opacity: .35;
+      transform: translateY(7px);
+      transition: opacity .38s ease, transform .38s ease;
+    }
+    .chapter-band::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 0 0 12px 12px;
+      background: var(--accent);
+      content: "";
+      transition: width .65s cubic-bezier(.2, .75, .25, 1) .08s;
+    }
+    .layer-section.entered .chapter-band {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .layer-section.entered .chapter-band::after { width: 100%; }
+    .layer-section[data-layer="platform"] .chapter-band { color: #fff; }
+    .layer-section[data-layer="platform"] .chapter-band::after { background: rgba(255, 255, 255, .9); }
+    .chapter-band h3 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.2;
+    }
+    .chapter-band p {
+      margin: 3px 0 0;
+      color: #4d647a;
+      font-size: 13px;
+    }
+    .layer-section[data-layer="platform"] .chapter-band p,
+    .layer-section[data-layer="platform"] .chapter-count { color: #fff; }
+    .chapter-count {
+      color: #5d7085;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .layer-body {
+      padding: 0 4px;
+      opacity: .28;
+      transform: translateY(7px);
+      transition: opacity .42s ease .05s, transform .42s ease .05s;
+    }
+    .layer-section.entered .layer-body {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .markdown-body > :first-child { margin-top: 0; }
+    .markdown-body > :last-child { margin-bottom: 0; }
+    .markdown-body p { margin: 0 0 12px; }
+    /* Lead-in callout pills: "In this solution:" (summary) and "Open items:" (attention). */
+    .markdown-body p.callout {
+      margin: 14px 0;
+      padding: 12px 16px;
+      border: 1px solid;
+      border-radius: 12px;
+    }
+    .markdown-body p.callout-solution {
+      border-color: rgba(10, 110, 209, .28);
+      background: rgba(10, 110, 209, .07);
+    }
+    .markdown-body p.callout-solution strong { color: var(--blue-dark); }
+    .markdown-body p.callout-open {
+      border-color: rgba(200, 128, 5, .35);
+      background: rgba(240, 165, 20, .1);
+    }
+    .markdown-body p.callout-open strong { color: #9a5b00; }
+    .markdown-body ul,
+    .markdown-body ol { margin: 8px 0 14px; padding-left: 22px; }
+    .markdown-body li { margin: 3px 0; }
+    .markdown-body h4,
+    .markdown-body h5,
+    .markdown-body h6 {
+      margin: 20px 0 7px;
+      color: var(--ink);
+      font-size: 15px;
+    }
+    .markdown-body blockquote {
+      margin: 15px 0;
+      padding: 2px 0 2px 15px;
+      border-left: 3px solid #9dbfe1;
+      color: #445d74;
+    }
+    .markdown-body table {
+      width: 100%;
+      margin: 15px 0;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .markdown-body th,
+    .markdown-body td {
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .markdown-body th {
+      color: var(--ink);
+      background: #f4f7f9;
+      font-weight: 600;
+    }
+    .markdown-body code {
+      padding: 1px 4px;
+      border-radius: 3px;
+      background: #eef2f5;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92em;
+    }
+    .markdown-body pre {
+      overflow: auto;
+      padding: 14px;
+      background: #f4f7f9;
+      border: 1px solid var(--line);
+    }
+    .markdown-body pre code { padding: 0; background: transparent; }
+
+    .optional-section { padding-top: 32px; }
+    .optional-section + .optional-section { padding-top: 28px; }
+
+    /* ── Maturity ladder stepper (per material layer) ── */
+    .layer-progression {
+      margin: 0 0 20px;
+      padding: 16px 18px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfcfe;
+    }
+    .prog-title {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .prog-steps {
+      display: flex;
+      align-items: flex-start;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+    .prog-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 0 0 auto;
+      padding: 0 6px;
+    }
+    .prog-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--paper);
+      font-size: 12.5px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .prog-star { font-size: 11px; margin-right: 5px; }
+    .prog-step.is-today .prog-chip {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #fff;
+    }
+    .prog-step.is-rec .prog-chip {
+      border-color: var(--blue);
+      color: var(--blue-dark);
+      box-shadow: 0 0 0 4px rgba(10, 110, 209, .14);
+    }
+    .prog-step.is-today.is-rec .prog-chip {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 0 0 4px rgba(10, 110, 209, .14);
+    }
+    .prog-step.is-target .prog-chip {
+      border-color: var(--ux-accent);
+      border-style: dashed;
+      color: var(--ux-accent);
+    }
+    .prog-step.is-rec.is-target .prog-chip {
+      border-style: solid;
+      border-color: var(--ux-accent);
+      color: var(--ux-accent);
+      box-shadow: 0 0 0 4px rgba(113, 87, 201, .14);
+    }
+    .prog-rail {
+      flex: 0 0 44px;
+      height: 2px;
+      align-self: center;
+      background: var(--line);
+    }
+    .prog-captions {
+      margin: 12px 0 0;
+      padding: 10px 0 0;
+      border-top: 1px dashed var(--line);
+      font-size: 13px;
+      color: var(--body);
+    }
+    .prog-captions p { margin: 3px 0; }
+    .prog-captions strong { color: var(--ink); }
+    @media print {
+      .layer-progression { break-inside: avoid; }
+      .prog-step.is-today .prog-chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* ── Solution Stack — one slab per layer, stacked as strata ──── */
+    .stack-groups {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 1px 1px rgba(8, 31, 61, .04), 0 14px 30px -22px rgba(8, 31, 61, .5);
+    }
+    .stack-group {
+      --stack-accent: var(--blue);
+      --stack-band: #eef4fa;
+      --stack-hover: rgba(10, 110, 209, .04);
+      background: var(--paper);
+    }
+    .stack-group[data-layer="ux"] {
+      --stack-accent: var(--ux-accent);
+      --stack-band: linear-gradient(90deg, #eee9ff 0%, #c3b3f0 100%);
+      --stack-hover: rgba(113, 87, 201, .045);
+    }
+    .stack-group[data-layer="process"] {
+      --stack-accent: var(--process-accent);
+      --stack-band: linear-gradient(90deg, #e5efff 0%, #b7cbf0 100%);
+      --stack-hover: rgba(79, 114, 200, .045);
+    }
+    .stack-group[data-layer="foundation"] {
+      --stack-accent: var(--foundation-accent);
+      --stack-band: linear-gradient(90deg, #e1f4f4 0%, #a9dcdc 100%);
+      --stack-hover: rgba(25, 143, 151, .045);
+    }
+    .stack-group[data-layer="platform"] {
+      --stack-accent: var(--platform-accent);
+      --stack-band: linear-gradient(90deg, #0a6ed1 0%, #064a8f 100%);
+      --stack-hover: rgba(10, 110, 209, .045);
+    }
+    /* Full-bleed band — same layer language as the architecture stack. */
+    .stack-group-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 22px;
+      color: #143a63;
+      background: var(--stack-band);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);
+    }
+    .stack-group + .stack-group .stack-group-head { border-top: 1px solid rgba(8, 31, 61, .08); }
+    .stack-group[data-layer="platform"] .stack-group-head { color: #fff; }
+    .stack-group-count {
+      padding: 2px 10px;
+      color: #2b4b6f;
+      background: rgba(255, 255, 255, .62);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      font-variant-numeric: tabular-nums;
+    }
+    .stack-group[data-layer="platform"] .stack-group-count {
+      color: #fff;
+      background: rgba(255, 255, 255, .2);
+    }
+    .stack-group-items { display: flex; flex-direction: column; }
+    .stack-item {
+      display: grid;
+      grid-template-columns: minmax(170px, 250px) 1fr;
+      gap: 24px;
+      padding: 14px 22px;
+      align-items: baseline;
+      transition: background-color .15s ease;
+    }
+    .stack-item:hover { background: var(--stack-hover); }
+    .stack-item + .stack-item { border-top: 1px solid #e8eef4; }
+    .stack-item-name {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: -0.005em;
+      text-wrap: balance;
+    }
+    .stack-item-name a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .stack-item-name a:hover { text-decoration: underline; }
+    .stack-item-purpose { color: var(--body); font-size: 13.5px; line-height: 1.55; }
+    .stack-item-role { display: block; color: var(--muted); font-size: 11px; font-weight: 400; margin-top: 3px; }
+    @media (max-width: 700px) {
+      .stack-item { grid-template-columns: 1fr; gap: 4px; padding: 13px 18px; }
+      .stack-group-head { padding: 11px 18px; }
+    }
+    @media print {
+      .stack-groups { box-shadow: none; }
+      .stack-group { break-inside: avoid; }
+      .stack-item:hover { background: transparent; }
+    }
+
+    @media (max-width: 760px) {
+      .report { width: min(100% - 16px, 680px); margin-top: 8px; }
+      .report-inner { padding: 0 20px 46px; }
+      .managed-notice { margin: 0 -20px; padding: 8px 20px; }
+      .meta { grid-template-columns: 1fr auto; }
+      .meta span:nth-child(2) { display: none; }
+      h1 { font-size: 30px; }
+      .subtitle { font-size: 18px; }
+      .layer-band { grid-template-columns: 1fr; gap: 2px; }
+      .chapter-band { grid-template-columns: 1fr; gap: 2px; }
+      .chapter-count { justify-self: start; }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .markdown-body th,
+      .markdown-body td { min-width: 150px; }
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .layer-band,
+      .chapter-band,
+      .layer-body {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .chapter-band::after { width: 100%; }
+    }
+
+    @page { margin: 14mm; }
+
+    @media print {
+      body { background: #fff; }
+      .report { width: 100%; margin: 0; box-shadow: none; }
+      .report-inner { padding: 0; }
+      .managed-notice { margin: 0; padding-right: 0; padding-left: 0; }
+      .layer-band,
+      .chapter-band,
+      .layer-body {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .chapter-band::after { width: 100%; }
+      .layer-section { break-inside: avoid; }
+      .ref-arch-card { break-inside: avoid; }
+      .reading-progress,
+      .back-to-top,
+      .export-pdf { display: none; }
+      /* Keep links legible and clickable in the forwarded PDF. */
+      a { color: var(--blue-dark); text-decoration: underline; }
+      .stack-item-name a { color: inherit; text-decoration: underline; }
+      a.ref-arch-card { color: inherit; text-decoration: none; }
+    }
+
+    /* ── Architecture Diagram Section ── */
+    .architecture-diagram-section {
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto;
+    }
+    .architecture-diagram-section h2 {
+      margin: 0 0 18px;
+      color: var(--blue-dark);
+      font-size: 20px;
+    }
+    .architecture-diagram-section .arch-diagram {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* ── Ref Arch Section ── */
+    .ref-arch-section {
+      padding: 29px 0 32px;
+      border-bottom: 1px solid var(--line);
+    }
+    .ref-arch-section h2 { margin: 0 0 4px; color: var(--blue-dark); font-size: 20px; }
+    .ref-arch-section .section-sub { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+    .ref-arch-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+    a.ref-arch-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--paper); text-decoration: none; color: inherit; transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+    a.ref-arch-card:hover { border-color: var(--blue); box-shadow: 0 6px 20px rgba(10, 110, 209, .12); transform: translateY(-2px); }
+    a.ref-arch-card:focus-visible { outline: 3px solid rgba(10, 110, 209, .32); outline-offset: 2px; }
+    .ref-arch-diagram { background: #f8fafc; border-bottom: 1px solid var(--line); height: 160px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 12px; }
+    .ref-arch-diagram img { max-width: 100%; max-height: 136px; object-fit: contain; }
+    .ref-arch-info { padding: 14px 16px; }
+    .ref-arch-domains { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .ref-arch-info h4 { margin: 0 0 6px; font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--ink); }
+    a.ref-arch-card:hover .ref-arch-info h4 { color: var(--blue); }
+    .ref-arch-info p { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+    @media (max-width: 700px) { .ref-arch-cards { grid-template-columns: 1fr; } }
+
+    /* Compact components; Process shows capability access from agent to API. */
+    .arch-diagram {
+      width: 100%; box-sizing: border-box; margin: 0 auto;
+      padding: 26px 22px 20px; position: relative; border-radius: 20px;
+      background: radial-gradient(560px 300px at 18% 4%, rgba(139,100,235,.12), transparent 62%), radial-gradient(520px 320px at 88% 96%, rgba(10,110,209,.10), transparent 60%), linear-gradient(180deg,#fbfaff,#f5f8fe);
+      box-shadow: inset 0 0 0 1px rgba(120,110,220,.08);
+    }
+    .arch-grid {
+      display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+      gap: 20px; align-items: stretch;
+    }
+    .layers-col { display: flex; flex-direction: column; gap: 0; }
+    .layer, .platform-row {
+      border: 1px solid rgba(255,255,255,.55); border-radius: 14px;
+      padding: 16px; box-shadow: 0 12px 28px rgba(84,63,189,.16), 0 2px 6px rgba(84,63,189,.08);
+    }
+    .layer--ux { background: linear-gradient(180deg,#d8c8f8,#c4b1f2); }
+    .layer--process { background: linear-gradient(180deg,#d5c5f7,#c0adf0); }
+    .layer--foundation { background: linear-gradient(180deg,#d2c2f6,#bca9ef); }
+    .layer-title {
+      display: flex; align-items: center; gap: 7px; margin-bottom: 12px;
+      text-align: center; justify-content: center;
+    }
+    .layer-title-text { font-size: 17px; font-weight: 700; color: #23306b; }
+    .layer-subtitle {
+      display: block; margin-top: 3px; font-size: 11px;
+      font-weight: 400; color: inherit; opacity: .72;
+    }
+    .chips, .platform-chips {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;
+      width: 100%;
+    }
+    .component-grid > :first-child:nth-last-child(odd) { grid-column: 1 / -1; }
+    .ux-joule { display: grid; gap: 8px; }
+    .ux-joule + .chips { margin-top: 8px; }
+    .chip, .platform-chip {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-sizing: border-box; min-height: 36px; min-width: 0;
+      gap: 5px; padding: 7px 10px; border: 0; border-radius: 7px;
+      background: #fff; color: #0a6ed1; font-size: 12.5px; font-weight: 600;
+      line-height: 1.45; white-space: normal; overflow-wrap: anywhere;
+      text-align: center; box-shadow: 0 1px 2px rgba(35,48,107,.1);
+    }
+    .chip-label { display: flex; align-items: center; justify-content: center; gap: 5px; min-width: 0; }
+    .component-status { font-size: 10px; font-weight: 400; line-height: 1.2; color: #526377; }
+    .chip:hover, .platform-chip:hover { border-color: #afc2d5; }
+    .spark-icon { font-size: 12px; color: #4db1f7; }
+    .process-tier { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .process-tier + .process-tier { margin-top: 8px; }
+    .found-row { background: rgba(255,255,255,.34); border-radius: 9px; padding: 9px; box-sizing: border-box; }
+    .found-row + .found-row { margin-top: 8px; }
+    .found-row-content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; min-width: 0; }
+    .found-row-label { display: block; margin-bottom: 7px; color: #3a4160; font-size: 11px; font-weight: 600; }
+    .arch-info {
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0; width: 18px; height: 18px; padding: 2px;
+      border: 0; border-radius: 50%;
+      background: transparent; color: #8292a5;
+      cursor: help;
+    }
+    .arch-info svg { width: 12px; height: 12px; }
+    .arch-info:hover { color: #536f8c; background: #eef3f8; }
+    .arch-info:focus-visible { outline: 2px solid #9cbad8; outline-offset: 2px; }
+    .arch-tooltip {
+      position: fixed; z-index: 1000; width: min(250px, calc(100vw - 32px));
+      box-sizing: border-box; padding: 10px 12px; border-radius: 6px;
+      border: 1px solid #dfe6ee; background: #fcfdff; color: #526377;
+      box-shadow: 0 3px 12px rgba(32, 56, 83, .10);
+      font: 12px/1.5 system-ui, sans-serif; text-align: left;
+    }
+    .arch-tooltip strong { display: block; margin-bottom: 3px; color: #354d66; font-size: 11px; font-weight: 600; }
+    .arch-tooltip[hidden] { display: none; }
+    .panels-col { display: flex; flex-direction: column; gap: 14px; justify-content: flex-end; }
+    .panel {
+      padding: 11px 11px 12px; border: 1px solid rgba(255,255,255,.6); border-radius: 12px;
+      background: linear-gradient(160deg,#d3e9fb,#b8d8f6);
+      box-shadow: 0 10px 24px rgba(10,110,209,.14);
+    }
+    .panel-title {
+      display: flex; align-items: center; gap: 6px; margin-bottom: 12px;
+      color: #16537e; font-size: 12px; font-weight: 700; line-height: 1.45;
+      justify-content: center; text-align: center;
+    }
+    .panel-title svg { flex-shrink: 0; opacity: .7; }
+    .panel-items { display: grid; gap: 8px; }
+    .panel-note { margin: 0; font-size: 12px; line-height: 1.45; text-align: center; color: #36566e; }
+    .panel--external { background: #edf0f4; border-color: #dde3ea; box-shadow: 0 3px 10px rgba(45,62,80,.06); }
+    .panel--external .panel-title, .panel--external .chip { color: #46566b; }
+    .platform-row { margin-top: 16px; background: linear-gradient(180deg,#0a6ed1,#064a8f); box-shadow: 0 14px 30px rgba(6,74,143,.28); }
+    .platform-row .layer-title-text { color: white; font-size: 13px; }
+    .platform-chips { display: flex; flex-wrap: wrap; }
+    .platform-chip { flex: 1 1 200px; }
+    .diagram-warning { margin: 12px 0; padding: 10px 14px; border-radius: 8px; background: #fff8e8; color: #72551c; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+    .diagram-warning ul { margin: 6px 0 0; padding-left: 18px; }
+    .layer-connector { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 30px; }
+    .layer-connector > svg { grid-column: 2; }
+    .connector-label { grid-column: 3; justify-self: start; margin-left: 9px; padding: 3px 11px; border-radius: 999px; background: #132f79; color: #fff; font-size: 10.5px; font-weight: 600; }
+    @media (max-width: 700px) {
+      .arch-grid { grid-template-columns: 1fr; }
+      .panels-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+      .panel--external { grid-column: 1 / -1; }
+    }
+    @media (max-width: 440px) {
+      .arch-diagram { padding: 18px 12px; }
+      .layer, .platform-row, .panel { padding: 12px; }
+      .panels-col { grid-template-columns: 1fr; }
+      .chips, .found-row-content { grid-template-columns: 1fr; }
+      .platform-chip { flex-basis: 100%; }
+      .process-tier { grid-template-columns: 1fr; }
+    }
+    @media print { .arch-info, .arch-tooltip { display: none !important; } }
+
+    /* Entrance: layers rise into place bottom-up in reading order, connectors follow. */
+    @keyframes arch-rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .layers-col > *, .panels-col > .panel, .platform-row {
+      animation: arch-rise .55s cubic-bezier(.2, .7, .3, 1) both;
+    }
+    .layers-col > *:nth-child(1) { animation-delay: .02s; }
+    .layers-col > *:nth-child(2) { animation-delay: .08s; }
+    .layers-col > *:nth-child(3) { animation-delay: .16s; }
+    .layers-col > *:nth-child(4) { animation-delay: .22s; }
+    .layers-col > *:nth-child(5) { animation-delay: .30s; }
+    .layers-col > *:nth-child(6) { animation-delay: .36s; }
+    .panels-col > .panel:nth-child(1) { animation-delay: .30s; }
+    .panels-col > .panel:nth-child(2) { animation-delay: .42s; }
+    .platform-row { animation-delay: .50s; }
+    /* Connector arrows carry a slow upward dash flow — data feeding the layer above. */
+    .flow-line { animation: arch-flow 1.6s linear infinite; }
+    @keyframes arch-flow { to { stroke-dashoffset: -12; } }
+    @media (prefers-reduced-motion: reduce) {
+      .layers-col > *, .panels-col > .panel, .platform-row { animation: none; }
+      .flow-line { animation: none; stroke-dasharray: none; }
+      .chip { transition: none; }
+      .chip:hover { transform: none; }
+    }
+    @media (max-width: 760px) {
+      .arch-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media print {
+      .arch-grid { break-inside: avoid; }
+      .layers-col > *, .panels-col > .panel, .platform-row { animation: none; }
+      .flow-line { animation: none; stroke-dasharray: none; }
+      .arch-diagram { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="export-pdf" type="button" aria-label="Save as PDF" title="Save as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v12"></path>
+      <path d="m7 10 5 5 5-5"></path>
+      <path d="M5 21h14"></path>
+    </svg>
+    <span>Save as PDF</span>
+  </button>
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+    <span aria-hidden="true">&#8593;</span>
+  </button>
+
+  <main class="report" id="report-root" aria-live="polite">
+    <p class="loading-message">Loading AI Native Solution Brief...</p>
+  </main>
+
+  <noscript>This report template requires JavaScript to render its Markdown source.</noscript>
+
+  <script>
+    const layerDefinitions = [
+      { id: "ux", title: "User Experience Layer", label: "Engagement | Experiences" },
+      { id: "process", title: "Process Layer", label: "Applications | Workflows | Agents" },
+      { id: "foundation", title: "Foundation Layer", label: "AI | Data | Business Context" },
+      { id: "platform", title: "Platform Layer", label: "Runtime | Governance | Operations" }
+    ];
+    const managedArtifactComment = "<!-- Managed artifact: Request changes through the AI Native Architecture Advisor instead of editing this file manually. -->";
+
+    function normalize(value) {
+      return String(value || "").trim().replace(/\s+/g, " ").toLowerCase();
+    }
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+
+    function flattenTokenText(tokens) {
+      return (tokens || []).map(token => {
+        if (token.tokens) return flattenTokenText(token.tokens);
+        return token.text || "";
+      }).join("");
+    }
+
+    // Return the href of the first link token found anywhere in a token tree, or "".
+    function firstLinkHref(tokens) {
+      for (const token of tokens || []) {
+        if (token.type === "link" && token.href) return token.href;
+        if (token.tokens) {
+          const nested = firstLinkHref(token.tokens);
+          if (nested) return nested;
+        }
+      }
+      return "";
+    }
+
+    function tokenText(token) {
+      return normalize(flattenTokenText(token.tokens) || token.text || "");
+    }
+
+    function getMarkdownParser() {
+      if (!globalThis.marked) throw new Error("The Markdown parser did not initialize");
+      return globalThis.marked;
+    }
+
+    function safeUrl(value) {
+      const url = String(value || "").trim();
+      if (!url || /[\u0000-\u001f\u007f]/.test(url)) return "";
+      try {
+        // Match browser URL parsing, including relative links, before allowing
+        // a value into href/src. Preserve the original relative destination.
+        const parsed = new URL(url, "https://report.invalid/");
+        return ["http:", "https:", "mailto:"].includes(parsed.protocol) ? url : "";
+      } catch { return ""; }
+    }
+
+    function createMarkdownRenderer() {
+      const parser = getMarkdownParser();
+      const renderer = new parser.Renderer();
+
+      renderer.html = token => escapeHtml(token.text);
+      renderer.link = function (token) {
+        const label = this.parser.parseInline(token.tokens);
+        const href = safeUrl(token.href);
+        if (!href) return label;
+        const title = token.title ? ` title="${escapeHtml(token.title)}"` : "";
+        return `<a href="${escapeHtml(href)}"${title}>${label}</a>`;
+      };
+      renderer.image = token => {
+        const source = safeUrl(token.href);
+        const label = escapeHtml(token.text || "Image");
+        if (!source) return label;
+        const title = token.title ? ` title="${escapeHtml(token.title)}"` : "";
+        return `<a href="${escapeHtml(source)}"${title}>${label}</a>`;
+      };
+      renderer.paragraph = function (token) {
+        const inner = this.parser.parseInline(token.tokens);
+        // Surface lead-in labels as translucent callout pills so readers notice them.
+        const lead = (token.tokens && token.tokens[0] && token.tokens[0].type === "strong")
+          ? normalize(flattenTokenText(token.tokens[0].tokens)).replace(/:$/, "")
+          : "";
+        let cls = "";
+        if (lead === "in this solution") cls = "callout callout-solution";
+        else if (lead === "open items" || lead === "open item") cls = "callout callout-open";
+        return cls ? `<p class="${cls}">${inner}</p>\n` : `<p>${inner}</p>\n`;
+      };
+
+      return renderer;
+    }
+
+    function renderTokens(tokens) {
+      if (!tokens.length) return "";
+      const filtered = tokens.filter(t => !(t.type === "code" && t.lang === "architecture_diagram"));
+      if (!filtered.length) return "";
+      return getMarkdownParser().parser(filtered, { renderer: createMarkdownRenderer() });
+    }
+
+    function findHeadingIndex(tokens, depth, title, start = 0, end = tokens.length) {
+      for (let index = start; index < end; index += 1) {
+        const token = tokens[index];
+        if (token.type === "heading" && token.depth === depth && tokenText(token) === normalize(title)) {
+          return index;
+        }
+      }
+      return -1;
+    }
+
+    function requireHeadingIndex(tokens, depth, title, start = 0, end = tokens.length) {
+      const titles = (Array.isArray(title) ? title : [title]).map(normalize);
+      const indexes = [];
+      for (let index = start; index < end; index += 1) {
+        const token = tokens[index];
+        if (token.type === "heading" && token.depth === depth && titles.includes(tokenText(token))) {
+          indexes.push(index);
+        }
+      }
+      if (!indexes.length) throw new Error(`Missing required heading: ${title}`);
+      if (indexes.length > 1) throw new Error(`Duplicate required heading: ${title}`);
+      return indexes[0];
+    }
+
+    function sectionEnd(tokens, headingIndex, stopDepth) {
+      for (let index = headingIndex + 1; index < tokens.length; index += 1) {
+        const token = tokens[index];
+        if (token.type === "heading" && token.depth <= stopDepth) return index;
+      }
+      return tokens.length;
+    }
+
+    function sectionHtml(tokens, headingIndex, stopDepth) {
+      return renderTokens(tokens.slice(headingIndex + 1, sectionEnd(tokens, headingIndex, stopDepth)));
+    }
+
+    function readMetadata(tokens, start, end) {
+      const matches = [];
+      for (let index = start; index < end; index += 1) {
+        const token = tokens[index];
+        if (token.type === "table"
+          && normalize(token.header?.[0]?.text) === "metadata"
+          && normalize(token.header?.[1]?.text) === "value") {
+          matches.push({ index, table: token });
+        }
+      }
+      if (!matches.length) throw new Error("Missing canonical Metadata/Value table before What This Solves");
+      if (matches.length > 1) throw new Error("Duplicate canonical Metadata/Value table");
+
+      const metadata = Object.fromEntries(matches[0].table.rows.map(row => [
+        normalize(row[0]?.text),
+        String(row[1]?.text || "").trim()
+      ]));
+      if (!metadata.status) throw new Error("Missing Status row in metadata table");
+      if (!metadata["last updated"]) throw new Error("Missing Last updated row in metadata table");
+      return { ...metadata, index: matches[0].index };
+    }
+
+    // One boundary for generated diagram data. Keep valid content; report omissions.
+    function normalizeArchitectureDiagram(input) {
+      const warnings = [];
+      const record = value => value !== null && typeof value === "object" && !Array.isArray(value);
+      if (!record(input)) return { data: null, warnings: ["architecture_diagram must contain a JSON object."] };
+      const groups = {
+        ux: ["components"], process: ["agents", "assistants", "services", "mcp"],
+        foundation: ["ai", "data", "stores"], platform: ["components"],
+        marketplace: ["items"], devtools: ["items"]
+      };
+      function checkKeys(value, allowed, path) {
+        Object.keys(value).filter(key => !allowed.includes(key)).forEach(key => {
+          warnings.push(`${path}.${key}: unrecognized field; omitted.`);
+        });
+      }
+      function components(value, path) {
+        if (value === undefined) return [];
+        if (!Array.isArray(value)) {
+          warnings.push(`${path}: expected an array; omitted.`);
+          return [];
+        }
+        return value.flatMap((entry, index) => {
+          const item = typeof entry === "string" ? { name: entry } : entry;
+          const at = `${path}[${index}]`;
+          if (!record(item) || typeof item.name !== "string" || !item.name.trim()) {
+            warnings.push(`${at}: expected a non-empty name; omitted.`);
+            return [];
+          }
+          checkKeys(item, ["name", "note", "status", "type"], at);
+          const clean = { name: item.name.trim() };
+          for (const key of ["note", "status", "type"]) {
+            if (item[key] === undefined) continue;
+            if (typeof item[key] === "string") clean[key] = item[key].trim();
+            else warnings.push(`${at}.${key}: expected text; omitted.`);
+          }
+          return [clean];
+        });
+      }
+      checkKeys(input, [...Object.keys(groups), "external_integrations"], "architecture_diagram");
+      const data = {};
+      for (const [name, lists] of Object.entries(groups)) {
+        let section = input[name];
+        if (section !== undefined && !record(section)) warnings.push(`${name}: expected an object; omitted.`);
+        section = record(section) ? section : {};
+        const isLayer = ["ux", "process", "foundation", "platform"].includes(name);
+        checkKeys(section, [...lists, ...(isLayer ? ["progression"] : [])], name);
+        data[name] = Object.fromEntries(lists.map(key => [key, components(section[key], `${name}.${key}`)]));
+        if (isLayer && section.progression !== undefined) {
+          const p = section.progression;
+          if (record(p)) checkKeys(p, ["today", "recommended", "target", "captions", "title", "branched"], `${name}.progression`);
+          const step = value => ["string", "number"].includes(typeof value) && /^[1-9]\d*[a-z]?$/i.test(value);
+          const valid = record(p) && record(p.captions)
+            && step(p.recommended) && step(p.target) && (p.today === undefined || step(p.today))
+            && (p.title === undefined || typeof p.title === "string")
+            && (p.branched === undefined || typeof p.branched === "boolean")
+            && Object.entries(p.captions).every(([key, caption]) => step(key) && typeof caption === "string" && caption.trim())
+            && [p.today, p.recommended, p.target].filter(value => value !== undefined).every(value => p.captions[value]);
+          if (valid) data[name].progression = p;
+          else warnings.push(`${name}.progression: incomplete or invalid; the Markdown progression is retained.`);
+        }
+      }
+      data.external_integrations = components(input.external_integrations, "external_integrations");
+      return { data, warnings };
+    }
+
+    function buildReportModel(markdown) {
+      if (!String(markdown || "").trimStart().startsWith(managedArtifactComment)) {
+        throw new Error("Missing required managed-artifact comment");
+      }
+      const tokens = getMarkdownParser().lexer(markdown, { gfm: true });
+      const titleIndexes = tokens.reduce((indexes, token, index) => {
+        if (token.type === "heading" && token.depth === 1) indexes.push(index);
+        return indexes;
+      }, []);
+      if (!titleIndexes.length) throw new Error("Missing solution title (H1)");
+      if (titleIndexes.length > 1) throw new Error("The brief must contain exactly one solution title (H1)");
+      const canonicalTitleIndex = titleIndexes[0];
+      const subtitleIndexes = tokens.reduce((indexes, token, index) => {
+        if (token.type === "blockquote") indexes.push(index);
+        return indexes;
+      }, []);
+      if (!subtitleIndexes.length) throw new Error("Missing proposal label (blockquote)");
+      const subtitleIndex = subtitleIndexes[0];
+      const titleToken = tokens[canonicalTitleIndex];
+      const subtitleToken = tokens[subtitleIndex];
+      const title = flattenTokenText(titleToken?.tokens).trim();
+      const subtitle = String(subtitleToken?.text || "").trim().replace(/\s+/g, " ");
+      if (!title) throw new Error("Missing solution title (H1)");
+      if (!subtitle) throw new Error("Missing proposal label (blockquote)");
+      if (normalize(subtitle) !== normalize("AI Native Solution Proposal")) {
+        throw new Error("The proposal label must be: AI Native Solution Proposal");
+      }
+
+      const originalIndex = requireHeadingIndex(tokens, 2, ["Use Case & Problem Statement", "What This Solves"]);
+      const reimaginationIndex = requireHeadingIndex(tokens, 2, "The AI-Native Direction");
+      const fourLayerIndex = requireHeadingIndex(tokens, 2, ["Proposed Architecture Overview", "Architecture"]);
+      const metadata = readMetadata(tokens, 0, originalIndex);
+      const preludeHeadings = tokens.reduce((indexes, token, index) => {
+        if (token.type === "heading" && token.depth === 2 && index <= fourLayerIndex) indexes.push(index);
+        return indexes;
+      }, []);
+      if (preludeHeadings.length !== 3
+        || preludeHeadings[0] !== originalIndex
+        || preludeHeadings[1] !== reimaginationIndex
+        || preludeHeadings[2] !== fourLayerIndex) {
+        throw new Error("What This Solves, The AI-Native Direction, and Architecture must follow the canonical order without additional top-level sections between them");
+      }
+      if (!(canonicalTitleIndex < subtitleIndex
+        && subtitleIndex < metadata.index
+        && metadata.index < originalIndex
+        && originalIndex < reimaginationIndex
+        && reimaginationIndex < fourLayerIndex)) {
+        throw new Error("The title, proposal label, metadata, and required sections must follow the canonical order");
+      }
+      const fourLayerEnd = sectionEnd(tokens, fourLayerIndex, 2);
+
+      const layerIndexes = layerDefinitions.map(definition => ({
+        ...definition,
+        index: requireHeadingIndex(tokens, 3, definition.title, fourLayerIndex + 1, fourLayerEnd)
+      }));
+
+      for (let index = 1; index < layerIndexes.length; index += 1) {
+        if (layerIndexes[index].index < layerIndexes[index - 1].index) {
+          throw new Error("The four layer headings must follow the canonical order");
+        }
+      }
+
+      // Parse architecture_diagram fenced block anywhere in the document (needed
+      // before the layers so each layer can pick up its progression object).
+      let architectureDiagram = null;
+      let architectureWarnings = [];
+      const diagramBlocks = tokens.filter(token => token.type === "code" && token.lang === "architecture_diagram");
+      if (!diagramBlocks.length) architectureWarnings.push("Missing architecture_diagram block; the layer prose is retained.");
+      else {
+        try {
+          const result = normalizeArchitectureDiagram(JSON.parse(diagramBlocks[0].text));
+          architectureDiagram = result.data;
+          architectureWarnings = result.warnings;
+        } catch {
+          architectureWarnings.push("Invalid JSON in architecture_diagram; correct it to display the diagram. The layer prose is retained.");
+        }
+        if (diagramBlocks.length > 1) architectureWarnings.push("Multiple architecture_diagram blocks; only the first is used.");
+      }
+
+      // Drop the Markdown "**Progression:** …" paragraph (and its caption list)
+      // from a layer's body when the stepper presents the same information.
+      function withoutProgressionTokens(layerTokens) {
+        const kept = [];
+        for (let i = 0; i < layerTokens.length; i += 1) {
+          const token = layerTokens[i];
+          const lead = (token.type === "paragraph" && token.tokens?.[0]?.type === "strong")
+            ? normalize(flattenTokenText(token.tokens[0].tokens)).replace(/:$/, "")
+            : "";
+          if (lead === "progression") {
+            let j = i + 1;
+            while (j < layerTokens.length && layerTokens[j].type === "space") j += 1;
+            if (j < layerTokens.length && layerTokens[j].type === "list") j += 1;
+            i = j - 1;
+            continue;
+          }
+          kept.push(token);
+        }
+        return kept;
+      }
+
+      const firstLayerIndex = Math.min(...layerIndexes.map(layer => layer.index));
+      const architectureIntro = renderTokens(tokens.slice(fourLayerIndex + 1, firstLayerIndex));
+      const layers = layerIndexes.map((layer, index) => {
+        const progression = architectureDiagram?.[layer.id]?.progression || null;
+        let layerTokens = tokens.slice(layer.index + 1, layerIndexes[index + 1]?.index || fourLayerEnd);
+        if (renderProgressionStepper(progression)) layerTokens = withoutProgressionTokens(layerTokens);
+        return {
+          id: layer.id,
+          title: layer.title,
+          label: layer.label,
+          progression,
+          content: renderTokens(layerTokens)
+        };
+      });
+
+      const tailHeadingIndexes = tokens.reduce((indexes, token, index) => {
+        if (token.type === "heading" && token.depth === 2 && index >= fourLayerEnd) indexes.push(index);
+        return indexes;
+      }, []);
+      const tailSections = tailHeadingIndexes.map(index => {
+        const heading = flattenTokenText(tokens[index].tokens).trim();
+        const normalizedHeading = normalize(heading);
+        const kind = (normalizedHeading === normalize("Services Used") || normalizedHeading === normalize("Solution Stack"))
+          ? "capability-fit"
+          : normalizedHeading === normalize("Decisions & Open Items")
+            ? "open-items"
+            : "additional-section";
+        const section = {
+          title: heading,
+          content: sectionHtml(tokens, index, 2),
+          kind
+        };
+        // For the Solution Stack, capture the table rows so we can group by layer
+        if (kind === "capability-fit") {
+          const end = sectionEnd(tokens, index, 2);
+          const tableToken = tokens.slice(index + 1, end).find(t => t.type === "table");
+          if (tableToken && tableToken.rows) {
+            section.stackRows = tableToken.rows.map(row => ({
+              service: flattenTokenText(row[0]?.tokens) || row[0]?.text || "",
+              serviceUrl: firstLinkHref(row[0]?.tokens),
+              layer: flattenTokenText(row[1]?.tokens) || row[1]?.text || "",
+              purpose: flattenTokenText(row[2]?.tokens) || row[2]?.text || ""
+            }));
+          }
+        }
+        return section;
+      });
+      // Selection is authored as an ordered Markdown list, never inferred from
+      // product mentions. Invalid entries remain visible as ordinary Markdown.
+      let relatedArchitectures = [];
+      const relatedIndex = tailHeadingIndexes.find(index => normalize(flattenTokenText(tokens[index].tokens)) === normalize("Related Reference Architectures"));
+      if (relatedIndex !== undefined) {
+        const body = tokens.slice(relatedIndex + 1, sectionEnd(tokens, relatedIndex, 2)).filter(token => token.type !== "space");
+        const list = body.length === 1 && body[0].type === "list" && body[0].ordered ? body[0] : null;
+        if (list) {
+          const selections = list.items.map(item => {
+            const inline = item.tokens?.[0]?.tokens || [];
+            const link = inline[0];
+            const url = link?.type === "link" ? safeUrl(link.href) : null;
+            if (!url || !/^https:\/\//i.test(url) || item.tokens.length !== 1) return null;
+            const title = flattenTokenText(link.tokens).trim();
+            const description = flattenTokenText(inline.slice(1)).replace(/^\s*[:—–-]\s*/, "").trim();
+            return title && description ? { title, url, description } : null;
+          });
+          if (selections.length && selections.every(Boolean)) {
+            relatedArchitectures = selections;
+            tailSections.find(section => normalize(section.title) === normalize("Related Reference Architectures")).kind = "related-architectures";
+          }
+        }
+      }
+      const capabilitySections = tailSections.filter(section => section.kind === "capability-fit");
+      const openItemSections = tailSections.filter(section => section.kind === "open-items");
+      if (capabilitySections.length > 1) throw new Error("Duplicate optional heading: Services Used / Solution Stack");
+      if (openItemSections.length > 1) throw new Error("Duplicate optional heading: Decisions & Open Items");
+      if (capabilitySections.length && openItemSections.length
+        && tailSections.indexOf(capabilitySections[0]) > tailSections.indexOf(openItemSections[0])) {
+        throw new Error("Services Used must appear before Decisions & Open Items");
+      }
+
+      return {
+        title,
+        subtitle,
+        status: metadata.status,
+        updated: metadata["last updated"],
+        originalUseCase: sectionHtml(tokens, originalIndex, 2),
+        reimagination: sectionHtml(tokens, reimaginationIndex, 2),
+        architectureIntro,
+        layers,
+        tailSections,
+        relatedArchitectures,
+        architectureDiagram,
+        architectureWarnings
+      };
+    }
+
+    function renderLayerNavigation(layers) {
+      return layers.map(layer => `
+        <a class="layer-band" data-layer="${layer.id}" href="#${layer.id}">
+          <strong>${escapeHtml(layer.title)}</strong>
+          <span>${escapeHtml(layer.label)}</span>
+        </a>
+      `).join("");
+    }
+
+    // Maturity ladder: only the rungs that mean something, as plain level chips.
+    // The current level is filled, the North Star is starred; everything else the
+    // captions say in words — no status labels.
+    function renderProgressionStepper(progression) {
+      if (!progression) return "";
+      const step = value => /^[1-9]\d*[a-z]?$/i.test(String(value ?? "")) ? String(value) : "";
+      const current = step(progression.today);
+      const recommended = step(progression.recommended);
+      const target = step(progression.target);
+      const captions = progression.captions || {};
+
+      const levels = [...new Set([current, recommended, target, ...Object.keys(captions).map(step)].filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+      if (!levels.length) return "";
+      // Keep the original Markdown if the structured representation is incomplete.
+      if (levels.some(level => typeof captions[level] !== "string" || !captions[level].trim())) return "";
+
+      const rungs = levels.map(level => {
+        const classes = ["prog-step"];
+        if (level === current) classes.push("is-today");
+        if (level === recommended) classes.push("is-rec");
+        if (level === target) classes.push("is-target");
+        const star = level === target ? '<span class="prog-star" aria-hidden="true">★ </span>' : "";
+        return `
+          <div class="${classes.join(" ")}">
+            <span class="prog-chip">${star}Step ${level}</span>
+          </div>
+        `;
+      });
+      const row = rungs.flatMap((rung, index) =>
+        index < rungs.length - 1 ? [rung, progression.branched && parseInt(levels[index], 10) === parseInt(levels[index + 1], 10)
+          ? '<span class="prog-rail" style="background:transparent;text-align:center;height:auto" aria-label="alternative">/</span>'
+          : '<span class="prog-rail" aria-hidden="true"></span>'] : [rung]
+      ).join("");
+
+      const captionLines = levels
+        .filter(level => captions[level] !== undefined)
+        .map(level => `<p><strong>Step ${level}:</strong> ${escapeHtml(String(captions[level]))}</p>`)
+        .join("");
+
+      return `
+        <div class="layer-progression">
+          <p class="prog-title">${escapeHtml(progression.title || "Capability progression")}</p>
+          <div class="prog-steps">${row}</div>
+          ${captionLines ? `<div class="prog-captions">${captionLines}</div>` : ""}
+        </div>
+      `;
+    }
+
+    function renderLayerSections(layers) {
+      return layers.map((layer, index) => `
+        <section class="layer-section" id="${layer.id}" data-layer="${layer.id}" aria-labelledby="${layer.id}-title">
+          <header class="chapter-band">
+            <div>
+              <h3 id="${layer.id}-title">${escapeHtml(layer.title)}</h3>
+              <p>${escapeHtml(layer.label)}</p>
+            </div>
+            <span class="chapter-count">${index + 1} of ${layers.length}</span>
+          </header>
+          ${renderProgressionStepper(layer.progression)}
+          <div class="layer-body markdown-body">${layer.content}</div>
+        </section>
+      `).join("");
+    }
+
+    const STACK_LAYER_ORDER = ["user experience", "process", "foundation", "platform"];
+    const STACK_LAYER_META = {
+      "user experience": { label: "User Experience", key: "ux" },
+      "process":         { label: "Process",         key: "process" },
+      "foundation":      { label: "Foundation",      key: "foundation" },
+      "platform":        { label: "Platform",        key: "platform" }
+    };
+
+    function renderStackGroups(rows) {
+      const groups = new Map();
+      rows.forEach(row => {
+        const parts = row.layer.split(/\s+[—–-]\s+/);
+        const norm = normalize(parts[0]);
+        const meta = STACK_LAYER_META[norm] || { label: row.layer, key: "other" };
+        if (!groups.has(meta.label)) groups.set(meta.label, { key: meta.key, label: meta.label, items: [] });
+        groups.get(meta.label).items.push({ ...row, role: STACK_LAYER_META[norm] ? parts.slice(1).join(' — ') : '' });
+      });
+      const ordered = [...groups.values()].sort((a, b) => {
+        const ai = STACK_LAYER_ORDER.indexOf(normalize(a.label));
+        const bi = STACK_LAYER_ORDER.indexOf(normalize(b.label));
+        return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+      });
+      return `<div class="stack-groups">${ordered.map(group => `
+        <div class="stack-group" data-layer="${escapeHtml(group.key)}">
+          <div class="stack-group-head">
+            <span>${escapeHtml(group.label)}</span>
+            <span class="stack-group-count">${group.items.length} ${group.items.length === 1 ? "component" : "components"}</span>
+          </div>
+          <div class="stack-group-items">
+            ${group.items.map(item => {
+              const url = safeUrl(item.serviceUrl);
+              const name = url
+                ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.service)}</a>`
+                : escapeHtml(item.service);
+              return `
+              <div class="stack-item">
+                <div class="stack-item-name">${name}${item.role ? `<span class="stack-item-role">${escapeHtml(item.role)}</span>` : ''}</div>
+                <div class="stack-item-purpose">${escapeHtml(item.purpose)}</div>
+              </div>
+            `;
+            }).join("")}
+          </div>
+        </div>
+      `).join("")}</div>`;
+    }
+
+    function renderTailSection(section) {
+      if (section.kind === "related-architectures") return "";
+      const body = (section.kind === "capability-fit" && section.stackRows && section.stackRows.length)
+        ? renderStackGroups(section.stackRows)
+        : `<div class="markdown-body">${section.content}</div>`;
+      return `
+        <section class="optional-section ${escapeHtml(section.kind)}">
+          <h2>${escapeHtml(section.title)}</h2>
+          ${body}
+        </section>
+      `;
+    }
+
+    function renderReport(model) {
+      const reportRoot = document.querySelector("#report-root");
+      document.title = `${model.title} - AI Native Solution Brief`;
+      reportRoot.innerHTML = `
+        <div class="report-inner">
+          <p class="managed-notice" role="note">Managed artifact: request content changes through the AI Native Architecture Advisor.</p>
+          <header>
+            <div class="meta">
+              <span>AI Native Solution Brief</span>
+              <span>${escapeHtml(model.status)}</span>
+              <span>${escapeHtml(model.updated)}</span>
+            </div>
+            <div class="title-block">
+              <h1>${escapeHtml(model.title)}</h1>
+              <p class="subtitle">${escapeHtml(model.subtitle)}</p>
+            </div>
+          </header>
+
+          <section class="opening-section">
+            <h2>Use Case &amp; Problem Statement</h2>
+            <div class="markdown-body">${model.originalUseCase}</div>
+          </section>
+
+          <section class="opening-section reimagination">
+            <h2>The AI-Native Direction</h2>
+            <div class="markdown-body">${model.reimagination}</div>
+          </section>
+
+          ${model.architectureDiagram || model.architectureWarnings.length ? `
+          <section class="architecture-diagram-section">
+            <h2>Proposed Architecture Overview</h2>
+            ${model.architectureWarnings.length ? `<aside class="diagram-warning" role="note"><strong>Diagram data needs review.</strong> Valid entries are shown where possible; some content may be omitted.<ul>${model.architectureWarnings.map(message => `<li>${escapeHtml(message)}</li>`).join("")}</ul></aside>` : ""}
+            <div id="arch-diagram-container"></div>
+          </section>
+          ` : ""}
+
+          ${renderLayerSections(model.layers)}
+
+          ${model.tailSections.map(renderTailSection).join("")}
+        </div>
+      `;
+      if (model.architectureDiagram) {
+        const container = reportRoot.querySelector('#arch-diagram-container');
+        if (container) container.appendChild(renderArchDiagram(model.architectureDiagram));
+      }
+    }
+
+    function initializeLayerReveals() {
+      if (!("IntersectionObserver" in window)) {
+        document.querySelectorAll(".layer-section").forEach(section => section.classList.add("entered"));
+        return;
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("entered");
+        });
+      }, { rootMargin: "0px 0px -14% 0px", threshold: .1 });
+      document.querySelectorAll(".layer-section").forEach(section => observer.observe(section));
+    }
+
+    function renderError(error, source) {
+      document.querySelector("#report-root").innerHTML = `
+        <p class="error-message">
+          <strong>Unable to render the AI Native Solution Brief.</strong>
+          Check ${escapeHtml(source)} and confirm that the required managed headings are present.<br>
+          ${escapeHtml(error.message)}
+        </p>
+      `;
+    }
+
+    function renderRefArchSection(model) {
+      const reportRoot = document.querySelector("#report-root");
+      const inner = reportRoot.querySelector(".report-inner");
+      if (!inner) return;
+
+      const entries = Array.isArray(window.__REF_ARCH_INDEX__) ? window.__REF_ARCH_INDEX__ : [];
+
+      const selected = model.relatedArchitectures || [];
+      if (!selected.length) return;
+
+      // Exact URL lookup supplies an optional illustration only. The author owns
+      // selection, order, title and explanation, even without a bundled image.
+      const cards = selected.map((item, index) => {
+        const snapshot = entries.find(entry => entry.url === item.url);
+        const diagram = /^data:image\/svg\+xml;base64,[A-Za-z0-9+/]+={0,2}$/.test(snapshot?.diagram_data || "")
+          ? snapshot.diagram_data : "";
+        return `
+        <a class="ref-arch-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+          ${diagram ? `<div class="ref-arch-diagram">
+            <img src="${escapeHtml(diagram)}" alt="${escapeHtml(item.title)} architecture diagram" loading="eager" onerror="this.parentElement.style.display='none'">
+          </div>` : ""}
+          <div class="ref-arch-info">
+            <h4>${index + 1}. ${escapeHtml(item.title)}</h4>
+            <p>${escapeHtml(item.description)}</p>
+          </div>
+        </a>`;
+      }).join("");
+
+      const section = document.createElement("section");
+      section.className = "ref-arch-section";
+      section.innerHTML = `
+        <h2>Related Reference Architectures</h2>
+        <p class="section-sub">Selected for this use case, in order of relevance</p>
+        <div class="ref-arch-cards">${cards}</div>
+      `;
+      inner.appendChild(section);
+    }
+    function loadReport() {
+      const source = "the embedded brief";
+      try {
+        if (typeof window.__BRIEF_MD__ !== "string" || !globalThis.marked) {
+          throw new Error("Publish the Markdown with scripts/publish-brief.mjs, then open the generated HTML. The raw template does not load external files.");
+        }
+        const model = buildReportModel(window.__BRIEF_MD__);
+        renderReport(model);
+        initializeLayerReveals();
+        updateScrollUI();
+        renderRefArchSection(model);
+        if (window.location.hash) {
+          const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+          if (target) window.requestAnimationFrame(() => target.scrollIntoView());
+        }
+      } catch (error) {
+        renderError(error, source);
+      }
+    }
+
+    let scrollTicking = false;
+    function updateScrollUI() {
+      const progressBar = document.querySelector(".reading-progress span");
+      const backToTop = document.querySelector(".back-to-top");
+      const availableScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = availableScroll > 0 ? window.scrollY / availableScroll : 0;
+      progressBar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+      backToTop.classList.toggle("is-visible", window.scrollY > 560);
+      scrollTicking = false;
+    }
+
+    function requestScrollUIUpdate() {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      window.requestAnimationFrame(updateScrollUI);
+    }
+
+    function initializeBrowserRuntime() {
+      const backToTop = document.querySelector(".back-to-top");
+      const exportPdf = document.querySelector(".export-pdf");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      window.addEventListener("scroll", requestScrollUIUpdate, { passive: true });
+      window.addEventListener("resize", requestScrollUIUpdate);
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: reducedMotion.matches ? "auto" : "smooth" });
+      });
+      if (exportPdf) exportPdf.addEventListener("click", () => window.print());
+      updateScrollUI();
+      loadReport();
+    }
+
+    if (typeof window !== "undefined" && typeof document !== "undefined") initializeBrowserRuntime();
+    if (typeof module !== "undefined" && module.exports) {
+      module.exports = { buildReportModel, renderTokens, normalizeArchitectureDiagram };
+    }
+
+    /* ── Arch Diagram renderer (inlined from arch-diagram.html) ── */
+    function renderArchDiagram(data) {
+      var NS = 'http://www.w3.org/2000/svg';
+
+      function svgEl(tag, attrs, children) {
+        var e = document.createElementNS(NS, tag);
+        if (attrs) Object.keys(attrs).forEach(function(k){ e.setAttribute(k, attrs[k]); });
+        if (children) children.forEach(function(c){ if(c) e.appendChild(c); });
+        return e;
+      }
+
+      // Official Joule mark. Ids are suffixed per instance so the icon can appear
+      // more than once on the page without mask/gradient id collisions.
+      var JOULE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none"><mask id="mask0_42_10864" maskUnits="userSpaceOnUse" x="1" y="0" width="54" height="53" style="mask-type: alpha;"><path d="M41.1472 0H14.8528C13.3482 0 11.9431 0.751953 11.1085 2.00385L1.76606 16.0176C0.707739 17.6051 0.765539 19.6874 1.91029 21.2137L24.4 51.2C26.2 53.6 29.8 53.6 31.6 51.2L54.0897 21.2137C55.2345 19.6874 55.2923 17.6051 54.2339 16.0176L44.8915 2.00385C44.0569 0.751955 42.6518 0 41.1472 0Z" fill="white"></path><path d="M41.1472 0H14.8528C13.3482 0 11.9431 0.751953 11.1085 2.00385L1.76606 16.0176C0.707739 17.6051 0.765539 19.6874 1.91029 21.2137L24.4 51.2C26.2 53.6 29.8 53.6 31.6 51.2L54.0897 21.2137C55.2345 19.6874 55.2923 17.6051 54.2339 16.0176L44.8915 2.00385C44.0569 0.751955 42.6518 0 41.1472 0Z" fill="black" fill-opacity="0.2"></path></mask><g mask="url(#mask0_42_10864)"><path d="M38.3719 18.6666H17.6313L28.0013 56L38.3719 18.6666Z" fill="url(#paint0_linear_42_10864)"></path><path d="M0 18.6666L28 56L17.63 18.6666H0Z" fill="url(#paint1_linear_42_10864)"></path><path d="M56 18.6666L28 56L38.37 18.6666H56Z" fill="url(#paint2_linear_42_10864)"></path><path d="M12.4434 0L17.6287 18.6667H38.3694L43.5545 0H12.4434Z" fill="url(#paint3_linear_42_10864)"></path><path d="M0 18.6667H17.63L12.4444 0L0 18.6667Z" fill="url(#paint4_linear_42_10864)"></path><path d="M56 18.6667H38.37L43.5556 0L56 18.6667Z" fill="url(#paint5_linear_42_10864)"></path><path d="M39.8651 10.4953C39.6922 9.80339 39.0705 9.31799 38.3573 9.31799C37.6441 9.31799 37.0224 9.80339 36.8494 10.4953L36.6522 11.2841C35.9562 14.0684 33.7821 16.2424 30.9978 16.9385L30.209 17.1357C29.5171 17.3087 29.0317 17.9303 29.0317 18.6435C29.0317 19.3567 29.5171 19.9784 30.209 20.1514L30.9978 20.3486C33.7821 21.0447 35.9562 23.2187 36.6522 26.003L36.8494 26.7918C37.0224 27.4837 37.6441 27.9691 38.3573 27.9691C39.0705 27.9691 39.6922 27.4837 39.8651 26.7918L40.0623 26.003C40.7584 23.2187 42.9324 21.0447 45.7168 20.3486L46.5056 20.1514C47.1975 19.9784 47.6828 19.3567 47.6828 18.6435C47.6828 17.9303 47.1975 17.3087 46.5056 17.1357L45.7168 16.9385C42.9324 16.2424 40.7584 14.0684 40.0623 11.2841L39.8651 10.4953Z" fill="white"></path></g><defs><linearGradient id="paint0_linear_42_10864" x1="22.1213" y1="43.4622" x2="45.5883" y2="28.8703" gradientUnits="userSpaceOnUse"><stop offset="0.0785293" stop-color="#4013E3"></stop><stop offset="1" stop-color="#F090EB"></stop></linearGradient><linearGradient id="paint1_linear_42_10864" x1="22.4622" y1="29.4933" x2="9.83111" y2="35.4044" gradientUnits="userSpaceOnUse"><stop stop-color="#5739F5"></stop><stop offset="1" stop-color="#2815A6"></stop></linearGradient><linearGradient id="paint2_linear_42_10864" x1="39.3244" y1="16.2711" x2="48.7822" y2="37.3333" gradientUnits="userSpaceOnUse"><stop stop-color="#F3B2E9"></stop><stop offset="1" stop-color="#4013E3"></stop></linearGradient><linearGradient id="paint3_linear_42_10864" x1="39.3234" y1="24.36" x2="14.5278" y2="6.90667" gradientUnits="userSpaceOnUse"><stop stop-color="#F3B2E9"></stop><stop offset="0.995192" stop-color="#4013E3"></stop></linearGradient><linearGradient id="paint4_linear_42_10864" x1="16.6133" y1="16.1778" x2="-1.15111" y2="10.7022" gradientUnits="userSpaceOnUse"><stop stop-color="#5739F5"></stop><stop offset="1" stop-color="#2815A6"></stop></linearGradient><linearGradient id="paint5_linear_42_10864" x1="63.9333" y1="3.79556" x2="43.142" y2="24.1936" gradientUnits="userSpaceOnUse"><stop stop-color="#735AF6"></stop><stop offset="1" stop-color="#F090EB"></stop></linearGradient></defs></svg>';
+
+      function jouleDiamond(size) {
+        size = size || 16;
+        var wrap = document.createElement('span');
+        wrap.style.cssText = 'display:inline-flex;align-items:center;flex-shrink:0;width:' + size + 'px;height:' + size + 'px;';
+        var uniq = '_j' + Math.random().toString(36).slice(2, 7);
+        wrap.innerHTML = JOULE_SVG.split('_42_10864').join(uniq);
+        var s = wrap.querySelector('svg');
+        s.setAttribute('width', size);
+        s.setAttribute('height', size);
+        s.style.display = 'block';
+        return wrap;
+      }
+
+      // Flow runs upward in the reference architecture: sources feed the layers above.
+      function upArrowSvg(color, height) {
+        color = color || '#6f7fb0';
+        height = height || 22;
+        var s = svgEl('svg', {viewBox:'0 0 20 22', xmlns:NS, width:'14', height:height});
+        s.appendChild(svgEl('line', {
+          x1:'10', y1:'22', x2:'10', y2:'7',
+          stroke:color, 'stroke-width':'1.8',
+          'class':'flow-line', 'stroke-dasharray':'3 3'
+        }));
+        s.appendChild(svgEl('polygon', {points:'5,8 15,8 10,0', fill:color}));
+        return s;
+      }
+
+      function el(tag, cls, text) {
+        var e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (text !== undefined) e.textContent = text;
+        return e;
+      }
+      function append(parent) {
+        Array.prototype.slice.call(arguments, 1).forEach(function(c){
+          if (c) parent.appendChild(c);
+        });
+        return parent;
+      }
+
+      function buildChip(text, type, noteText) {
+        var status;
+        if (text && typeof text === 'object') {
+          noteText = text.note;
+          status = text.status;
+          text = text.name;
+        }
+        var chip = el('span', 'chip chip--' + type);
+        var label = el('span', 'chip-label');
+        if (type !== 'panel' && /^(?:SAP\s+)?joule(?:\s|$)/i.test(text || '')) {
+          var primaryRow = el('span');
+          primaryRow.style.cssText = 'display:inline-flex;align-items:center;gap:5px;';
+          primaryRow.appendChild(jouleDiamond(14));
+          var ns = document.createElement('span');
+          ns.textContent = text;
+          primaryRow.appendChild(ns);
+          label.appendChild(primaryRow);
+        } else if (type === 'agent') {
+          var nameRow = el('span');
+          nameRow.style.cssText = 'display:inline-flex;align-items:center;gap:5px;';
+          var sp = el('span', 'spark-icon');
+          sp.textContent = '✦';
+          nameRow.appendChild(sp);
+          nameRow.appendChild(document.createTextNode(text));
+          label.appendChild(nameRow);
+        } else {
+          label.appendChild(document.createTextNode(text));
+        }
+        if (noteText) {
+          label.appendChild(buildInfo(text, noteText));
+        }
+        chip.appendChild(label);
+        if (status) chip.appendChild(el('span', 'component-status', status));
+        return chip;
+      }
+
+      var activeInfo = null;
+      var tooltip = el('div', 'arch-tooltip');
+      tooltip.id = 'architecture-component-info';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.hidden = true;
+      function hideInfo() {
+        tooltip.hidden = true;
+        if (activeInfo) activeInfo.setAttribute('aria-expanded', 'false');
+        activeInfo = null;
+      }
+      function buildInfo(name, note) {
+        var button = el('button', 'arch-info');
+        button.appendChild(svgEl('svg', {viewBox: '0 0 16 16', fill: 'none', stroke: 'currentColor', 'stroke-width': '1.2', 'aria-hidden': 'true'}, [
+          svgEl('circle', {cx: '8', cy: '8', r: '6'}),
+          svgEl('path', {d: 'M8 7v4', 'stroke-linecap': 'round'}),
+          svgEl('circle', {cx: '8', cy: '4.8', r: '.65', fill: 'currentColor', stroke: 'none'})
+        ]));
+        button.type = 'button';
+        button.setAttribute('aria-label', 'About ' + name);
+        button.setAttribute('aria-describedby', tooltip.id);
+        button.setAttribute('aria-expanded', 'false');
+        function showInfo() {
+          hideInfo(); activeInfo = button;
+          tooltip.replaceChildren(el('strong', null, name), document.createTextNode(note));
+          tooltip.hidden = false;
+          button.setAttribute('aria-expanded', 'true');
+          var rect = button.getBoundingClientRect();
+          var width = tooltip.offsetWidth;
+          tooltip.style.left = Math.max(16, Math.min(rect.left, window.innerWidth - width - 16)) + 'px';
+          tooltip.style.top = Math.max(16, Math.min(rect.bottom + 8, window.innerHeight - tooltip.offsetHeight - 16)) + 'px';
+        }
+        button.addEventListener('mouseenter', showInfo);
+        button.addEventListener('mouseleave', function(event) {
+          if (event.relatedTarget !== tooltip && document.activeElement !== button) hideInfo();
+        });
+        button.addEventListener('focus', showInfo);
+        button.addEventListener('blur', hideInfo);
+        button.addEventListener('click', showInfo);
+        button.addEventListener('keydown', function(event) { if (event.key === 'Escape') hideInfo(); });
+        return button;
+      }
+      tooltip.addEventListener('mouseleave', hideInfo);
+
+      function buildLayerTitle(title, subtitle) {
+        var tr = el('div', 'layer-title');
+        var tt = el('span', 'layer-title-text', title);
+        if (subtitle) {
+          tt.appendChild(Object.assign(el('span', 'layer-subtitle'), {textContent: subtitle}));
+        }
+        tr.appendChild(tt);
+        return tr;
+      }
+
+      // CSS balances any count: odd -> first full-width, then pairs.
+      function buildArchRow(items) {
+        var chips = el('div', 'chips component-grid');
+        items.forEach(function(c){ chips.appendChild(c); });
+        return chips;
+      }
+
+      function buildUxLayer(d) {
+        var layer = el('div', 'layer layer--ux');
+        layer.appendChild(buildLayerTitle('User Experience Layer', 'engagement & experiences'));
+        var components = (d.ux && d.ux.components) || [];
+        var joule = [], apps = [];
+        components.forEach(function(c) {
+          var name = typeof c === 'string' ? c : c.name;
+          var isJoule = c.type === 'joule' || /^(?:SAP\s+)?joule(?:\s|$)/i.test(name || '');
+          (isJoule ? joule : apps).push(buildChip(c, c.type === 'primary' ? 'primary' : 'service'));
+        });
+        if (joule.length) {
+          var engagement = el('div', 'ux-joule');
+          joule.forEach(function(chip) { engagement.appendChild(chip); });
+          layer.appendChild(engagement);
+        }
+        if (apps.length) layer.appendChild(buildArchRow(apps));
+        return layer;
+      }
+
+      function buildProcessLayer(d) {
+        var layer = el('div', 'layer layer--process');
+        layer.appendChild(buildLayerTitle('Process Layer', 'applications, workflows & agents'));
+        var agents = (d.process && d.process.agents) || [];
+        var assts  = (d.process && d.process.assistants) || [];
+        var tiles = assts.concat(agents).map(function(a){
+          return buildChip(a, 'agent');
+        });
+        var services = (d.process && d.process.services) || [];
+        var mcp = (d.process && d.process.mcp) || [];
+        var tiers = [tiles, mcp.map(function(s) { return buildChip(s, 'service'); }), services.map(function(s) { return buildChip(s, 'service'); })].filter(function(t) { return t.length; });
+        tiers.forEach(function(items) {
+          var tier = el('div', 'process-tier component-grid');
+          items.forEach(function(item) { tier.appendChild(item); });
+          layer.appendChild(tier);
+        });
+        return layer;
+      }
+
+      function buildFoundRow(items, label) {
+        if (!items || !items.length) return null;
+        var row = el('div', 'found-row');
+        var content = el('div', 'found-row-content component-grid');
+        items.forEach(function(item) { content.appendChild(buildChip(item, 'service')); });
+        row.appendChild(el('span', 'found-row-label', label));
+        row.appendChild(content);
+        return row;
+      }
+
+      function buildFoundationLayer(d) {
+        var layer = el('div', 'layer layer--foundation');
+        layer.appendChild(buildLayerTitle('Foundation Layer', 'AI, data & business context'));
+        var found = d.foundation || {};
+        [buildFoundRow(found.ai, 'AI Services'), buildFoundRow(found.data, 'Data Products'), buildFoundRow(found.stores, 'Data Stores')].filter(Boolean).forEach(function(row) { layer.appendChild(row); });
+        return layer;
+      }
+
+      function buildPanel(iconSvg, title, items, emptyNote) {
+        var panel = el('div', 'panel');
+        var pt = el('div', 'panel-title');
+        if (iconSvg) pt.appendChild(iconSvg);
+        pt.appendChild(el('span', null, title));
+        panel.appendChild(pt);
+        var chips = el('div', 'panel-items');
+        (items || []).forEach(function(i){ chips.appendChild(buildChip(i,'panel',null)); });
+        if (!items || !items.length) chips.appendChild(el('p', 'panel-note', emptyNote || 'No selection yet.'));
+        panel.appendChild(chips);
+        return panel;
+      }
+
+      function marketplaceIcon() {
+        var s = svgEl('svg', {viewBox:'0 0 18 18', xmlns:NS, width:'16', height:'16'});
+        s.appendChild(svgEl('polygon', {
+          points:'9,1 16,5 16,13 9,17 2,13 2,5',
+          fill:'none', stroke:'#1a5a8a', 'stroke-width':'1.5'
+        }));
+        s.appendChild(svgEl('polygon', {
+          points:'9,4.5 13,7 13,12 9,14.5 5,12 5,7',
+          fill:'rgba(26,90,138,0.18)'
+        }));
+        return s;
+      }
+      function devtoolsIcon() {
+        var s = svgEl('svg', {viewBox:'0 0 18 18', xmlns:NS, width:'16', height:'16'});
+        s.appendChild(svgEl('path', {
+          d:'M13 4.5 A4 4 0 0 1 9 8.5 L4 13.5 A1.5 1.5 0 0 0 6 15.5 L11 10.5 A4 4 0 0 1 13 4.5Z',
+          fill:'rgba(26,90,138,0.25)', stroke:'#1a5a8a', 'stroke-width':'0.8'
+        }));
+        return s;
+      }
+
+      function buildPlatformRow(d) {
+        var plat = d.platform || {};
+        var row = el('div', 'platform-row');
+        row.appendChild(buildLayerTitle('Platform Layer', 'runtime, identity & operations'));
+        var chips = el('div', 'platform-chips');
+        plat.components.forEach(function(item) {
+          var chip = buildChip(item, 'platform');
+          chip.className = 'platform-chip';
+          chips.appendChild(chip);
+        });
+        row.appendChild(chips);
+        return row;
+      }
+
+      function buildLayerConnector(color, label) {
+        var wrap = el('div', 'layer-connector');
+        wrap.appendChild(upArrowSvg(color, 22));
+        wrap.appendChild(el('span', 'connector-label', label));
+        return wrap;
+      }
+
+      // Build the diagram div and return it
+      var root = el('div', 'arch-diagram');
+
+      var grid = el('div', 'arch-grid');
+
+      var leftCol = el('div', 'layers-col');
+      leftCol.appendChild(buildUxLayer(data));
+      leftCol.appendChild(buildLayerConnector('#8a7cc8', 'Generate'));
+      leftCol.appendChild(buildProcessLayer(data));
+      leftCol.appendChild(buildLayerConnector('#7f8ccb', 'Discover'));
+      leftCol.appendChild(buildFoundationLayer(data));
+      var plat = data.platform || {};
+      grid.appendChild(leftCol);
+
+      var rightCol = el('div', 'panels-col');
+      var mp = data.marketplace || {};
+      var dt = data.devtools || {};
+      var external = data.external_integrations || [];
+      if (external.length) {
+        var externalPanel = buildPanel(null, 'External Integrations', external);
+        externalPanel.classList.add('panel--external');
+        rightCol.appendChild(externalPanel);
+      }
+      var marketplaceItems = (mp.items || []).slice();
+      if (!marketplaceItems.some(function(item) { return /\bAgent Hub\b/i.test(typeof item === 'string' ? item : item.name); })) {
+        marketplaceItems.unshift({name: 'Agent Hub', status: 'Candidate', note: 'Consider discovery and governance for the proposed or later agent scope; availability and product fit remain to confirm.'});
+      }
+      rightCol.appendChild(buildPanel(marketplaceIcon(), 'Agent & Tools Marketplace', marketplaceItems));
+      rightCol.appendChild(buildPanel(devtoolsIcon(), 'Development Tooling', dt.items, 'Development approach to confirm.'));
+      grid.appendChild(rightCol);
+      root.appendChild(grid);
+      if (plat.components.length) {
+        root.appendChild(buildPlatformRow(data));
+      }
+
+      root.appendChild(tooltip);
+      return root;
+    }
+  </script>
+</body>
+</html>

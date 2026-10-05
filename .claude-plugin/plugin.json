@@ -1,0 +1,9 @@
+{
+  "name": "ai-native-architecture-advisor",
+  "displayName": "AI Native Architecture Advisor",
+  "version": "0.2.0",
+  "description": "Help SAP customers and partners reimagine use cases for the AI-native era using North Star architectural layers, AI Golden Path guidance, and SAP reference architectures.",
+  "author": { "name": "SAP" },
+  "repository": "https://github.com/SAP/ai-native-architecture-advisor",
+  "license": "Apache-2.0"
+}

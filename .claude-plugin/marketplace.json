@@ -1,0 +1,13 @@
+{
+  "name": "sap-ai-native-architecture-advisor",
+  "owner": { "name": "SAP" },
+  "metadata": { "description": "AI Native Architecture Advisor for SAP architecture proposals in Claude Code and Codex." },
+  "plugins": [
+    {
+      "name": "ai-native-architecture-advisor",
+      "source": "./",
+      "description": "Reimagine SAP use cases with the AI Native Architecture Advisor.",
+      "category": "productivity"
+    }
+  ]
+}

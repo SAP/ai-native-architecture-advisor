@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<!--
+SPDX-FileCopyrightText: 2026 SAP SE or an SAP affiliate company and ai-native-architecture-advisor contributors
+SPDX-License-Identifier: Apache-2.0
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>AI Native Architecture Advisor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #0f0f18;
+      --surface: #13131f;
+      --border: rgba(255,255,255,0.07);
+      --border-bright: rgba(255,255,255,0.14);
+      --text: #e8e8f0;
+      --text-dim: #7a7a9a;
+      --text-dimmer: #44445a;
+      --accent: #5b6af0;
+      --accent-glow: rgba(91,106,240,0.18);
+      --accent2: #00d4a8;
+      --accent2-glow: rgba(0,212,168,0.12);
+      --gold: #c9a84c;
+      --red: #e05252;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grid lines background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Radial glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20vh;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw;
+      height: 80vh;
+      background: radial-gradient(ellipse at center, rgba(91,106,240,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 40px 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-dim);
+      max-width: 520px;
+      margin-bottom: 52px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 14px 28px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    }
+
+    .btn-primary:hover {
+      background: #6b7af8;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text-dim);
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      padding: 14px 0;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s;
+      text-transform: uppercase;
+    }
+
+    .btn-secondary:hover { color: var(--text); }
+
+    .hero-scroll-line {
+      position: absolute;
+      bottom: 48px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 10px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: var(--text-dimmer);
+      animation: scrollpulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollpulse {
+      0%, 100% { opacity: 0.3; width: 60px; }
+      50% { opacity: 1; width: 80px; }
+    }
+
+    /* ── INSTALL STRIP ── */
+    .install-strip {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0 40px;
+    }
+
+    .install-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .install-block {
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .install-block:first-child {
+      border-right: 1px solid var(--border);
+      padding-right: 48px;
+    }
+
+    .install-block:last-child {
+      padding-left: 48px;
+    }
+
+    .install-label {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-dimmer);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .code-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--accent2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+
+    .code-block:hover { border-color: var(--border-bright); }
+
+    .code-block .prompt { color: var(--text-dimmer); user-select: none; }
+
+    .copy-btn {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 10px;
+      color: var(--text-dimmer);
+      background: none;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover { color: var(--accent2); }
+    .copy-btn.copied { color: var(--accent2); }
+
+    .install-note {
+      font-size: 12px;
+      color: var(--text-dimmer);
+      font-weight: 300;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    .section-label {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-dimmer);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    h2 em { font-style: italic; color: var(--accent); }
+
+    .section-intro {
+      font-size: 16px;
+      color: var(--text-dim);
+      max-width: 520px;
+      margin-bottom: 64px;
+      line-height: 1.75;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    .step {
+      background: var(--bg);
+      padding: 40px 36px;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .step:hover { background: var(--surface); }
+
+    .step-num {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-num::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-bright);
+    }
+
+    .step h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    /* ── OUTPUTS ── */
+    .outputs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .output-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .output-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .output-card:nth-child(1)::before { background: var(--accent); }
+    .output-card:nth-child(2)::before { background: var(--accent2); }
+    .output-card:nth-child(3)::before { background: var(--gold); }
+
+    .output-card:hover { border-color: var(--border-bright); }
+
+    .output-icon {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 10px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .output-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .output-card:nth-child(1) .output-dot { background: var(--accent); }
+    .output-card:nth-child(2) .output-dot { background: var(--accent2); }
+    .output-card:nth-child(3) .output-dot { background: var(--gold); }
+
+    .output-card h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .output-card p {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .output-filename {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 11px;
+      color: var(--text-dimmer);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+    }
+
+    /* ── PRINCIPLES ── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    .principle {
+      background: var(--bg);
+      padding: 36px;
+      transition: background 0.2s;
+    }
+
+    .principle:hover { background: var(--surface); }
+
+    .principle-label {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .principle h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .principle p {
+      font-size: 13.5px;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(ellipse, rgba(91,106,240,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .cta-text h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta-text p {
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+
+    .cta-commands {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cmd-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cmd-label {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 10px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 11px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-right a {
+      font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+      font-size: 11px;
+      color: var(--text-dimmer);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-right a:hover { color: var(--text); }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      .install-inner { grid-template-columns: 1fr; }
+      .install-block:first-child { border-right: none; padding-right: 0; border-bottom: 1px solid var(--border); }
+      .install-block:last-child { padding-left: 0; }
+      .section { padding: 60px 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .outputs-grid { grid-template-columns: 1fr; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+      .install-strip { padding: 0 20px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"><span>◆</span> AI Native Architecture Advisor</div>
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#outputs">Outputs</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="https://github.com/SAP/ai-native-architecture-advisor">GitHub</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label fade-in visible">Claude Code &amp; Codex &nbsp;·&nbsp; Beta 0.2.0</div>
+    <h1 class="fade-in visible">Reimagine your SAP use case for the <em>AI-native era.</em></h1>
+    <p class="hero-sub fade-in visible">
+      Describe your scenario. Explore an architecture proposal grounded in SAP's AI-native North Star, AI Golden Path and Architecture Center. AI can hallucinate: validate the proposal before using it.
+    </p>
+    <div class="hero-cta fade-in visible">
+      <a href="https://github.com/SAP/ai-native-architecture-advisor#install-and-use" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M3.5 5.5L7 9l3.5-3.5M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Install for Claude Code or Codex
+      </a>
+      <a href="#how" class="btn-secondary">
+        See how it works →
+      </a>
+    </div>
+    <div class="hero-scroll-line">Scroll</div>
+  </section>
+
+  <!-- INSTALL STRIP -->
+  <div class="install-strip" id="install">
+    <div class="install-inner">
+      <div class="install-block">
+        <div class="install-label">Local Claude preview — Clone</div>
+        <div class="code-block" onclick="copyCode(this, 'git clone https://github.com/SAP/ai-native-architecture-advisor.git ai-native-architecture-advisor')">
+          <span><span class="prompt">$ </span>git clone github.com/SAP/ai-native-architecture-advisor ai-native-architecture-advisor</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <div class="install-note">Public SAP repository on github.com</div>
+      </div>
+      <div class="install-block">
+        <div class="install-label">Step 2 — Launch with plugin</div>
+        <div class="code-block" onclick="copyCode(this, 'claude --plugin-dir ./ai-native-architecture-advisor')">
+          <span><span class="prompt">$ </span>claude --plugin-dir ./ai-native-architecture-advisor</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <div class="install-note">Session-only preview. <a href="https://github.com/SAP/ai-native-architecture-advisor#install-and-use">Persistent Claude and Codex installation →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="section-label">How it works</div>
+    <h2>Conversation-driven <em>architecture.</em></h2>
+    <p class="section-intro">No forms, no checklists. You describe the business scenario; the Advisor asks only the questions that change the architecture and builds the brief as you go.</p>
+
+    <div class="steps">
+      <div class="step fade-in">
+        <div class="step-num">01</div>
+        <h3>Describe the scenario</h3>
+        <p>Tell the Advisor who the users are, what the problem is, and any constraints. It reads the context — no rigid intake form.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">02</div>
+        <h3>Back-and-forth refinement</h3>
+        <p>Explore the agentic opportunity, answer related architecture questions together, and shape a useful recommendation with a path toward the North Star.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">03</div>
+        <h3>Brief generated, ready to share</h3>
+        <p>Markdown + visual HTML report. Ask for a re-run or update as the conversation evolves. The Markdown is always the source of truth.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- OUTPUTS -->
+  <section class="section" id="outputs">
+    <div class="section-label">What gets produced</div>
+    <h2>Three files. <em>One folder.</em></h2>
+    <p class="section-intro">Each scenario gets a folder in SAP AI Native Solutions, with a shared README index to find earlier proposals. Generated content is excluded from Git by default.</p>
+
+    <div class="outputs-grid">
+      <div class="output-card fade-in">
+        <div class="output-icon"><span class="output-dot"></span>Solution Brief</div>
+        <h3>Architecture Proposal</h3>
+        <p>Layer-by-layer direction: User Experience → Process → Foundation → Platform. Solution stack table. Open items folded into each layer.</p>
+        <div class="output-filename">&lt;scenario&gt;-solution-brief.md</div>
+      </div>
+      <div class="output-card fade-in">
+        <div class="output-icon"><span class="output-dot"></span>Reasoning Log</div>
+        <h3>Internal Audit Trail</h3>
+        <p>Maturity mappings, inferences, decisions and why they were made. Kept separate from the brief so the proposal stays clean.</p>
+        <div class="output-filename">&lt;scenario&gt;-reasoning-log.md</div>
+      </div>
+      <div class="output-card fade-in">
+        <div class="output-icon"><span class="output-dot"></span>Visual Report</div>
+        <h3>HTML Presentation</h3>
+        <p>One self-contained HTML file that opens directly in a browser. The Advisor regenerates it after Markdown changes; no server or live file connection is required.</p>
+        <div class="output-filename">&lt;scenario&gt;-solution-brief.html</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRINCIPLES -->
+  <section class="section">
+    <div class="section-label">Grounded in SAP architecture</div>
+    <h2>Built on the <em>official</em> North Star.</h2>
+    <p class="section-intro">Use North Star's vision and four layers, AI Golden Path approach guidance, and SAP Architecture Center implementation patterns to reimagine your use case.</p>
+
+    <div class="principles-grid">
+      <div class="principle fade-in">
+        <div class="principle-label">Intent-driven engagement</div>
+        <h3>Conversational engagement layer</h3>
+        <p>Explore a useful Joule interaction and the broader intent-driven opportunity, while retaining specialist applications and making prerequisites explicit.</p>
+      </div>
+      <div class="principle fade-in">
+        <div class="principle-label">MCP Access</div>
+        <h3>Governed SAP access via MCP</h3>
+        <p>Reuse governed business APIs and MCP tools, or identify missing capabilities. A central MCP gateway is a choice when justified, not a prerequisite for every agent.</p>
+      </div>
+      <div class="principle fade-in">
+        <div class="principle-label">GenAI Hub</div>
+        <h3>Governed model access</h3>
+        <p>Solution-controlled LLM calls use generative AI hub in SAP AI Core. SAP-managed embedded AI is consumed through its supported product interface.</p>
+      </div>
+      <div class="principle fade-in">
+        <div class="principle-label">SAP Runtime</div>
+        <h3>Supported SAP deployment</h3>
+        <p>Choose SAP BTP Cloud Foundry, Kyma or a supported product-managed runtime. Address identity and operational telemetry, with audit needs considered separately.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <div class="section-label">Get started</div>
+        <h2>Try your first <em>use case.</em></h2>
+        <p>Preview locally in Claude Code, or follow the <a href="https://github.com/SAP/ai-native-architecture-advisor#install-and-use">README for Claude Code and Codex installation</a>. Found an issue? Please <a href="https://github.com/SAP/ai-native-architecture-advisor/issues/new">report it</a>, with confidential details removed.</p>
+      </div>
+      <div class="cta-commands">
+        <div class="cmd-row">
+          <div class="cmd-label">Clone</div>
+          <div class="code-block" onclick="copyCode(this, 'git clone https://github.com/SAP/ai-native-architecture-advisor.git ai-native-architecture-advisor')">
+            <span><span class="prompt">$ </span>git clone github.com/SAP/ai-native-architecture-advisor ai-native-architecture-advisor</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+        </div>
+        <div class="cmd-row">
+          <div class="cmd-label">Add plugin</div>
+          <div class="code-block" onclick="copyCode(this, 'claude --plugin-dir ./ai-native-architecture-advisor')">
+            <span><span class="prompt">$ </span>claude --plugin-dir ./ai-native-architecture-advisor</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+        </div>
+        <div class="cmd-row">
+          <div class="cmd-label">Then in Claude Code</div>
+          <div class="code-block">
+            <span><span class="prompt">&gt; </span>We have an AP team processing 3,000 invoices…</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">AI Native Architecture Advisor &nbsp;·&nbsp; Beta 0.2.0 &nbsp;·&nbsp; Claude Code &amp; Codex</div>
+      <div class="footer-right">
+        <a href="https://github.com/SAP/ai-native-architecture-advisor">GitHub</a>
+        <a href="https://architecture.learning.sap.com/docs/ai-native-north-star-architecture">SAP North Star</a>
+        <a href="https://architecture.learning.sap.com/docs/ai-golden-path">AI Golden Path</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Copy to clipboard
+    function copyCode(el, text) {
+      const btn = el.querySelector('.copy-btn');
+      navigator.clipboard.writeText(text || el.querySelector('span:not(.prompt)').textContent.trim()).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // Scroll-triggered fade-ins — mark all as visible immediately too
+    // so they never get stuck hidden if scroll events don't fire
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+      // Also trigger immediately if already in viewport
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# gstack session data
+.gstack/
+
+# macOS noise
+.DS_Store
+
+# Generated proposals and local previews; curated examples and templates stay tracked
+SAP AI Native Solutions/
+North Star Solutions/
+AI Native Solutions/
+output/
+outputs/
+/examples/*.html

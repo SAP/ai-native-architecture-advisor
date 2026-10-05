@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-native-architecture-advisor",
+  "version": "0.2.0",
+  "description": "Help SAP customers and partners reimagine use cases for the AI-native era using North Star architectural layers, AI Golden Path guidance, and SAP reference architectures.",
+  "author": { "name": "SAP" },
+  "repository": "https://github.com/SAP/ai-native-architecture-advisor",
+  "license": "Apache-2.0",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AI Native Architecture Advisor",
+        "shortDescription": "Reimagine SAP use cases for the AI-native era",
+        "longDescription": "Beta architecture guidance grounded in SAP North Star, AI Golden Path, and SAP Architecture Center. Creates a solution brief, reasoning log, and visual HTML proposal. Validate AI-generated recommendations before use.",
+        "developerName": "SAP",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "defaultPrompt": ["Help me reimagine an SAP use case and create an AI Native Solution Brief."]
+      }
+    }
+  }
+}

@@ -1,0 +1,1125 @@
+{
+  "source": "SAP Architecture Center reference architectures",
+  "note": "Bundled AI and Data discovery snapshot: entries tagged AI & Machine Learning or Data & Analytics, including cross-domain entries. Not full implementation guides or current availability evidence. Source and diagram URLs are provenance links only; runtime never fetches them. Maintainers update the snapshot deliberately through repository releases. Diagram-check dates describe historical URL checks, not catalogue freshness or locally bundled image coverage.",
+  "capturedAt": "2026-08-04",
+  "diagramsCheckedAt": null,
+  "entries": [
+    {
+      "slug": "d764f7",
+      "title": "FedML-AWS for Amazon Sagemaker",
+      "description": "Train models on Amazon SageMaker with FedML-AWS, integrating live SAP data for seamless machine learning and analytics.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/fedml-aws-758a66a633d76adc.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/d764f7",
+      "products": [
+        "Amazon Web Services",
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP Datasphere",
+        "SAP Kyma"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "02c5f1",
+      "title": "FedML-Azure for Azure Machine Learning",
+      "description": "Train models in Azure ML with live SAP data using FedML-Azure, eliminating duplication and simplifying integration with minimal coding.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/fedml-azure-b4baf5169f744edc.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/02c5f1",
+      "products": [
+        "Microsoft Azure",
+        "SAP BTP",
+        "SAP Datasphere",
+        "SAP Kyma"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "6e2937",
+      "title": "FedML-Databricks for Databricks platform",
+      "description": "Train models on Databricks using live SAP data with FedML-Databricks, enabling secure integration and eliminating data duplication.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/fedml-databricks-4ae9157f5cd1f572.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/6e2937",
+      "products": [
+        "Databricks",
+        "SAP BTP",
+        "SAP Datasphere",
+        "SAP Kyma"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "494ec6",
+      "title": "FedML-GCP for Google Vertex AI",
+      "description": "Simplify ML training on Google Vertex AI with FedML-GCP, integrating live SAP data for efficient model deployment and analytics.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/fedml-gcp-75da12c13702dbf8.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/494ec6",
+      "products": [
+        "Google Cloud Platform",
+        "SAP BTP",
+        "SAP Datasphere",
+        "SAP Kyma"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "d5d3ce",
+      "title": "FedML's support for NVIDIA GPUs",
+      "description": "FedML now supports reading of federated SAP business data via SAP Datasphere directly into NVIDIA GPU environment computes for model training.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/fedml-nvidia-c4a23fa94c58bcbd.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/d5d3ce",
+      "products": [
+        "NVIDIA",
+        "SAP AI Core",
+        "SAP Datasphere"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "2ce40f",
+      "title": "FedML and IBM watsonx.ai / IBM Watson Studio integration",
+      "description": "Accelerate ML workflows with IBM watsonx and FedML, integrating SAP's business data for seamless model training without data duplication.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/fedml-watson-6e42a7521749a743.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/2ce40f",
+      "products": [
+        "IBM Cloud",
+        "SAP AI Core",
+        "SAP Datasphere"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "17c8c5",
+      "title": "Federated Machine Learning with SAP Datasphere",
+      "description": "Federate SAP and non-SAP data with SAP Datasphere for seamless ML integration, eliminating replication and enhancing insights.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/fedml-final-ab8b5f128f90c683.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/17c8c5",
+      "products": [
+        "Amazon Web Services",
+        "Databricks",
+        "Google Cloud Platform",
+        "IBM Cloud",
+        "Microsoft Azure",
+        "NVIDIA",
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP BW/4HANA",
+        "SAP Datasphere",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "af1cc6",
+      "title": "Integration with AWS data sources",
+      "description": "Data from AWS data sources can be harmonized with SAP and non-sap data via SAP Datasphere's data fabric architecture.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/aws-data-integration-26133b7f08b2f192.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/af1cc6",
+      "products": [
+        "Amazon Web Services",
+        "SAP Analytics Cloud",
+        "SAP Datasphere"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "9ce2bd",
+      "title": "Integration with Azure data sources",
+      "description": "Unify Azure data with SAP Datasphere for comprehensive analytics, leveraging SAP's robust data fabric architecture.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/azure-data-integration-cc85267b7b898c14.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/9ce2bd",
+      "products": [
+        "Microsoft Azure",
+        "SAP Analytics Cloud",
+        "SAP BW/4HANA",
+        "SAP Datasphere",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "b7629d",
+      "title": "Integration with Databricks",
+      "description": "Data from Databricks Lakehouse can be harmonized with SAP and non-sap data via SAP Datasphere's unified data models for use with richer analytics and other use cases.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/databricks-data-integration-68514b480fb4214f.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/b7629d",
+      "products": [
+        "Databricks",
+        "SAP Analytics Cloud",
+        "SAP Business Data Cloud",
+        "SAP Datasphere"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "bffef5",
+      "title": "Integration with Google Cloud Platform sources",
+      "description": "Integrate non-SAP data in Google Cloud Platform with business data from SAP using SAP Business Data Cloud's seamless data integration architectures to enable holistic AI/ML & Analytics use cases.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/gcp-data-integration-4f981baa0fc3e1f9.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/bffef5",
+      "products": [
+        "Google Cloud Platform",
+        "SAP Analytics Cloud",
+        "SAP BW/4HANA",
+        "SAP Business Data Cloud",
+        "SAP Datasphere",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "053d2b",
+      "title": "Integration with Snowflake",
+      "description": "Integrate SAP data with Snowflake seamlessly using SAP BDC Connect and SAP Snowflake",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/solex-data-integration-9e11dbd2ebe6ce09.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/053d2b",
+      "products": [
+        "SAP Business Data Cloud",
+        "SAP Joule",
+        "Snowflake"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "200b3d",
+      "title": "Latency and Performance considerations",
+      "description": "Optimize SAP data federation scenarios by addressing latency and performance challenges for analytics solutions.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": null,
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/200b3d",
+      "products": [
+        "SAP Datasphere"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "b27373",
+      "title": "Explore your Hyperscaler data with SAP Business Data Cloud",
+      "description": "Explore how SAP Business Data Cloud (BDC) acts as the business-centric integration layer for enterprises looking to harmonize SAP and non-SAP data across platforms like Snowflake, Azure, GCP, AWS, and Databricks.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/explore-hyperscaler-data-7e05c6f74cafd405.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/b27373",
+      "products": [
+        "Amazon Web Services",
+        "Databricks",
+        "Google Cloud Platform",
+        "Microsoft Azure",
+        "SAP BW/4HANA",
+        "SAP Business Data Cloud",
+        "SAP Datasphere",
+        "SAP S/4HANA",
+        "SAP SuccessFactors",
+        "Snowflake"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "01aa03",
+      "title": "Basic Prompting",
+      "description": "Integrate Generative AI with SAP BTP using custom prompts for intelligent interactions and tailored AI responses.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-generative-ai-basic-ccb092d2fc5ef059.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/01aa03",
+      "products": [
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP GenAI Hub"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "876f58",
+      "title": "Embeddings & Semantic Search",
+      "description": "Improve search relevance with semantic embeddings stored in vector databases, enabling efficient similarity searches.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-generative-ai-semantic-search-cb09daca0766e4c1.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/876f58",
+      "products": [
+        "SAP BTP",
+        "SAP CAP",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "8063d2",
+      "title": "Retrieval Augmented Generation (RAG)",
+      "description": "Improve LLM accuracy with Retrieval Augmented Generation (RAG) by integrating external data for enhanced precision and reduced hallucinations.",
+      "domains": [
+        "AI & Machine Learning",
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-generative-ai-rag-32bcb3d02bc1dc2e.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/8063d2",
+      "products": [
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud",
+        "SAP Joule"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "39eb58",
+      "title": "Generative AI on SAP BTP",
+      "description": "Integrate Generative AI with SAP BTP using SAP HANA Cloud's Vector Engine for similarity search and advanced AI patterns.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-generative-ai-81b308c742739841.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/39eb58",
+      "products": [
+        "Amazon Web Services",
+        "Microsoft Azure",
+        "SAP AI Core",
+        "SAP AI Launchpad",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud",
+        "SAP Identity Authentication",
+        "SAP Kyma"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "e4f25a",
+      "title": "SAP HANA Cloud as an Esri Geodatabase",
+      "description": "Integrate Esri ArcGIS with SAP HANA Cloud for real-time geospatial and business data analysis, optimizing insights for industries like utilities during disasters.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/esri-and-hana-cloud-9f53cb77f48891f1.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/e4f25a",
+      "products": [
+        "SAP Analytics Cloud",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP HANA Cloud",
+        "SAP Identity Authentication",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "8aceea",
+      "title": "Medallion Reference Architecture for Big Data Processing in SAP HANA Cloud",
+      "description": "Process big data with SAP HANA Cloud Data Lake, integrating structured and unstructured data for intelligent applications.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/medallion-big-data-architecture-2b02272b0d6e2a15.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/8aceea",
+      "products": [
+        "SAP Analytics Cloud",
+        "SAP Datasphere",
+        "SAP HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "4ab8f2",
+      "title": "Data Products in SAP Business Data Cloud",
+      "description": "Standardize data sharing with SAP Data Products for efficient, high-quality metadata and seamless integration.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/sap-dp-e7f680c1144d6a17.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/4ab8f2",
+      "products": [
+        "Databricks",
+        "SAP Analytics Cloud",
+        "SAP Business Data Cloud",
+        "SAP CAP",
+        "SAP Datasphere",
+        "SAP HANA Cloud",
+        "SAP S/4HANA",
+        "SAP SuccessFactors"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "a71aa9",
+      "title": "Intelligent content in SAP BDC",
+      "description": "Configure Intelligent Applications in SAP BDC for streamlined analytics using prebuilt data products and stories.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/intelligent-content-fa099fec96f1b46e.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/a71aa9",
+      "products": [
+        "Databricks",
+        "SAP Analytics Cloud",
+        "SAP BW",
+        "SAP Business Data Cloud",
+        "SAP Cloud Identity Services",
+        "SAP Datasphere",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "519093",
+      "title": "Implementing and Extending SAP-managed domain content in SAP BDC",
+      "description": "Streamline business insights with SAP BDC, integrating SAP S/4HANA and Intelligent Applications for analytics, decision-making, and lifecycle management.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/sap-managed-intelligent-application-b43e92773f1d8fd5.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/519093",
+      "products": [
+        "Databricks",
+        "SAP Analytics Cloud",
+        "SAP BTP",
+        "SAP Business Data Cloud",
+        "SAP Datasphere",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "6550e4",
+      "title": "Modernizing SAP BW with SAP Business Data Cloud",
+      "description": "Modernize SAP BW with SAP BDC for real-time analytics, AI insights, and scalable cloud-native architecture.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/bw-bdc-detailed-fb8c59aa2093941a.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/6550e4",
+      "products": [
+        "Databricks",
+        "SAP Analytics Cloud",
+        "SAP BW/4HANA",
+        "SAP Business Data Cloud",
+        "SAP Datasphere",
+        "SAP NetWeaver",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "12d55f",
+      "title": "SAP and Databricks Integration in SAP Business Data Cloud",
+      "description": "Leverage SAP Databricks for AI and analytics, integrating SAP data with Databricks for real-time insights and simplified data access.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/bdc-databricks-8ce8090f2b2ba5c7.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/12d55f",
+      "products": [
+        "Databricks",
+        "SAP Analytics Cloud",
+        "SAP Business Data Cloud",
+        "SAP Datasphere"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "2c8491",
+      "title": "Unifying Access Across SAP BDC with SAP Cloud Identity Services",
+      "description": "Unifying Access Across for SAP Business Data Cloud using SAP Cloud Identity Services: IAS for SSO (SAML/OIDC) and IPS for SCIM provisioning. Includes scenarios with/without Enterprise IdP, lifecycle, authorization mapping, and operations.",
+      "domains": [
+        "Data & Analytics",
+        "Operation & Security"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/cloud-identity-services-bdc-216bb649b503d62e.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/2c8491",
+      "products": [
+        "Databricks",
+        "SAP Analytics Cloud",
+        "SAP BTP",
+        "SAP Business Data Cloud",
+        "SAP Cloud Identity Services",
+        "SAP Datasphere",
+        "SAP Identity Authentication",
+        "SAP Identity Provisioning",
+        "SAP S/4HANA",
+        "SAP SuccessFactors"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "4f7406",
+      "title": "SAP Business Data Cloud powered by SAP AI Core",
+      "description": "Architectural patterns for integrating SAP Business Data Cloud with SAP AI Core and Generative AI Hub. Covers AI-Enhanced Data Products, model training in Databricks and serving in AI Core, batch and real-time consumption patterns, and predictive insights.",
+      "domains": [
+        "AI & Machine Learning",
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/bdc-ai-core-integration-9f6bf5f178f3e73c.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/4f7406",
+      "products": [
+        "Databricks",
+        "SAP AI Core",
+        "SAP AI Launchpad",
+        "SAP Analytics Cloud",
+        "SAP BTP",
+        "SAP Business Data Cloud",
+        "SAP CAP",
+        "SAP Datasphere",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "9efadc",
+      "title": "Analytical Insights in Joule",
+      "description": "Reference Architecture for bringing analytical insights in Joule for SAP BDC using SAP Analytics Cloud JustAsk AI Service.",
+      "domains": [
+        "AI & Machine Learning",
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/joule-justask-anaytical-681c9e170ae8ae44.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/9efadc",
+      "products": [
+        "SAP Analytics Cloud",
+        "SAP BTP",
+        "SAP Business Data Cloud",
+        "SAP Cloud Identity Services",
+        "SAP Datasphere",
+        "SAP HANA Cloud",
+        "SAP Joule",
+        "SAP S/4HANA",
+        "SAP SuccessFactors"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "e1732d",
+      "title": "Transforming Enterprise Data Strategy with SAP Business Data Cloud",
+      "description": "Transform enterprise data strategies with SAP BDC, unifying SAP and non-SAP data for scalable AI and analytics.",
+      "domains": [
+        "Data & Analytics"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/sap-bdc-60b6cace3ec974b2.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/e1732d",
+      "products": [
+        "Databricks",
+        "SAP BW",
+        "SAP Business Data Cloud",
+        "SAP Joule",
+        "Snowflake"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "89ab6b",
+      "title": "SAP IAM integration with SAP Cloud Identity Services",
+      "description": "Design authentication and role management flows for SAP SaaS with SAP Cloud Identity Services.",
+      "domains": [
+        "AI & Machine Learning",
+        "Operation & Security"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/public-sap-iam-sd-cba6d5ca16f3a89e.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/89ab6b",
+      "products": [
+        "SAP BTP",
+        "SAP Cloud Identity Services",
+        "SAP Joule",
+        "SAP S/4HANA",
+        "SAP Task Center"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "ea5d4f",
+      "title": "Identity and Access Management for SAP Joule",
+      "description": "This reference architecture describes the IAM related flows for SAP Joule with SAP Build Work Zone and via the SAP Cloud Identity Services.",
+      "domains": [
+        "AI & Machine Learning",
+        "Operation & Security",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/public-sap-iam-joule-sd-2394a82e9b5da604.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/ea5d4f",
+      "products": [
+        "SAP BTP",
+        "SAP Build Work Zone",
+        "SAP Cloud Identity Services",
+        "SAP Joule"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "ff07b1",
+      "title": "Extend Joule with Joule Studio",
+      "description": "Utilize AI capabilities with Joule Studio in SAP Build. Create custom Joule Skills and AI Agents for seamless integration across SAP and non-SAP systems, driving automation and innovation.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/joule-studio-ref-arch-76bcf17d6ad5538b.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/ff07b1",
+      "products": [
+        "Joule Studio",
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP Build",
+        "SAP Build Apps",
+        "SAP Build Code",
+        "SAP Build Process Automation",
+        "SAP Build Work Zone",
+        "SAP CAP",
+        "SAP Cloud Identity Services",
+        "SAP Identity Authentication",
+        "SAP Joule",
+        "SAP S/4HANA Cloud",
+        "SAP SuccessFactors"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "f5a3ef",
+      "title": "Joule Studio",
+      "description": "SAP’s AI-first low-code and pro-code development solution for generating and running custom AI agents, workflows and extensions.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/js-6e29f950e3a98b96.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/f5a3ef",
+      "products": [
+        "Joule Studio",
+        "SAP CAP",
+        "SAP Cloud Identity Services",
+        "SAP Joule",
+        "SAP S/4HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "464deb",
+      "title": "Integrating and Extending Joule",
+      "description": "Explore key topics for implementing and extending Joule, from enterprise integration with systems like SAP S/4HANA and SAP SuccessFactors to building custom skills and agents with Joule Studio and SAP BTP",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/unified_joule-000316d79eb0cedc.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/464deb",
+      "products": [
+        "Joule Studio",
+        "SAP AI Core",
+        "SAP Analytics Cloud",
+        "SAP Ariba",
+        "SAP BTP",
+        "SAP Build",
+        "SAP Build Process Automation",
+        "SAP Build Work Zone",
+        "SAP Cloud Identity Services",
+        "SAP Concur",
+        "SAP GenAI Hub",
+        "SAP Joule",
+        "SAP S/4HANA Cloud",
+        "SAP SuccessFactors"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "9673f9",
+      "title": "Extensibility, Interoperability, and Partner Technologies",
+      "description": "Discover how SAP leverages its partner ecosystem to deliver Embodied AI at scale. Learn how partners and customers can extend Embodied AI for their use cases and get insights into interoperability.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-extensibility-63266ead613a7b15.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/9673f9",
+      "products": [
+        "SAP AI Core",
+        "SAP BTP"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "7e4168",
+      "title": "Warehouse Pick & Place",
+      "description": "Learn how Embodied AI & robotics can automate warehouse operations for picking, placing, sorting, and other warehouse tasks.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-warehouse-ca4535712f247c04.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/7e4168",
+      "products": [],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "bd733b",
+      "title": "Asset Inspection",
+      "description": "Learn how Embodied AI & robotics can automate asset management processes, including asset and site inspection.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-asset-81bc52010c2b7368.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/bd733b",
+      "products": [],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "9ca181",
+      "title": "Safety Inspection",
+      "description": "Discover Embodied AI for health & safety inspection",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-safety-f573a94a6ade3f3c.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/9ca181",
+      "products": [
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "90f40f",
+      "title": "Quality Inspection",
+      "description": "Discover Embodied AI for quality inspection",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-overview-7bbadfa19c3f9fd0.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/90f40f",
+      "products": [
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "0f87e5",
+      "title": "Embodied AI Agents & Robotics",
+      "description": "Embodied AI combines agentic AI with cognitive robots to automate physical world tasks, embedded within the business process context. Leverging robotics and physical AI technologies, this makes end-to-end automation possible across the digital and physical world.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-overview-ff19b413fa26ed49.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/0f87e5",
+      "products": [
+        "Joule Studio",
+        "NVIDIA",
+        "SAP BTP",
+        "SAP Joule",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "76ec36",
+      "title": "A2A and MCP for Interoperability",
+      "description": "Learn how the Agent2Agent (A2A) and Model Context Protocol (MCP) enable a decoupled, interoperable and scalable AI agent ecosystem on SAP BTP.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/assets/images/a2a-mcp-013499814e8969c38f02c6015eded553.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/76ec36",
+      "products": [
+        "Amazon Web Services",
+        "Joule Studio",
+        "SAP BTP",
+        "SAP Cloud Identity Services",
+        "SAP Integration Suite",
+        "SAP Joule"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "d2e34e",
+      "title": "Microsoft Copilot Studio and the MCP Gateway in SAP Integration Suite",
+      "description": "Learn how Microsoft Copilot Studio and other Microsoft MCP clients can be connected using the MCP Gateway in SAP Integration Suite.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/copilot-studio+mcp-gateway-603ec71d80305a50.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/d2e34e",
+      "products": [
+        "Microsoft Azure",
+        "SAP BTP",
+        "SAP Business Data Cloud",
+        "SAP Cloud Identity Services",
+        "SAP Integration Suite",
+        "SAP Joule",
+        "SAP S/4HANA",
+        "SAP SuccessFactors"
+      ]
+    },
+    {
+      "slug": "137800",
+      "title": "Third-Party MCP Access to SAP Solutions",
+      "description": "Guidance on accessing SAP solutions via third-party MCP servers, covering governance guardrails, OWASP MCP Top 10 risks, and SAP's recommended managed MCP approach via SAP Integration Suite and Joule Studio.",
+      "domains": [
+        "AI & Machine Learning",
+        "Operation & Security",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/architecture-fb99c1a8b00df878.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/137800",
+      "products": [
+        "Joule Studio",
+        "SAP BTP",
+        "SAP Cloud Identity Services",
+        "SAP Integration Suite",
+        "SAP Joule",
+        "SAP Kyma"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "219c07",
+      "title": "Low-Code AI Agents with Joule Studio",
+      "description": "Learn how to rapidly develop and deploy AI agents using the low-code capabilities of Joule Studio in SAP Build.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/architecture-0106a57475847aec.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/219c07",
+      "products": [
+        "Joule Studio",
+        "SAP AI Core",
+        "SAP Build",
+        "SAP Build Process Automation",
+        "SAP GenAI Hub",
+        "SAP Joule"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "7b6426",
+      "title": "Bring Your Own Agent",
+      "description": "Learn how to build custom, pro-code AI agents on SAP BTP using SAP Cloud SDK for AI with popular frameworks like LangGraph, AutoGen and CrewAI for maximum flexibility and control over complex business logic.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-generative-ai-pro-code-cafc5c05976d6dd7.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/7b6426",
+      "products": [
+        "Amazon Web Services",
+        "Google Cloud Platform",
+        "Microsoft Azure",
+        "SAP AI Core",
+        "SAP AI Launchpad",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Cloud Connector",
+        "SAP Concur",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud",
+        "SAP Joule",
+        "SAP Kyma",
+        "SAP S/4HANA",
+        "SAP SuccessFactors"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "ae6821",
+      "title": "Integrating AI Agents with Joule",
+      "description": "Learn the architectural patterns for integrating both low-code and pro-code AI agents with Joule, SAP's AI copilot, for a unified user experience.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/architecture-29bdd47258599cbc.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/ae6821",
+      "products": [
+        "Joule Studio",
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP Build",
+        "SAP Joule"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "fe0d1d",
+      "title": "Integrating Joule Agents into Your Ecosystem",
+      "description": "Learn how to expose Joule agents for consumption by third-party applications and external systems using the Agent Gateway with the A2A protocol.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/architecture-06192b64cb59a794.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/fe0d1d",
+      "products": [
+        "Amazon Web Services",
+        "SAP BTP",
+        "SAP Cloud Identity Services",
+        "SAP Joule"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "b6c158",
+      "title": "Agents for Structured Data",
+      "description": "Transform structured data analysis with AI-powered applications, enabling real-time insights and operational efficiency.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/reference-architecture-generative-ai-intelligent-data-apps-54b586bb99cd9ac5.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/b6c158",
+      "products": [
+        "Joule Studio",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Datasphere",
+        "SAP HANA Cloud",
+        "SAP Joule"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "0821c4",
+      "title": "Agentic Engineering for SAP Extensions",
+      "description": "Agentic engineering for BTP Extensions: context engineering, grounding through MCP servers and SDKs, multi-agent orchestration and architecture patterns for AI-native development on SAP BTP.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/agentic-for-sap-extensions-9b73092a7045697e.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/0821c4",
+      "products": [
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Fiori",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud",
+        "SAP Integration Suite",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "140bdb",
+      "title": "Agent Identity",
+      "description": "The Agent Identity is the representation of the artifacts of an agent required to follow proper Identity Access Management and especially Agent Governance procedures. The Agent Identity allows enterprises to define and restrict how and what an agent can do within certain boundaries. The Agent Identity concept allows a generic way to manage agent access to limit unnecessary \"chatty\" communication between agents by establishing several policy enforcement points to fail early in the process.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/agent-identity-l0-453e21eb38408495.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/140bdb",
+      "products": [
+        "SAP Ariba",
+        "SAP Cloud Identity Services",
+        "SAP Joule",
+        "SAP LeanIX",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "3c8d50",
+      "title": "Agent Behavior Mining",
+      "description": "Learn how SAP Signavio enables organizations to observe, analyze, and optimize AI agent behavior through native agent mining capabilities—covering behavioral tracing, impact measurement, cost monitoring, data privacy, and multi-tenancy.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/architecture-60cbc42689a30353.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/3c8d50",
+      "products": [
+        "Joule Studio",
+        "SAP LeanIX",
+        "SAP Signavio"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "98efa0",
+      "title": "Agentic AI & AI Agents",
+      "description": "Build, integrate and orchestrate AI agents on SAP BTP. This reference architecture covers low-code agents with Joule Studio, pro-code agents with SAP Cloud SDK for AI, bidirectional integration with Joule and Agent2Agent (A2A) interoperability.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/architecture-dc81987164f9cd07.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/98efa0",
+      "products": [
+        "Amazon Web Services",
+        "IBM Cloud",
+        "Joule Studio",
+        "Microsoft Azure",
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP Build",
+        "SAP Build Process Automation",
+        "SAP CAP",
+        "SAP Cloud Identity Services",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud",
+        "SAP Integration Suite",
+        "SAP Joule",
+        "SAP S/4HANA",
+        "SAP SuccessFactors"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "744df4",
+      "title": "Document Processing with SAP Document AI",
+      "description": "Architect end-to-end document processing solutions using SAP Document AI to automate  extraction, validation, and posting of business documents to enterprise systems.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/idp-architecture-overview-a647dee7059bad38.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/744df4",
+      "products": [
+        "SAP Ariba",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Concur",
+        "SAP Document AI",
+        "SAP Joule",
+        "SAP S/4HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "e26d4d",
+      "title": "Document Ingestion Patterns for SAP Document AI",
+      "description": "Design flexible document intake architectures supporting email, API, mobile capture,  and enterprise system integration for intelligent document processing.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/document-ingestion-architecture-310dbf4e6b095285.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/e26d4d",
+      "products": [
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Document AI",
+        "SAP Integration Suite",
+        "SAP Joule",
+        "SAP S/4HANA"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "b2b40e",
+      "title": "Data Extraction and Enrichment Patterns for SAP Document AI",
+      "description": "Design intelligent extraction architectures with schema configuration, confidence scoring,  master data enrichment, and business rule validation for enterprise document processing.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/extraction-enrichment-architecture-2addd93497cbc72b.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/b2b40e",
+      "products": [
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Document AI",
+        "SAP S/4HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "c62bee",
+      "title": "Document Posting and System Integration Patterns for SAP Document AI",
+      "description": "Design robust integration architectures for posting extracted and enriched document data  to SAP S/4HANA, Business ByDesign, and third-party systems with error handling and monitoring.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/document-posting-architecture-3b94385a173963e0.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/c62bee",
+      "products": [
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Cloud Connector",
+        "SAP Document AI",
+        "SAP S/4HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "766aa3",
+      "title": "SAP Document AI",
+      "description": "Reference Architecture for SAP Document AI.",
+      "domains": [
+        "AI & Machine Learning"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/diagram-GIBKZD5oRo-b11b9f77082de5d3.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/766aa3",
+      "products": [
+        "Amazon Web Services",
+        "Google Cloud Platform",
+        "Microsoft Azure",
+        "SAP AI Core",
+        "SAP BTP",
+        "SAP CAP",
+        "SAP Cloud Connector",
+        "SAP Cloud Identity Services",
+        "SAP Document AI",
+        "SAP Fiori",
+        "SAP GenAI Hub",
+        "SAP HANA Cloud",
+        "SAP Kyma",
+        "SAP S/4HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    },
+    {
+      "slug": "ebe268",
+      "title": "Joule in SAP S/4HANA Cloud Private Edition and SAP S/4HANA Cloud Public Edition",
+      "description": "Reference architectures for integrating Joule with SAP S/4HANA Cloud Private Edition and SAP S/4HANA Cloud Public Edition, providing navigational patterns that direct users to relevant SAP Fiori Apps.",
+      "domains": [
+        "AI & Machine Learning",
+        "Application Dev. & Automation"
+      ],
+      "diagram_url": "https://architecture.learning.sap.com/joule-s4pce-910b81b5efd466f6.svg",
+      "url": "https://architecture.learning.sap.com/docs/ref-arch/ebe268",
+      "products": [
+        "SAP BTP",
+        "SAP Cloud Identity Services",
+        "SAP Fiori",
+        "SAP Joule",
+        "SAP S/4HANA Cloud"
+      ],
+      "diagramCheckedAt": "2026-09-18"
+    }
+  ]
+}
