@@ -10,6 +10,14 @@ This is initial **high-level solution design** for solution/enterprise architect
 
 > **Validate before using the proposal.** AI can hallucinate services, capabilities, integrations and references—even with source material and a capable model. Check recommendations against current SAP documentation and your actual landscape, availability, entitlements and security requirements. Treat the output as a draft for human review, not an approved implementation design or certification.
 
+## Requirements
+
+- An AI host that supports skills or plugins: **Claude Code** or **OpenAI Codex**. See the host guidance under [Install and use](#install-and-use).
+- A capable reasoning model available to that host (see [Recommended models](#recommended-models)). The plugin does not provide or configure a model.
+- **Node.js 22+**, only if you render the HTML brief locally or run the publishing tests. Normal skill usage inside the host needs no separate runtime.
+- **Git**, for marketplace installation, updates and local development.
+- Network access for installation and updates (via GitHub) and for your host's own model connection. The bundled reference data itself requires no additional service connection.
+
 ## What it is based on
 
 The skill combines content and guidance from:
@@ -183,7 +191,9 @@ tests/                              Focused publishing checks
 docs/                               Project landing page
 ```
 
-## Issues and contributions
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution process, the Developer Certificate of Origin (DCO) requirement and the guidelines on AI-generated code.
 
 Please [create an issue](https://github.com/SAP/ai-native-architecture-advisor/issues/new) for any problem you find. Include the plugin version, Claude Code/Codex version, model, steps to reproduce, expected result and relevant error or incorrect output. For a content issue, include the official source that supports the correction where possible. Remove customer data, credentials and confidential details before sharing prompts or proposals.
 
