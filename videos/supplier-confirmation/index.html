@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      :root {
+        --canvas: #FAFAF9;
+        --ink: #141414;
+        --muted: #6B6B6B;
+        --accent: #0070F2;
+        --accent-text: #0063D1;
+        --line: #E4E4E2;
+      }
+      html, body {
+        width: 1920px; height: 1080px; overflow: hidden;
+        font-family: "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
+        color: var(--ink);
+      }
+      #root { width: 100%; height: 100%; position: relative; }
+
+      /* ---- near-white world (shared backdrop) ---- */
+      .stage {
+        position: absolute; inset: 0; overflow: hidden;
+        background: var(--canvas);
+      }
+      .scene { position: absolute; inset: 0; perspective: 1800px; perspective-origin: 50% 44%; transform-style: preserve-3d; }
+
+      .accent { color: var(--accent); }
+      .label {
+        position: absolute; font-size: 30px; font-weight: 700; color: var(--accent-text);
+        letter-spacing: .01em;
+      }
+
+      /* ===== BEAT 1 — hook ===== */
+      #hook { position: absolute; left: 180px; top: 420px; width: 1560px; opacity: 0; }
+      #wordmark { font-size: 86px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); line-height: 1.04; }
+      #hookrule { height: 6px; width: 0; background: var(--accent); margin-top: 28px; border-radius: 3px; }
+      #hooksub { font-size: 34px; color: var(--muted); margin-top: 30px; font-weight: 500; opacity: 0; }
+
+      /* ===== BEAT 2 — the real prompt ===== */
+      #promptwrap { position: absolute; left: 180px; top: 300px; width: 1560px; opacity: 0; }
+      #promptlabel { position: static; margin-bottom: 26px; }
+      #promptcard {
+        background: #fff; border-radius: 22px; padding: 46px 52px;
+        box-shadow: 0 24px 60px rgba(20,20,20,.08);
+        border: 1px solid var(--line); border-left: 6px solid var(--accent);
+      }
+      #prompttext { font-size: 40px; line-height: 1.42; font-weight: 600; color: var(--ink); min-height: 170px; }
+      #pcaret { display:inline-block; width:4px; height:38px; background:var(--muted); vertical-align:-6px; margin-left:3px; }
+
+      /* ===== BEAT 3 — only the questions that matter ===== */
+      #questions { position: absolute; left: 180px; top: 290px; width: 1560px; opacity: 0; }
+      #qlabel { position: static; margin-bottom: 40px; }
+      .qline {
+        font-size: 38px; font-weight: 600; color: var(--ink); margin: 26px 0;
+        padding-left: 46px; position: relative; opacity: 0;
+      }
+      .qline::before { content: ""; position: absolute; left: 0; top: 16px; width: 22px; height: 22px; border-radius: 6px; background: var(--accent); }
+      #qruledout {
+        font-size: 32px; color: var(--muted); margin-top: 44px; position: relative; width: fit-content;
+        opacity: 0; font-weight: 500;
+      }
+      #qstrike { position: absolute; left: 0; top: 50%; height: 3px; width: 0; background: var(--muted); }
+
+      /* ===== framed real screens (beats 4,5,6) — seamless, feathered edges ===== */
+      .screenframe {
+        position: absolute; background: transparent; border: 0;
+        overflow: visible; opacity: 0; transform-style: preserve-3d;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 42px, #000 calc(100% - 42px), transparent 100%),
+                            linear-gradient(to right, transparent 0, #000 42px, #000 calc(100% - 42px), transparent 100%);
+        -webkit-mask-composite: source-in;
+        mask-image: linear-gradient(to bottom, transparent 0, #000 42px, #000 calc(100% - 42px), transparent 100%),
+                    linear-gradient(to right, transparent 0, #000 42px, #000 calc(100% - 42px), transparent 100%);
+        mask-composite: intersect;
+      }
+      .screenframe img { display: block; width: 100%; height: auto; }
+
+      /* beat 4 — architecture */
+      #archframe { left: 620px; top: 90px; width: 1180px; }
+      #layerstack { position: absolute; left: 120px; top: 300px; opacity: 0; }
+      #layerstack .ll {
+        font-size: 44px; font-weight: 800; color: var(--accent-text); margin: 34px 0;
+        opacity: 0; letter-spacing: -.01em;
+      }
+      #layerstack .ll span { display: block; font-size: 22px; font-weight: 600; color: var(--muted); margin-top: 4px; letter-spacing: 0; }
+
+      /* beat 5 — progression */
+      #progframe { left: 360px; top: 300px; width: 1200px; }
+      #progring {
+        position: absolute; left: 480px; top: 406px;
+        border: 5px solid var(--accent); border-radius: 999px;
+        width: 150px; height: 66px; opacity: 0;
+      }
+      #progcap { position: absolute; left: 360px; top: 220px; opacity: 0; }
+
+      /* beat 6 — three outputs */
+      #outlabel { left: 180px; top: 170px; opacity: 0; }
+      .outline { position: absolute; left: 180px; font-size: 40px; font-weight: 700; color: var(--ink); opacity: 0; }
+      .outline .dot { color: var(--accent); margin-right: 18px; }
+      #out1 { top: 300px; } #out2 { top: 380px; } #out3 { top: 460px; }
+      #heroframe { left: 980px; top: 150px; width: 760px; }
+      #stackframe { left: 980px; top: 150px; width: 760px; }
+
+      /* ===== BEAT 7 — CTA ===== */
+      #cta { position: absolute; inset: 0; opacity: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      #ctatitle { font-size: 56px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; }
+      #cmds { margin-top: 54px; display: flex; flex-direction: column; gap: 20px; }
+      .cmd {
+        font-family: "SF Mono", "Menlo", monospace; font-size: 27px; color: var(--ink);
+        background: #F0F0EE; border-radius: 14px; padding: 24px 36px; opacity: 0;
+        border: 1px solid var(--line); border-left: 6px solid var(--accent);
+      }
+      #ctarule { height: 5px; width: 0; background: var(--accent); margin: 48px 0 36px; border-radius: 3px; }
+      #ctanote { font-size: 34px; color: var(--muted); font-weight: 600; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="31" data-width="1920" data-height="1080">
+      <div class="stage clip" data-start="0" data-duration="31" data-track-index="0">
+        <div class="scene">
+
+          <!-- BEAT 1 -->
+          <div id="hook">
+            <div id="wordmark">AI Native<br>Architecture Advisor</div>
+            <div id="hookrule"></div>
+            <div id="hooksub">Reimagine an SAP use case for the AI-native era.</div>
+          </div>
+
+          <!-- BEAT 2 -->
+          <div id="promptwrap">
+            <div class="label" id="promptlabel">You describe the use case.</div>
+            <div id="promptcard">
+              <div id="prompttext"><span id="ptxt"></span><span id="pcaret"></span></div>
+            </div>
+          </div>
+
+          <!-- BEAT 3 -->
+          <div id="questions">
+            <div class="label" id="qlabel">The Advisor asks only what changes the architecture.</div>
+            <div class="qline" id="q1">Confirm the Joule entitlement and supported extension route?</div>
+            <div class="qline" id="q2">SAP BTP — Cloud Foundry or Kyma?</div>
+            <div class="qline" id="q3">Which S/4HANA PO APIs are released for the lookup?</div>
+            <div id="qruledout">A fixed questionnaire<span id="qstrike"></span></div>
+          </div>
+
+          <!-- BEAT 4 — real architecture diagram -->
+          <div class="screenframe" id="archframe">
+            <img src="assets/report-architecture.png" alt="Four-layer architecture" />
+          </div>
+          <div id="layerstack">
+            <div class="ll" id="ll-ux">User Experience<span>engagement</span></div>
+            <div class="ll" id="ll-proc">Process<span>workflows &amp; agents</span></div>
+            <div class="ll" id="ll-found">Foundation<span>AI &amp; data</span></div>
+            <div class="ll" id="ll-plat">Platform<span>runtime &amp; identity</span></div>
+          </div>
+
+          <!-- BEAT 5 — real progression -->
+          <div class="label" id="progcap">Today → recommended → North Star</div>
+          <div class="screenframe" id="progframe">
+            <img src="assets/report-progression.png" alt="Capability progression" />
+          </div>
+          <div id="progring"></div>
+
+          <!-- BEAT 6 — three outputs + real screens -->
+          <div class="label" id="outlabel">Every run writes three files.</div>
+          <div class="outline" id="out1"><span class="dot">■</span>A solution brief</div>
+          <div class="outline" id="out2"><span class="dot">■</span>A reasoning log</div>
+          <div class="outline" id="out3"><span class="dot">■</span>A visual HTML report</div>
+          <div class="screenframe" id="heroframe">
+            <img src="assets/report-hero.png" alt="Report hero" />
+          </div>
+          <div class="screenframe" id="stackframe">
+            <img src="assets/report-stack.png" alt="Solution stack" />
+          </div>
+
+          <!-- BEAT 7 — CTA -->
+          <div id="cta">
+            <div id="ctatitle">Install the Advisor</div>
+            <div id="cmds">
+              <div class="cmd" id="cmd1">/plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git</div>
+              <div class="cmd" id="cmd2">/plugin install ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
+            </div>
+            <div id="ctarule"></div>
+            <div id="ctanote">Draft for human review.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // caret blink (finite root duration -> finite repeats)
+      gsap.to("#pcaret", { opacity: 0, duration: 0.5, repeat: 59, yoyo: true, ease: "steps(1)" });
+
+      // ===== BEAT 1 (0 - 4s): hook =====
+      tl.fromTo("#hook", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 0.3);
+      tl.to("#hookrule", { width: 560, duration: 0.9, ease: "power2.inOut" }, 0.9);
+      tl.fromTo("#hooksub", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6 }, 1.3);
+      tl.to("#hook", { opacity: 0, y: -20, duration: 0.5, ease: "power2.in" }, 3.6);
+
+      // ===== BEAT 2 (4 - 9.5s): the real prompt types in =====
+      const prompt = "Help me reimagine our supplier-confirmation process. Buyers chase missing PO confirmations in S/4HANA. We want to reduce manual follow-up while keeping approval decisions with buyers.";
+      const ptxt = document.getElementById("ptxt");
+      const typ = { n: 0 };
+      tl.fromTo("#promptwrap", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 4.0);
+      tl.to(typ, { n: prompt.length, duration: 3.6, ease: "none",
+        onUpdate: () => { ptxt.textContent = prompt.slice(0, Math.round(typ.n)); } }, 4.4);
+      tl.set("#pcaret", { opacity: 0 }, 8.2);
+      tl.to("#promptwrap", { opacity: 0, y: -20, duration: 0.5, ease: "power2.in" }, 9.0);
+
+      // ===== BEAT 3 (9.5 - 14.5s): only the questions that matter =====
+      tl.fromTo("#questions", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 9.5);
+      tl.fromTo("#q1", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 10.0);
+      tl.fromTo("#q2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 10.5);
+      tl.fromTo("#q3", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 11.0);
+      tl.fromTo("#qruledout", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 12.0);
+      tl.to("#qstrike", { width: 320, duration: 0.6, ease: "power2.inOut" }, 12.4);
+      tl.to("#questions", { opacity: 0, duration: 0.5, ease: "power2.in" }, 13.9);
+
+      // ===== BEAT 4 (14.5 - 20.5s): real architecture, 3D-tilt reveal + gentle punch =====
+      tl.fromTo("#archframe",
+        { opacity: 0, rotateY: 16, rotateX: 6, y: 40, scale: 0.9 },
+        { opacity: 1, rotateY: 0, rotateX: 0, y: 0, scale: 1, duration: 1.0, ease: "power3.out" }, 14.5);
+      // slow, small punch-in that keeps the whole diagram framed
+      tl.to("#archframe", { scale: 1.06, duration: 4.0, ease: "power1.inOut" }, 15.6);
+      tl.fromTo("#layerstack", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 15.9);
+      tl.fromTo("#ll-ux",    { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4 }, 16.0);
+      tl.fromTo("#ll-proc",  { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4 }, 16.7);
+      tl.fromTo("#ll-found", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4 }, 17.4);
+      tl.fromTo("#ll-plat",  { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4 }, 18.1);
+      tl.to(["#archframe","#layerstack"], { opacity: 0, duration: 0.5, ease: "power2.in" }, 20.0);
+
+      // ===== BEAT 5 (20.5 - 24.5s): real progression, ring on Step 2 then ★ Step 5 =====
+      tl.fromTo("#progframe",
+        { opacity: 0, rotateX: 10, y: 40, scale: 0.92 },
+        { opacity: 1, rotateX: 0, y: 0, scale: 1, duration: 0.8, ease: "power3.out" }, 20.6);
+      tl.fromTo("#progcap", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 21.0);
+      // ring sits over Step 1 (today), then slides to ★ Step 5 (North Star)
+      tl.fromTo("#progring", { opacity: 0, x: 0, y: 0, scale: 0.8 },
+        { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 21.6);
+      tl.to("#progring", { x: 338, duration: 0.9, ease: "power2.inOut" }, 22.6);
+      tl.to(["#progframe","#progcap","#progring"], { opacity: 0, duration: 0.5, ease: "power2.in" }, 24.0);
+
+      // ===== BEAT 6 (24.5 - 28s): three outputs, real hero -> stack =====
+      tl.fromTo("#outlabel", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5 }, 24.6);
+      tl.fromTo("#out1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4 }, 24.9);
+      tl.fromTo("#out2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4 }, 25.2);
+      tl.fromTo("#out3", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4 }, 25.5);
+      tl.fromTo("#heroframe",
+        { opacity: 0, rotateY: -14, x: 40, scale: 0.92 },
+        { opacity: 1, rotateY: 0, x: 0, scale: 1, duration: 0.8, ease: "power3.out" }, 25.0);
+      tl.to("#heroframe", { opacity: 0, duration: 0.5 }, 26.6);
+      tl.fromTo("#stackframe",
+        { opacity: 0, rotateY: 12, x: -30, scale: 0.94 },
+        { opacity: 1, rotateY: 0, x: 0, scale: 1, duration: 0.8, ease: "power3.out" }, 26.7);
+      tl.to(["#outlabel","#out1","#out2","#out3","#stackframe"], { opacity: 0, duration: 0.5, ease: "power2.in" }, 27.6);
+
+      // ===== BEAT 7 (28 - 31s): CTA =====
+      tl.fromTo("#cta", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 28.0);
+      tl.fromTo("#ctatitle", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, 28.2);
+      tl.fromTo("#cmd1", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5 }, 28.6);
+      tl.fromTo("#cmd2", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5 }, 29.0);
+      tl.to("#ctarule", { width: 420, duration: 0.7, ease: "power2.inOut" }, 29.5);
+      tl.fromTo("#ctanote", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 }, 29.9);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
