@@ -4,7 +4,7 @@
 
 Reimagine an SAP customer or partner use case for the AI-native era. Describe the business problem, explore the options with the Advisor, and build an **AI Native Solution Brief** with a proposed architecture and a visual HTML report.
 
-**[Website and demo →](https://sap.github.io/ai-native-architecture-advisor/)** · [Watch the 30-second walkthrough](videos/supplier-confirmation/renders/supplier-confirmation_2026-10-06_15-45-28.mp4)
+**[Website and demo →](https://sap.github.io/ai-native-architecture-advisor/)** · [Watch the 30-second walkthrough](videos/supplier-confirmation/renders/supplier-confirmation_2026-10-06_17-41-41.mp4)
 
 The walkthrough shows one real run: a supplier-confirmation use case described in plain language, the questions that actually change the architecture, the four North Star layers, the capability progression, and the three files every run writes.
 

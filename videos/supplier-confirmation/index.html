@@ -87,14 +87,14 @@
       }
       #layerstack .ll span { display: block; font-size: 22px; font-weight: 600; color: var(--muted); margin-top: 4px; letter-spacing: 0; }
 
-      /* beat 5 — progression */
-      #progframe { left: 360px; top: 300px; width: 1200px; }
+      /* beat 5 — progression (tight card, centered) */
+      #progframe { left: 310px; top: 400px; width: 1300px; }
       #progring {
-        position: absolute; left: 480px; top: 406px;
+        position: absolute; left: 308px; top: 447px;
         border: 5px solid var(--accent); border-radius: 999px;
         width: 150px; height: 66px; opacity: 0;
       }
-      #progcap { position: absolute; left: 360px; top: 220px; opacity: 0; }
+      #progcap { position: absolute; left: 310px; top: 300px; opacity: 0; }
 
       /* beat 6 — three outputs */
       #outlabel { left: 180px; top: 170px; opacity: 0; }
@@ -243,7 +243,7 @@
       // ring sits over Step 1 (today), then slides to ★ Step 5 (North Star)
       tl.fromTo("#progring", { opacity: 0, x: 0, y: 0, scale: 0.8 },
         { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 21.6);
-      tl.to("#progring", { x: 338, duration: 0.9, ease: "power2.inOut" }, 22.6);
+      tl.to("#progring", { x: 488, duration: 0.9, ease: "power2.inOut" }, 22.6);
       tl.to(["#progframe","#progcap","#progring"], { opacity: 0, duration: 0.5, ease: "power2.in" }, 24.0);
 
       // ===== BEAT 6 (24.5 - 28s): three outputs, real hero -> stack =====
