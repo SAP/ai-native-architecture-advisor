@@ -957,16 +957,28 @@ codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advis
 
     // Split each .reveal-text heading into word spans for the mask-slide effect.
     // (Skipped under reduced motion — text stays plain.)
+    // Built with DOM nodes + textContent so word text is never parsed as HTML.
     if (!reduce) {
       document.querySelectorAll('.reveal-text').forEach(function (el) {
         if (el.dataset.split) return;
         var words = el.textContent.trim().split(/\s+/);
-        var html = '';
+        var frag = document.createDocumentFragment();
         words.forEach(function (w, i) {
-          html += '<span class="word"><span class="word-inner" style="--wi:' + i + '">' + w + '</span></span>';
-          if (i < words.length - 1) html += '<span class="sp"></span>';
+          var word = document.createElement('span');
+          word.className = 'word';
+          var inner = document.createElement('span');
+          inner.className = 'word-inner';
+          inner.style.setProperty('--wi', i);
+          inner.textContent = w;
+          word.appendChild(inner);
+          frag.appendChild(word);
+          if (i < words.length - 1) {
+            var sp = document.createElement('span');
+            sp.className = 'sp';
+            frag.appendChild(sp);
+          }
         });
-        el.innerHTML = html;
+        el.replaceChildren(frag);
         el.dataset.split = '1';
       });
     }
