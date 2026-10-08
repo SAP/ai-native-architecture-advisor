@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Native Architecture Advisor</title>
+<meta name="description" content="Reimagine an SAP customer or partner use case for the AI-native era. Describe the business problem, explore options with the Advisor, and build an AI Native Solution Brief with a proposed architecture and a visual HTML report.">
+<style>
+  /* ----------  Design tokens  ---------- */
+  :root {
+    --paper: #EFEDE7;         /* warm bone */
+    --paper-2: #E7E4DC;       /* slightly deeper band */
+    --ink: #15181C;           /* warm near-black */
+    --ink-dim: #585C62;       /* muted body on paper */
+    --ink-faint: #8A8D8F;
+    --dark: #0B0E13;          /* dark bands */
+    --dark-2: #10151D;
+    --on-dark: #D6DBE2;
+    --on-dark-dim: #8E96A1;
+    --blue: #0070F2;          /* SAP electric blue — the one accent */
+    --blue-deep: #0A4FC4;
+    --line: #DAD7CF;
+    --line-dark: rgba(255,255,255,0.12);
+
+    --font: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --maxw: 1240px;
+    --wide: 1600px;
+    --gutter: clamp(20px, 5vw, 64px);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --radius: 18px;
+  }
+  [data-theme="dark"] {
+    --paper: #0C0F14;
+    --paper-2: #11161E;
+    --ink: #F2F4F6;
+    --ink-dim: #9AA2AD;
+    --ink-faint: #6B7480;
+    --dark: #06090E;
+    --dark-2: #0C1118;
+    --on-dark: #D6DBE2;
+    --on-dark-dim: #8E96A1;
+    --line: #212936;
+    --line-dark: rgba(255,255,255,0.10);
+    --blue: #4D9BFF;
+    --blue-deep: #6AACFF;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background 240ms var(--ease), color 240ms var(--ease);
+  }
+
+  h1, h2, h3 { color: var(--ink); margin: 0; font-weight: 700; }
+  /* Type as a visual element: huge, tight, optical */
+  h1 {
+    font-size: clamp(44px, 8.2vw, 104px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: clamp(30px, 4.6vw, 54px);
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+  h3 { font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; font-weight: 650; }
+  p { margin: 0; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  :focus-visible { outline: 2.5px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
+  .wrap-wide { max-width: var(--wide); margin: 0 auto; padding-inline: var(--gutter); }
+  section { padding-block: clamp(72px, 11vw, 148px); }
+  .band-paper2 { background: var(--paper-2); }
+  .band-dark { background: var(--dark); color: var(--on-dark); }
+  .band-dark h2, .band-dark h3 { color: #fff; }
+
+  .lead { font-size: clamp(18px, 2vw, 22px); line-height: 1.5; color: var(--ink-dim); }
+  .band-dark .lead { color: var(--on-dark-dim); }
+  .kicker { font-size: 14px; font-weight: 600; color: var(--blue); letter-spacing: 0; }
+
+  /* ----------  Floating pill nav  ---------- */
+  header { position: sticky; top: 0; z-index: 60; padding: 14px var(--gutter) 0; }
+  .nav {
+    max-width: var(--maxw); margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 10px 10px 10px 22px;
+    background: color-mix(in srgb, var(--paper) 80%, transparent);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 8px 30px -16px rgba(15,18,20,0.25);
+  }
+  .wordmark { font-weight: 750; color: var(--ink); font-size: 16.5px; letter-spacing: -0.02em; white-space: nowrap; }
+  .nav-mid { display: flex; gap: 2px; }
+  .nav-mid a {
+    color: var(--ink-dim); font-size: 14.5px; font-weight: 500; padding: 9px 14px; border-radius: 999px;
+    transition: color 150ms var(--ease), background 150ms var(--ease);
+  }
+  .nav-mid a:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent); text-decoration: none; }
+  .nav-right { display: flex; align-items: center; gap: 8px; }
+  @media (max-width: 820px) { .nav-mid { display: none; } }
+  @media (max-width: 560px) {
+    header { padding-inline: 14px; }
+    .nav { padding-left: 16px; gap: 8px; }
+    .wordmark { font-size: 14px; white-space: normal; line-height: 1.1; }
+    .nav-right .btn-ink { display: none; }
+  }
+
+  /* ----------  Buttons (black / blue pills)  ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    font: inherit; font-size: 16px; font-weight: 600; line-height: 1;
+    padding: 14px 22px; border-radius: 999px; border: 1.5px solid transparent;
+    cursor: pointer; white-space: nowrap;
+    transition: transform 150ms var(--ease), background 150ms var(--ease), border-color 150ms var(--ease), color 150ms var(--ease);
+  }
+  .btn:hover { text-decoration: none; }
+  .btn:active { transform: translateY(1px); }
+  .btn-ink { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn-ink:hover { background: color-mix(in srgb, var(--ink) 82%, var(--blue)); border-color: color-mix(in srgb, var(--ink) 82%, var(--blue)); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-outline:hover { border-color: var(--ink); }
+  .btn-sm { padding: 10px 18px; font-size: 14.5px; }
+  .btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .btn-blue:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+  .band-dark .btn-ink { background: #fff; color: var(--dark); border-color: #fff; }
+  .band-dark .btn-outline { color: #fff; border-color: var(--line-dark); }
+  .band-dark .btn-outline:hover { border-color: #fff; }
+
+  .theme-toggle {
+    width: 40px; height: 40px; display: grid; place-items: center; flex: none;
+    background: transparent; border: 1.5px solid var(--line); border-radius: 999px;
+    color: var(--ink); cursor: pointer; transition: border-color 150ms var(--ease), color 150ms var(--ease);
+  }
+  .theme-toggle:hover { border-color: var(--ink); }
+  .theme-toggle svg { width: 17px; height: 17px; }
+  .theme-toggle .moon { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .moon { display: block; }
+
+  /* ----------  Hero (centered, big)  ---------- */
+  .hero { padding-top: clamp(48px, 7vw, 92px); padding-bottom: clamp(40px, 6vw, 72px); text-align: center; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; left: 50%; top: -10%; width: 120vw; height: 70%;
+    transform: translateX(-50%); z-index: -1; pointer-events: none;
+    background: radial-gradient(50% 60% at 50% 0%, color-mix(in srgb, var(--blue) 15%, transparent) 0%, transparent 72%);
+  }
+  .hero h1 { max-width: 15ch; margin: 0 auto; }
+  .hero .lead { max-width: 54ch; margin: 26px auto 0; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 34px; }
+
+  /* Large centered report stack — the fix for "images too small" */
+  .stage { margin-top: clamp(44px, 6vw, 76px); }
+  .stack {
+    position: relative; width: min(960px, 100%); margin: 0 auto;
+    aspect-ratio: 16 / 9; touch-action: none; user-select: none;
+  }
+  .stack-card {
+    position: absolute; inset: 0; margin: 0;
+    border-radius: var(--radius); overflow: hidden; background: #fff;
+    border: 1px solid rgba(15,18,20,0.08);
+    box-shadow: 0 40px 90px -40px rgba(15,18,20,0.5), 0 10px 30px -14px rgba(15,18,20,0.25);
+    transition: transform 560ms var(--ease), box-shadow 320ms var(--ease);
+    will-change: transform;
+  }
+  .stack-card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; pointer-events: none; }
+  .stack-card.top { cursor: grab; }
+  .stack-card.top:active { cursor: grabbing; }
+  .stack-card.dragging { transition: none; }
+  .stack-hint { text-align: center; margin-top: 26px; font-size: 13.5px; color: var(--ink-faint); transition: opacity 400ms var(--ease); }
+  .stack-hint.hide { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) { .stack-card { transition: none; } }
+
+  /* ----------  "What it is" statement band  ---------- */
+  .statement { max-width: 20ch; }
+  .statement-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+  @media (max-width: 880px) { .statement-grid { grid-template-columns: 1fr; gap: 20px; } }
+  .statement-grid .lead { max-width: 46ch; }
+
+  /* ----------  How it works (real sequence → numbered)  ---------- */
+  .sec-head { max-width: 56ch; }
+  .sec-head h2 { margin-top: 14px; }
+  .sec-head .lead { margin-top: 18px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); margin-top: clamp(44px, 6vw, 72px); }
+  @media (max-width: 820px) { .steps { grid-template-columns: 1fr; gap: 28px; } }
+  .step { padding-top: 22px; border-top: 1.5px solid var(--ink); }
+  .step .num {
+    font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--blue);
+    display: inline-flex; align-items: baseline; gap: 8px; margin-bottom: 16px;
+  }
+  .step .num b { color: var(--ink); font-weight: 650; }
+  .step h3 { margin-bottom: 10px; }
+  .step p { color: var(--ink-dim); font-size: 15.5px; }
+
+  /* ----------  Video (edge-to-edge dark band)  ---------- */
+  .video-head { max-width: 56ch; }
+  .media {
+    width: 100%; margin-top: clamp(40px, 5vw, 64px);
+    border-radius: var(--radius); overflow: hidden; background: #fff;
+    border: 1px solid var(--line-dark);
+    box-shadow: 0 50px 110px -50px rgba(0,0,0,0.8);
+    aspect-ratio: 16 / 9;
+  }
+  .media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* ----------  What you get (3 output files)  ---------- */
+  .outputs { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 16px; margin-top: clamp(44px, 6vw, 72px); }
+  @media (max-width: 900px) { .outputs { grid-template-columns: 1fr; } }
+  .out {
+    position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 30px; display: flex; flex-direction: column; min-height: 230px;
+    transition: border-color 160ms var(--ease), transform 300ms var(--ease);
+  }
+  .band-paper2 .out { background: #fff; }
+  [data-theme="dark"] .band-paper2 .out { background: var(--paper); }
+  .out:hover { border-color: var(--ink); transform: translateY(-3px); }
+  .out.feature { grid-row: span 2; background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .out.feature h3 { color: #fff; font-size: 27px; }
+  .out.feature p { color: var(--on-dark-dim); }
+  @media (max-width: 900px) { .out.feature { grid-row: auto; } }
+  .out .file { font-family: var(--mono); font-size: 12.5px; color: var(--blue); word-break: break-word; margin-bottom: auto; }
+  .out.feature .file { color: var(--blue-deep); }
+  [data-theme="dark"] .out.feature .file { color: var(--blue); }
+  .out h3 { margin: 22px 0 10px; }
+  .out p { color: var(--ink-dim); font-size: 15.5px; }
+
+  /* ----------  Grounded in SAP (3 sources)  ---------- */
+  .sources { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(40px, 5vw, 64px); border-top: 1.5px solid var(--line); }
+  @media (max-width: 820px) { .sources { grid-template-columns: 1fr; } }
+  .source { padding: 30px 0; border-bottom: 1px solid var(--line); }
+  @media (min-width: 821px) {
+    .source { padding: 32px 32px 32px 0; border-right: 1px solid var(--line); border-bottom: none; }
+    .source:last-child { border-right: none; padding-right: 0; }
+    .source:not(:first-child) { padding-left: 32px; }
+  }
+  .source .idx { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); }
+  .source h3 { font-size: 19px; margin: 14px 0 10px; max-width: 20ch; }
+  .source p { color: var(--ink-dim); font-size: 15.5px; max-width: 34ch; }
+
+  /* ----------  Trust band  ---------- */
+  .trust { max-width: 64ch; }
+  .trust h2 { margin-bottom: 24px; }
+  .trust p { color: var(--ink-dim); font-size: 18px; line-height: 1.6; }
+  .trust p + p { margin-top: 18px; }
+  .trust .rule { width: 72px; height: 4px; background: var(--blue); border-radius: 3px; margin-bottom: 30px; }
+
+  /* ----------  Install (dark band)  ---------- */
+  .hosts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: clamp(40px, 5vw, 64px); }
+  @media (max-width: 820px) { .hosts { grid-template-columns: 1fr; } }
+  .host { background: var(--dark-2); border: 1px solid var(--line-dark); border-radius: var(--radius); padding: 30px; min-width: 0; }
+  .host h3 { color: #fff; margin-bottom: 18px; }
+  .code {
+    position: relative; background: #05080C; border: 1px solid var(--line-dark); border-radius: 12px;
+    padding: 18px 48px 18px 18px; margin-bottom: 12px;
+    font-family: var(--mono); font-size: 13px; line-height: 1.75; color: #CBD6E8;
+    overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+  }
+  .copy {
+    position: absolute; top: 11px; right: 11px; width: 30px; height: 30px;
+    display: grid; place-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 8px; color: var(--on-dark-dim); cursor: pointer;
+    transition: color 150ms var(--ease), border-color 150ms var(--ease), background 150ms var(--ease);
+  }
+  .copy:hover { color: #fff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.14); }
+  .copy svg { width: 15px; height: 15px; }
+  .copy.copied { color: #fff; border-color: var(--blue); background: var(--blue); }
+  .host p { color: var(--on-dark-dim); font-size: 14px; margin-top: 14px; }
+
+  /* ----------  Footer with giant wordmark  ---------- */
+  footer { background: var(--dark); color: var(--on-dark); padding-top: clamp(56px, 7vw, 88px); overflow: hidden; }
+  .foot-top {
+    display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: start; justify-content: space-between;
+    padding-bottom: clamp(40px, 6vw, 72px);
+  }
+  .foot-top .badge { display: inline-block; font-size: 12px; font-weight: 600; color: #fff; border: 1px solid var(--line-dark); border-radius: 999px; padding: 5px 13px; margin-bottom: 14px; }
+  .foot-meta p { font-size: 14px; color: var(--on-dark-dim); max-width: 44ch; }
+  .foot-links { display: flex; gap: 26px; font-size: 14.5px; }
+  .foot-links a { color: var(--on-dark); }
+  .foot-links a:hover { color: #fff; }
+  .giant {
+    font-size: clamp(56px, 15.5vw, 260px); line-height: 0.82; font-weight: 750; letter-spacing: -0.05em;
+    color: #fff; white-space: nowrap; margin: 0; padding-bottom: 0.06em;
+    transform: translateY(14%);
+  }
+
+  /* ----------  Scroll reveal  ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 760ms var(--ease), transform 760ms var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .out, .nav-mid a, .copy, .theme-toggle, .step, .source { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <span class="wordmark">AI Native Architecture Advisor</span>
+    <div class="nav-mid">
+      <a href="#how">How it works</a>
+      <a href="#outputs">What you get</a>
+      <a href="#grounded">Grounded in SAP</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch color theme" type="button">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-ink btn-sm" href="#install">Install the plugin</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Reimagine an SAP use case for the AI-native era</h1>
+      <p class="lead">Describe the business problem, explore the options with the Advisor, and build an AI Native Solution Brief with a proposed architecture and a visual HTML report.</p>
+      <div class="hero-cta">
+        <a class="btn btn-ink" href="#install">Install the plugin</a>
+        <a class="btn btn-outline" href="https://github.com/SAP/ai-native-architecture-advisor/blob/main/examples/supplier-confirmation-solution-brief.md">See an example brief</a>
+      </div>
+    </div>
+    <div class="wrap-wide stage reveal">
+      <div class="stack" id="stack" aria-roledescription="card stack" aria-label="The Advisor's visual report. Drag the top card to send it to the back.">
+        <figure class="stack-card"><img src="assets/report-hero.png" alt="Solution brief header: title, Draft status and the use case" draggable="false" /></figure>
+        <figure class="stack-card"><img src="assets/report-architecture.png" alt="Four-layer architecture diagram: User Experience, Process, Foundation, Platform" draggable="false" /></figure>
+        <figure class="stack-card"><img src="assets/report-progression.png" alt="Capability progression per layer, step one through four" draggable="false" /></figure>
+        <figure class="stack-card"><img src="assets/report-stack.png" alt="Solution stack grouped by the four layers" draggable="false" /></figure>
+      </div>
+      <p class="stack-hint" id="stackHint">Drag the top card</p>
+    </div>
+  </section>
+
+  <!-- What it is -->
+  <section class="band-paper2">
+    <div class="wrap statement-grid reveal">
+      <h2 class="statement">Initial high-level solution design, grounded in SAP's AI-native North Star</h2>
+      <p class="lead">The Advisor asks only the questions that materially affect the architecture, separates confirmed facts from assumptions, and explains the value and trade-offs of each proposed change. Keeping a suitable existing design is a valid recommendation.</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">How it works</p>
+        <h2>From a described problem to a reviewed proposal</h2>
+        <p class="lead">You start with the problem, actors, desired outcome and any constraints you already know. You do not need a complete technical design.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <p class="num">01&nbsp;&nbsp;<b>Describe</b></p>
+          <h3>Start with the business problem</h3>
+          <p>Bring the actors, the desired outcome and any constraints. Confirm or correct the Advisor's assumptions as it works.</p>
+        </div>
+        <div class="step reveal">
+          <p class="num">02&nbsp;&nbsp;<b>Explore</b></p>
+          <h3>Explore the options together</h3>
+          <p>The Advisor maps the scenario to SAP reference architectures and explains the trade-offs, strongest fit first.</p>
+        </div>
+        <div class="step reveal">
+          <p class="num">03&nbsp;&nbsp;<b>Build</b></p>
+          <h3>Build the solution brief</h3>
+          <p>Get a brief, a reasoning log and a visual HTML report you can open directly in a browser. Continue the conversation to revise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Walkthrough video -->
+  <section class="band-dark">
+    <div class="wrap-wide">
+      <div class="video-head reveal">
+        <p class="kicker">See it work</p>
+        <h2>From a described problem to a visual brief</h2>
+        <p class="lead">A short walk through a generated brief: the use case, the four North Star layers, the capability progression and the solution stack.</p>
+      </div>
+      <div class="media reveal">
+        <video id="walkVideo" muted loop playsinline controls preload="none" poster="assets/walkthrough-poster.png" aria-label="Walkthrough of a generated AI Native Solution Brief">
+          <source src="assets/walkthrough.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section id="outputs" class="band-paper2">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">What you get</p>
+        <h2>Each scenario gets its own folder with three files</h2>
+        <p class="lead">Markdown is the content source. Continue the conversation to revise it, and the Advisor regenerates the HTML.</p>
+      </div>
+      <div class="outputs">
+        <div class="out feature reveal">
+          <p class="file">&lt;slug&gt;-solution-brief.html</p>
+          <h3>Visual report</h3>
+          <p>A visual proposal that opens directly in a browser. No web server required; it loads no remote fonts, scripts or images. This is the artifact you share.</p>
+        </div>
+        <div class="out reveal">
+          <p class="file">&lt;slug&gt;-solution-brief.md</p>
+          <h3>Solution brief</h3>
+          <p>Use case, AI-native direction, proposed architecture, capability progression, solution stack and relevant reference architectures.</p>
+        </div>
+        <div class="out reveal">
+          <p class="file">&lt;slug&gt;-reasoning-log.md</p>
+          <h3>Reasoning log</h3>
+          <p>Facts, assumptions, decisions, source checks and open questions, kept separate from the proposal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grounded in SAP -->
+  <section id="grounded">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">Grounded in SAP</p>
+        <h2>Built on SAP's own architectural guidance</h2>
+        <p class="lead">The skill combines content and guidance from SAP's published architecture sources, shipped with the plugin as dated reference data.</p>
+      </div>
+      <div class="sources">
+        <div class="source reveal">
+          <p class="idx">01</p>
+          <h3>AI-native North Star architecture</h3>
+          <p>The architectural vision and the User Experience, Process, Foundation and Platform layers.</p>
+        </div>
+        <div class="source reveal">
+          <p class="idx">02</p>
+          <h3>AI Golden Path</h3>
+          <p>AI and development approaches for the scenario, as a commit-pinned text snapshot.</p>
+        </div>
+        <div class="source reveal">
+          <p class="idx">03</p>
+          <h3>Architecture Center reference architectures</h3>
+          <p>Implementation patterns, selected and explained by the agent according to their fit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honest by design -->
+  <section class="band-paper2">
+    <div class="wrap">
+      <div class="trust reveal">
+        <div class="rule"></div>
+        <h2>A draft for human review, not an approved design</h2>
+        <p>This is initial high-level solution design for solution and enterprise architects and business teams. It is not a PRD, a functional specification or a detailed technical design. Field-level requirements and configuration are left for later design.</p>
+        <p>AI can hallucinate services, capabilities, integrations and references. Check recommendations against current SAP documentation and your actual landscape, availability, entitlements and security requirements before you use the proposal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section id="install" class="band-dark">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">Get started</p>
+        <h2>Install and use</h2>
+        <p class="lead">One shared skill powers both hosts. Install through one route per host to avoid duplicate skill entries.</p>
+      </div>
+      <div class="hosts">
+        <div class="host reveal">
+          <h3>Claude Code</h3>
+          <div class="code"><button class="copy" type="button" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>/plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
+/plugin install ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
+          <p>Run these inside Claude Code, then reload plugins or start a new session.</p>
+        </div>
+        <div class="host reveal">
+          <h3>Codex</h3>
+          <div class="code"><button class="copy" type="button" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>codex plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
+codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
+          <p>Run these in your terminal, then start a new Codex thread.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-top">
+    <div class="foot-meta">
+      <span class="badge">v0.2.0 · Beta</span>
+      <p>Copyright 2026 SAP SE or an SAP affiliate company and ai-native-architecture-advisor contributors.</p>
+    </div>
+    <div class="foot-links">
+      <a href="https://github.com/SAP/ai-native-architecture-advisor">Repository</a>
+      <a href="https://github.com/SAP/ai-native-architecture-advisor/issues/new">Report an issue</a>
+    </div>
+  </div>
+  <div class="wrap-wide" aria-hidden="true">
+    <p class="giant">Architecture Advisor</p>
+  </div>
+</footer>
+
+<script>
+  // Theme: respect saved choice, else system preference
+  (function () {
+    var root = document.documentElement;
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved === 'light' || saved === 'dark') {
+      root.setAttribute('data-theme', saved);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      root.setAttribute('data-theme', 'dark');
+    }
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+
+  // Scroll reveal via IntersectionObserver (no scroll listeners)
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Copy-to-clipboard for install commands
+  (function () {
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var text = btn.parentElement.innerText.trim();
+        navigator.clipboard.writeText(text).then(function () {
+          btn.classList.add('copied');
+          setTimeout(function () { btn.classList.remove('copied'); }, 1400);
+        }).catch(function () {});
+      });
+    });
+  })();
+
+  // Card stack: tidy pile, top card drags to send to the back
+  (function () {
+    var stack = document.getElementById('stack');
+    if (!stack) return;
+    var cards = [].slice.call(stack.querySelectorAll('.stack-card'));
+    var n = cards.length;
+    if (!n) return;
+    var hint = document.getElementById('stackHint');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var TILT = [-4, 3, -2, 4, -3, 2];
+    var order = cards.map(function (_, i) { return i; });
+
+    function layout(animateTop) {
+      order.forEach(function (cardIdx, depth) {
+        var card = cards[cardIdx];
+        var isTop = depth === 0;
+        var rot = TILT[depth % TILT.length];
+        var ty = depth * 11;
+        var sc = 1 - depth * 0.04;
+        card.style.zIndex = String(n - depth);
+        card.classList.toggle('top', isTop);
+        if (!(isTop && animateTop === false)) {
+          card.style.transform = 'translateY(' + ty + 'px) scale(' + sc + ') rotate(' + rot + 'deg)';
+        }
+        card.setAttribute('aria-hidden', isTop ? 'false' : 'true');
+      });
+    }
+
+    function sendToBack() {
+      var moved = order.shift();
+      order.push(moved);
+      layout(true);
+      restart();
+    }
+
+    layout(true);
+
+    var dragging = false, startX = 0, startY = 0, topCard = null;
+    var THRESHOLD = 110;
+    function topEl() { return cards[order[0]]; }
+
+    function onDown(e) {
+      var card = e.target.closest && e.target.closest('.stack-card');
+      if (!card || card !== topEl()) return;
+      dragging = true; topCard = card;
+      startX = e.clientX; startY = e.clientY;
+      card.classList.add('dragging');
+      if (hint) hint.classList.add('hide');
+      stop();
+      card.setPointerCapture && card.setPointerCapture(e.pointerId);
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      var dx = e.clientX - startX, dy = e.clientY - startY;
+      topCard.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (dx * 0.05) + 'deg)';
+    }
+    function onUp(e) {
+      if (!dragging) return;
+      dragging = false;
+      var dx = e.clientX - startX, dy = e.clientY - startY;
+      topCard.classList.remove('dragging');
+      if (Math.abs(dx) > THRESHOLD || Math.abs(dy) > THRESHOLD) {
+        var offX = (dx >= 0 ? 1 : -1) * 760;
+        topCard.style.transform = 'translate(' + offX + 'px,' + (dy * 1.4) + 'px) rotate(' + (dx * 0.08) + 'deg)';
+        setTimeout(sendToBack, reduce ? 0 : 320);
+      } else {
+        layout(true);
+        restart();
+      }
+    }
+
+    stack.addEventListener('pointerdown', onDown);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+
+    stack.tabIndex = 0;
+    stack.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (hint) hint.classList.add('hide'); sendToBack(); }
+    });
+
+    var timer = null;
+    function start() { if (reduce) return; stop(); timer = setInterval(sendToBack, 3800); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+    stack.addEventListener('mouseenter', stop);
+    stack.addEventListener('mouseleave', start);
+    stack.addEventListener('focusin', stop);
+    stack.addEventListener('focusout', start);
+    start();
+  })();
+</script>
+</body>
+</html>

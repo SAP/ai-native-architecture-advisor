@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Native Architecture Advisor</title>
+<meta name="description" content="The creative process of crafting an SAP AI-native solution brief. Describe the business problem, explore options with the Advisor, and build a proposed architecture and a visual HTML report.">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=neue-montreal@400,500,700&f[]=mondwest@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #070707;
+    --paper: #EAEAEA;
+    --paper-dim: #CFCFCF;
+    --gray-1: #262626;
+    --gray-2: #515151;
+    --gray-3: #929292;
+    --amber: #FFB700;
+    --line-on-dark: rgba(234,234,234,0.16);
+    --line-on-light: rgba(7,7,7,0.16);
+    --grotesk: "Neue Montreal", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --pixel: "Mondwest", ui-monospace, "SF Mono", Menlo, monospace;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --gutter: clamp(18px, 3.5vw, 48px);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--ink); color: var(--paper);
+    font-family: var(--grotesk); font-size: 17px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  h1,h2,h3 { margin: 0; font-weight: 500; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--amber); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .mono { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ---- Fixed chrome: MENU, coordinate readout, frame brackets ---- */
+  .chrome { position: fixed; inset: 0; z-index: 50; pointer-events: none; }
+  .chrome .menu { position: absolute; top: 20px; right: var(--gutter); pointer-events: auto; }
+  .chrome .menu button {
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    background: none; border: none; color: var(--paper); cursor: pointer; mix-blend-mode: difference;
+  }
+  .coords { position: absolute; left: var(--gutter); bottom: 22px; font-family: var(--mono); font-size: 11px; color: var(--gray-3); mix-blend-mode: difference; }
+  .frame { position: absolute; inset: 10px; border: 0; }
+  .frame span { position: absolute; width: 16px; height: 16px; border: 1.5px solid var(--gray-2); mix-blend-mode: difference; }
+  .frame .tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+  .frame .tr { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+  .frame .bl { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+  .frame .br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+  /* ---- Overlay menu ---- */
+  .nav-overlay {
+    position: fixed; inset: 0; z-index: 60; background: var(--ink); color: var(--paper);
+    display: flex; flex-direction: column; justify-content: center; padding: var(--gutter);
+    transform: translateY(-100%); transition: transform 620ms var(--ease); pointer-events: none;
+  }
+  .nav-overlay.open { transform: none; pointer-events: auto; }
+  .nav-overlay ol { list-style: none; margin: 0; padding: 0; }
+  .nav-overlay li { border-top: 1px solid var(--line-on-dark); }
+  .nav-overlay li:last-child { border-bottom: 1px solid var(--line-on-dark); }
+  .nav-overlay a { display: flex; align-items: baseline; gap: 20px; padding: clamp(10px,1.6vw,20px) 0; font-size: clamp(30px,6vw,72px); font-weight: 500; letter-spacing: -0.03em; transition: color 160ms var(--ease), padding-left 220ms var(--ease); }
+  .nav-overlay a:hover { color: var(--amber); padding-left: 18px; }
+  .nav-overlay a .n { font-family: var(--mono); font-size: 13px; color: var(--gray-3); text-transform: uppercase; }
+  .nav-overlay .close { position: absolute; top: 20px; right: var(--gutter); font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: none; color: var(--paper); cursor: pointer; }
+
+  /* ---- Panels: alternating light / dark full-bleed ---- */
+  .panel { position: relative; padding: clamp(72px,10vw,150px) var(--gutter); }
+  .panel.dark { background: var(--ink); color: var(--paper); }
+  .panel.light { background: var(--paper); color: var(--ink); }
+  .panel.light .mono { color: var(--gray-2); }
+  .panel.dark .mono { color: var(--gray-3); }
+  .wrap { max-width: 1500px; margin: 0 auto; }
+
+  /* chapter tag row */
+  .chapter-tag { display: flex; justify-content: space-between; align-items: baseline; border-top: 1.5px solid currentColor; padding-top: 12px; margin-bottom: clamp(28px,5vw,64px); }
+  .chapter-tag .lo { opacity: 0.6; }
+
+  /* ---- COVER (chapter 00) ---- */
+  .cover { min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(72px,9vw,120px) var(--gutter) clamp(28px,4vw,48px); background: var(--ink); position: relative; }
+  .cover h1 {
+    font-size: clamp(48px, 11.2vw, 190px); line-height: 0.9; font-weight: 500; letter-spacing: -0.04em; max-width: 14ch;
+  }
+  .cover h1 .tm { font-size: 0.42em; vertical-align: super; }
+  .cover-foot { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,4vw,64px); align-items: end; }
+  .cover-foot .right { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; align-self: end; }
+  .cover-sub { font-size: clamp(20px,2.4vw,30px); line-height: 1.2; max-width: 20ch; letter-spacing: -0.02em; }
+  .spec-line { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line-on-dark); padding: 9px 0; }
+  .spec-line span:last-child { color: var(--gray-3); }
+  .barcode { height: 48px; width: clamp(160px,22vw,280px); align-self: end;
+    background: repeating-linear-gradient(90deg, var(--paper) 0 2px, transparent 2px 4px, var(--paper) 4px 5px, transparent 5px 9px, var(--paper) 9px 12px, transparent 12px 14px);
+  }
+  .project-by { color: var(--gray-3); }
+  .project-by b { display: block; color: var(--paper); font-weight: 500; letter-spacing: 0.04em; }
+
+  /* ---- Block-assemble lead statement (dark) ---- */
+  .statement-panel { min-height: 100svh; display: grid; place-items: center; text-align: center; }
+  .big-statement { font-size: clamp(30px, 5.4vw, 76px); line-height: 1.08; font-weight: 500; letter-spacing: -0.03em; max-width: 20ch; }
+  .big-statement .w { position: relative; display: inline-block; }
+  .big-statement .w::after {
+    content: ""; position: absolute; inset: 0.08em -0.1em 0.06em; background: var(--gray-1); border-radius: 2px;
+    transform: scaleX(1); transform-origin: left; transition: transform 520ms var(--ease);
+  }
+  .big-statement.revealed .w::after { transform: scaleX(0); transform-origin: right; }
+  .big-statement .w.clear::after { transform: scaleX(0); transform-origin: right; }
+  .big-statement .accent { color: var(--amber); }
+  .radial-ticks { position: absolute; width: min(60vw,640px); aspect-ratio: 1; border-radius: 50%; z-index: -1;
+    background: repeating-conic-gradient(var(--gray-1) 0deg 0.4deg, transparent 0.4deg 6deg); opacity: 0.5;
+    -webkit-mask: radial-gradient(circle, transparent 58%, #000 59%, #000 62%, transparent 63%);
+            mask: radial-gradient(circle, transparent 58%, #000 59%, #000 62%, transparent 63%);
+  }
+
+  /* ---- Chapter divider (big number) ---- */
+  .divider { min-height: 86svh; display: flex; flex-direction: column; justify-content: center; }
+  .divider .row { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 24px; }
+  .divider h2 { font-size: clamp(44px,8.5vw,128px); line-height: 0.92; font-weight: 500; letter-spacing: -0.04em; }
+  .divider .num { display: flex; align-items: flex-start; gap: 20px; }
+  .divider .num .lab { font-family: var(--mono); font-size: 12px; text-transform: uppercase; padding-top: 10px; opacity: 0.6; }
+  .divider .num .big { font-size: clamp(72px,13vw,210px); line-height: 0.82; font-weight: 500; letter-spacing: -0.05em; }
+  .divider .foot { margin-top: auto; padding-top: clamp(40px,8vw,120px); display: flex; justify-content: space-between; }
+
+  /* ---- Reading statement (big justified prose) ---- */
+  .reading { font-size: clamp(26px,4.2vw,60px); line-height: 1.12; font-weight: 500; letter-spacing: -0.03em; text-indent: 2.4em; }
+  .reading .accent { color: var(--amber); }
+
+  /* ---- Steps / chapter sub-sections (2.1 … 2.5) ---- */
+  .sub { display: grid; grid-template-columns: minmax(0,0.42fr) minmax(0,1fr); gap: clamp(24px,4vw,80px); align-items: start; padding: clamp(36px,5vw,72px) 0; border-top: 1px solid currentColor; }
+  .sub:first-of-type { border-top: 1.5px solid currentColor; }
+  .sub .k { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; }
+  .sub .lead-no { font-size: clamp(30px,4.4vw,64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+  .sub .body h3 { font-size: clamp(20px,2vw,27px); margin-bottom: 12px; }
+  .sub .body p { font-size: clamp(16px,1.5vw,19px); max-width: 48ch; opacity: 0.72; }
+
+  /* ---- Datasheet / spec table ---- */
+  .datasheet { border-top: 1.5px solid currentColor; }
+  .ds-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: clamp(12px,1.4vw,18px) 0; border-bottom: 1px solid currentColor; }
+  .ds-row .k { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ds-row .v { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.62; text-align: right; }
+  .ds-row.lg .k { font-family: var(--grotesk); font-size: clamp(18px,2vw,26px); letter-spacing: -0.01em; text-transform: none; }
+
+  /* ---- Four-layer grid spec (the architecture) ---- */
+  .layers { display: grid; gap: 2px; margin-top: clamp(28px,4vw,56px); border: 1px solid var(--line-on-light); background: var(--line-on-light); }
+  .panel.dark .layers { border-color: var(--line-on-dark); background: var(--line-on-dark); }
+  .layer { background: var(--paper); color: var(--ink); display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px; align-items: center; padding: clamp(18px,2.4vw,30px) clamp(18px,2.4vw,30px); }
+  .panel.dark .layer { background: var(--ink); color: var(--paper); }
+  .layer .ln { font-size: clamp(20px,2.6vw,34px); font-weight: 500; letter-spacing: -0.02em; }
+  .layer .ls { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.55; margin-top: 4px; }
+  .layer .pills { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; max-width: 55%; }
+  .layer .pill { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; padding: 5px 11px; border: 1px solid currentColor; border-radius: 999px; opacity: 0.72; white-space: nowrap; }
+  .layer.plat { background: var(--ink); color: var(--paper); }
+  .panel.dark .layer.plat { background: var(--amber); color: var(--ink); }
+  @media (max-width: 640px) { .layer { grid-template-columns: 1fr; } .layer .pills { justify-content: flex-start; max-width: 100%; } }
+
+  /* ---- Output files (what you get) ---- */
+  .files { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--line-on-light); border: 1px solid var(--line-on-light); margin-top: clamp(28px,4vw,56px); }
+  .panel.dark .files { background: var(--line-on-dark); border-color: var(--line-on-dark); }
+  .file { background: var(--paper); color: var(--ink); padding: clamp(24px,3vw,40px); min-height: 240px; display: flex; flex-direction: column; }
+  .panel.dark .file { background: var(--ink); color: var(--paper); }
+  .file .fn { font-family: var(--mono); font-size: 12px; color: var(--amber); word-break: break-word; }
+  .file .ft { font-size: clamp(20px,2.2vw,28px); font-weight: 500; letter-spacing: -0.02em; margin: auto 0 10px; }
+  .file p { font-size: 15px; opacity: 0.72; }
+  @media (max-width: 820px) { .files { grid-template-columns: 1fr; } .file { min-height: 0; } }
+
+  /* ---- Sources (grounded) ---- */
+  .sources { border-top: 1.5px solid currentColor; margin-top: clamp(28px,4vw,56px); }
+  .source { display: grid; grid-template-columns: auto 1fr; gap: clamp(16px,3vw,48px); padding: clamp(22px,3vw,40px) 0; border-bottom: 1px solid currentColor; align-items: baseline; }
+  .source .idx { font-family: var(--mono); font-size: 13px; }
+  .source h3 { font-size: clamp(22px,3vw,40px); font-weight: 500; letter-spacing: -0.02em; }
+  .source p { font-size: clamp(15px,1.4vw,18px); opacity: 0.7; max-width: 46ch; margin-top: 10px; }
+
+  /* ---- Install ---- */
+  .hosts { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line-on-dark); border: 1px solid var(--line-on-dark); margin-top: clamp(28px,4vw,56px); }
+  @media (max-width: 820px) { .hosts { grid-template-columns: 1fr; } }
+  .host { background: var(--ink); padding: clamp(24px,3vw,40px); min-width: 0; }
+  .host h3 { font-size: clamp(20px,2.2vw,28px); margin-bottom: 18px; }
+  .code { position: relative; background: #000; border: 1px solid var(--line-on-dark); border-radius: 8px; padding: 16px 46px 16px 16px; margin-bottom: 12px; font-family: var(--mono); font-size: 12.5px; line-height: 1.7; color: var(--paper-dim); overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+  .copy { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; display: grid; place-items: center; background: rgba(234,234,234,0.08); border: 1px solid var(--line-on-dark); border-radius: 7px; color: var(--gray-3); cursor: pointer; transition: all 150ms var(--ease); }
+  .copy:hover { color: var(--paper); border-color: var(--gray-2); }
+  .copy.copied { color: var(--ink); background: var(--amber); border-color: var(--amber); }
+  .copy svg { width: 15px; height: 15px; }
+  .host .hint { font-size: 14px; opacity: 0.6; margin-top: 14px; }
+
+  /* ---- Trust (light) ---- */
+  .trust-lead { font-size: clamp(28px,4.6vw,64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.08; max-width: 20ch; }
+  .trust-body { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(24px,4vw,64px); margin-top: clamp(32px,5vw,64px); }
+  .trust-body p { font-size: clamp(15px,1.5vw,19px); line-height: 1.55; opacity: 0.72; }
+  @media (max-width: 760px) { .trust-body { grid-template-columns: 1fr; } }
+
+  /* ---- Footer ---- */
+  footer { background: var(--ink); color: var(--paper); padding: clamp(56px,8vw,110px) var(--gutter) 0; overflow: hidden; }
+  .foot-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px 40px; align-items: flex-start; border-top: 1px solid var(--line-on-dark); padding-top: clamp(28px,4vw,48px); }
+  .foot-top .badge { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; border: 1px solid var(--line-on-dark); border-radius: 999px; padding: 6px 13px; }
+  .foot-top p { font-size: 14px; color: var(--gray-3); max-width: 44ch; margin-top: 12px; }
+  .foot-links { display: flex; gap: 26px; font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .foot-links a:hover { color: var(--amber); }
+  .foot-statement { font-size: clamp(24px,3.4vw,44px); font-weight: 500; letter-spacing: -0.03em; margin: clamp(40px,6vw,80px) 0 clamp(28px,4vw,48px); }
+  .foot-statement .accent { color: var(--amber); }
+  .marquee { overflow: hidden; width: 100%; border-top: 1px solid var(--line-on-dark); }
+  .marquee-track { display: inline-flex; white-space: nowrap; will-change: transform; animation: marquee 30s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .giant { display: inline-block; font-size: clamp(60px,13vw,200px); line-height: 1.05; font-weight: 500; letter-spacing: -0.05em; padding: 0.1em 0; }
+  .giant .sep { color: var(--amber); margin: 0 0.3em; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+  /* ---- Scroll reveal ---- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 760ms var(--ease), transform 760ms var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .big-statement .w::after { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- fixed chrome -->
+<div class="chrome" aria-hidden="true">
+  <div class="frame"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="menu"><button id="menuOpen" type="button" aria-label="Open menu">MENU [+]</button></div>
+  <div class="coords"><span id="coordX">[X].0PX</span> &nbsp; <span id="coordY">[Y].0PX</span></div>
+</div>
+
+<!-- overlay menu -->
+<nav class="nav-overlay" id="navOverlay" aria-label="Chapters">
+  <button class="close" id="menuClose" type="button" aria-label="Close menu">CLOSE [×]</button>
+  <ol>
+    <li><a href="#about"><span class="n">01</span> About</a></li>
+    <li><a href="#how"><span class="n">02</span> How it works</a></li>
+    <li><a href="#outputs"><span class="n">03</span> What you get</a></li>
+    <li><a href="#grounded"><span class="n">04</span> Grounded in SAP</a></li>
+    <li><a href="#install"><span class="n">05</span> Install</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <!-- 00 · COVER -->
+  <header class="cover">
+    <h1>The AI Native Architecture Advisor</h1>
+    <div class="cover-foot">
+      <div>
+        <div class="cover-sub">The creative process of reimagining an SAP use case for the AI-native era</div>
+        <div class="barcode" style="margin-top:28px"></div>
+      </div>
+      <div class="right">
+        <div style="grid-column:1 / -1" class="project-by mono">PROJECT BY<b>SAP · OPEN SOURCE</b></div>
+        <div>
+          <div class="spec-line"><span class="mono">Active ingredients</span></div>
+          <div class="spec-line"><span class="mono">Claude Code</span><span class="mono">Host</span></div>
+          <div class="spec-line"><span class="mono">Codex</span><span class="mono">Host</span></div>
+        </div>
+        <div>
+          <div class="spec-line"><span class="mono">Chapters</span></div>
+          <div class="spec-line"><span class="mono">01 About</span><span class="mono">↓</span></div>
+          <div class="spec-line"><span class="mono">02 Design + Dev</span><span class="mono">↓</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Lead statement: block-assemble on scroll -->
+  <section class="panel dark statement-panel">
+    <div class="radial-ticks" aria-hidden="true"></div>
+    <h2 class="big-statement" id="bigStatement">
+      <span class="w">Describe</span> <span class="w">the</span> <span class="w">problem,</span>
+      <span class="w">explore</span> <span class="w">the</span> <span class="w">options,</span>
+      <span class="w">build</span> <span class="w">a</span> <span class="w">visual</span>
+      <span class="w accent">solution brief.</span>
+    </h2>
+  </section>
+
+  <!-- 01 · ABOUT -->
+  <section class="panel light divider" id="about">
+    <div class="wrap" style="width:100%">
+      <div class="chapter-tag"><span class="mono">Chapter 01:</span><span class="mono">About</span></div>
+      <div class="row reveal">
+        <h2>Initial high-level solution design, grounded in SAP's AI-native North Star</h2>
+        <div class="num"><span class="lab">Chapter:</span><span class="big">01</span></div>
+      </div>
+      <div class="foot"><span class="mono">Why an architecture advisor?</span><span class="mono">↓</span></div>
+    </div>
+  </section>
+
+  <section class="panel dark">
+    <div class="wrap">
+      <p class="reading reveal">This project is dedicated to initial high-level solution design for architects and business teams. The Advisor asks only the questions that materially affect the architecture, separates confirmed facts from assumptions, and explains the value and trade-offs of each change. Keeping a suitable existing design is a <span class="accent">valid recommendation.</span></p>
+    </div>
+  </section>
+
+  <!-- 02 · HOW IT WORKS -->
+  <section class="panel light divider" id="how">
+    <div class="wrap" style="width:100%">
+      <div class="chapter-tag"><span class="mono">Chapter 02:</span><span class="mono">Design + Development</span></div>
+      <div class="row reveal">
+        <h2>From a described problem<br>to a reviewed proposal</h2>
+        <div class="num"><span class="lab">Chapter:</span><span class="big">02</span></div>
+      </div>
+      <div class="foot"><span class="mono">2.1 — The workflow</span><span class="mono">↓</span></div>
+    </div>
+  </section>
+
+  <section class="panel dark">
+    <div class="wrap">
+      <div class="chapter-tag" style="color:var(--paper)"><span class="mono">2.1: The workflow</span><span class="mono">Describe → Review</span></div>
+      <div class="sub reveal">
+        <div><span class="k">01</span><div class="lead-no">Describe</div></div>
+        <div class="body"><h3>Start with the business problem</h3><p>Bring the actors, the desired outcome and any constraints you already know. You do not need a complete technical design.</p></div>
+      </div>
+      <div class="sub reveal">
+        <div><span class="k">02</span><div class="lead-no">Explore</div></div>
+        <div class="body"><h3>Explore the options together</h3><p>The Advisor maps the scenario to SAP reference architectures and explains each option, strongest fit first.</p></div>
+      </div>
+      <div class="sub reveal">
+        <div><span class="k">03</span><div class="lead-no">Decide</div></div>
+        <div class="body"><h3>Weigh the trade-offs</h3><p>Confirmed facts stay separate from assumptions. Keeping a suitable existing design is a valid call.</p></div>
+      </div>
+      <div class="sub reveal">
+        <div><span class="k">04</span><div class="lead-no">Build</div></div>
+        <div class="body"><h3>Build the solution brief</h3><p>Generate a visual HTML report, the brief, and a reasoning log. Continue the conversation to revise.</p></div>
+      </div>
+      <div class="sub reveal">
+        <div><span class="k">05</span><div class="lead-no accent" style="color:var(--amber)">Review</div></div>
+        <div class="body"><h3>Human architect validation</h3><p>Validate the draft against current SAP documentation, your landscape, entitlements and security requirements before you use it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · WHAT YOU GET -->
+  <section class="panel light divider" id="outputs">
+    <div class="wrap" style="width:100%">
+      <div class="chapter-tag"><span class="mono">Chapter 03:</span><span class="mono">Output</span></div>
+      <div class="row reveal">
+        <h2>Each scenario gets its own<br>folder with three files</h2>
+        <div class="num"><span class="lab">Chapter:</span><span class="big">03</span></div>
+      </div>
+      <div class="foot"><span class="mono">3.1 — The deliverables</span><span class="mono">↓</span></div>
+    </div>
+  </section>
+
+  <section class="panel light" style="padding-top:0">
+    <div class="wrap">
+      <div class="files reveal">
+        <div class="file">
+          <p class="fn">&lt;slug&gt;-solution-brief.html</p>
+          <p class="ft">Visual report</p>
+          <p>Opens directly in a browser. No web server; loads no remote fonts, scripts or images. The artifact you share.</p>
+        </div>
+        <div class="file">
+          <p class="fn">&lt;slug&gt;-solution-brief.md</p>
+          <p class="ft">Solution brief</p>
+          <p>Use case, AI-native direction, proposed architecture, capability progression, solution stack and reference architectures.</p>
+        </div>
+        <div class="file">
+          <p class="fn">&lt;slug&gt;-reasoning-log.md</p>
+          <p class="ft">Reasoning log</p>
+          <p>Facts, assumptions, decisions, source checks and open questions, kept separate from the proposal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.2 the architecture, as a spec datasheet -->
+  <section class="panel dark">
+    <div class="wrap">
+      <div class="chapter-tag" style="color:var(--paper)"><span class="mono">3.2: Proposed architecture</span><span class="mono">Draft</span></div>
+      <div class="reveal">
+        <div class="datasheet" style="border-color:var(--line-on-dark)">
+          <div class="ds-row" style="border-color:var(--line-on-dark)"><span class="k">Layers</span><span class="v">4 · North Star</span></div>
+          <div class="ds-row" style="border-color:var(--line-on-dark)"><span class="k">Status</span><span class="v">Draft · for review</span></div>
+          <div class="ds-row" style="border-color:var(--line-on-dark)"><span class="k">Progression</span><span class="v">Step 1 → Step 4</span></div>
+        </div>
+        <div class="layers">
+          <div class="layer">
+            <div><div class="ln">User Experience</div><div class="ls">Engagement &amp; experiences</div></div>
+            <div class="pills"><span class="pill">Joule</span><span class="pill">Fiori apps</span></div>
+          </div>
+          <div class="layer">
+            <div><div class="ln">Process</div><div class="ls">Applications, workflows &amp; agents</div></div>
+            <div class="pills"><span class="pill">Agent</span><span class="pill">MCP</span><span class="pill">S/4HANA APIs</span></div>
+          </div>
+          <div class="layer">
+            <div><div class="ln">Foundation</div><div class="ls">AI, data &amp; business context</div></div>
+            <div class="pills"><span class="pill">SAP AI Core</span><span class="pill">Gen AI Hub</span></div>
+          </div>
+          <div class="layer plat">
+            <div><div class="ln">Platform</div><div class="ls">Runtime, identity &amp; operations</div></div>
+            <div class="pills"><span class="pill">SAP BTP</span><span class="pill">Kyma</span><span class="pill">Logging</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · GROUNDED -->
+  <section class="panel light divider" id="grounded">
+    <div class="wrap" style="width:100%">
+      <div class="chapter-tag"><span class="mono">Chapter 04:</span><span class="mono">Grounded in SAP</span></div>
+      <div class="row reveal">
+        <h2>Built on SAP's own<br>architectural guidance</h2>
+        <div class="num"><span class="lab">Chapter:</span><span class="big">04</span></div>
+      </div>
+      <div class="foot"><span class="mono">4.1 — The sources</span><span class="mono">↓</span></div>
+    </div>
+  </section>
+
+  <section class="panel light" style="padding-top:0">
+    <div class="wrap">
+      <div class="sources reveal">
+        <div class="source"><span class="idx">01</span><div><h3>AI-native North Star architecture</h3><p>The architectural vision and the User Experience, Process, Foundation and Platform layers.</p></div></div>
+        <div class="source"><span class="idx">02</span><div><h3>AI Golden Path</h3><p>AI and development approaches for the scenario, as a commit-pinned text snapshot.</p></div></div>
+        <div class="source"><span class="idx">03</span><div><h3>Architecture Center reference architectures</h3><p>Implementation patterns, selected and explained by the agent according to their fit.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="panel light">
+    <div class="wrap reveal">
+      <div class="chapter-tag"><span class="mono">4.2: Honest by design</span><span class="mono">Assist, not replace</span></div>
+      <p class="trust-lead">A draft for human review, <span style="color:var(--amber)">not an approved design.</span></p>
+      <div class="trust-body">
+        <p>This is initial high-level solution design for solution and enterprise architects and business teams. It is not a PRD, a functional specification or a detailed technical design. Field-level requirements and configuration are left for later design.</p>
+        <p>AI can hallucinate services, capabilities, integrations and references. Check recommendations against current SAP documentation and your actual landscape, availability, entitlements and security requirements before you use the proposal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · INSTALL -->
+  <section class="panel dark divider" id="install">
+    <div class="wrap" style="width:100%">
+      <div class="chapter-tag" style="color:var(--paper)"><span class="mono">Chapter 05:</span><span class="mono">Install</span></div>
+      <div class="row reveal">
+        <h2>Install and use</h2>
+        <div class="num"><span class="lab">Chapter:</span><span class="big">05</span></div>
+      </div>
+      <div class="foot"><span class="mono">One skill, two hosts</span><span class="mono">↓</span></div>
+    </div>
+  </section>
+
+  <section class="panel dark" style="padding-top:0">
+    <div class="wrap reveal">
+      <div class="hosts">
+        <div class="host">
+          <h3>Claude Code</h3>
+          <div class="code"><button class="copy" type="button" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>/plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
+/plugin install ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
+          <p class="hint">Run these inside Claude Code, then reload plugins or start a new session.</p>
+        </div>
+        <div class="host">
+          <h3>Codex</h3>
+          <div class="code"><button class="copy" type="button" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>codex plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
+codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
+          <p class="hint">Run these in your terminal, then start a new Codex thread.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="badge">v0.2.0 · Beta</span>
+        <p>Copyright 2026 SAP SE or an SAP affiliate company and ai-native-architecture-advisor contributors.</p>
+      </div>
+      <div class="foot-links">
+        <a href="https://github.com/SAP/ai-native-architecture-advisor">Repository</a>
+        <a href="https://github.com/SAP/ai-native-architecture-advisor/issues/new">Report an issue</a>
+      </div>
+    </div>
+    <p class="foot-statement">Architecture, <span class="accent">reconsidered.</span></p>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="giant">The&nbsp;AI&nbsp;Native&nbsp;Architecture&nbsp;Advisor<span class="sep">·</span></span>
+      <span class="giant">The&nbsp;AI&nbsp;Native&nbsp;Architecture&nbsp;Advisor<span class="sep">·</span></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  // Menu overlay
+  (function () {
+    var nav = document.getElementById('navOverlay');
+    document.getElementById('menuOpen').addEventListener('click', function () { nav.classList.add('open'); });
+    document.getElementById('menuClose').addEventListener('click', function () { nav.classList.remove('open'); });
+    nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') nav.classList.remove('open'); });
+  })();
+
+  // Live coordinate readout (the [X].0PX / [Y].0PX chrome)
+  (function () {
+    var cx = document.getElementById('coordX'), cy = document.getElementById('coordY');
+    window.addEventListener('pointermove', function (e) {
+      cx.textContent = '[' + String(e.clientX).padStart(4, '0') + '].0PX';
+      cy.textContent = '[' + String(e.clientY).padStart(4, '0') + '].0PX';
+    }, { passive: true });
+  })();
+
+  // Scroll reveal (fallback when GSAP is unavailable; GSAP handles reveals otherwise)
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (window.gsap && !reduce) return; // GSAP block drives these
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Big statement reveal (fallback; GSAP scrubs it when available)
+  (function () {
+    var st = document.getElementById('bigStatement');
+    if (!st) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (window.gsap && !reduce) return; // GSAP block drives this
+    if (reduce || !('IntersectionObserver' in window)) { st.classList.add('revealed'); return; }
+    var words = [].slice.call(st.querySelectorAll('.w'));
+    words.forEach(function (w, i) { w.style.transitionDelay = (i * 70) + 'ms'; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        st.classList.add('revealed');
+      });
+    }, { threshold: 0.5 });
+    io.observe(st);
+  })();
+
+  // ---- GSAP: pinned chapters, scrubbed inversions, parallax, staggers ----
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!window.gsap || !window.ScrollTrigger || reduce) {
+      // make sure nothing stays hidden if GSAP failed to load
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      var bs = document.getElementById('bigStatement'); if (bs) bs.classList.add('revealed');
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1) Lead statement: word blocks slide away, scrubbed to scroll
+    var st = document.getElementById('bigStatement');
+    if (st) {
+      var words = gsap.utils.toArray(st.querySelectorAll('.w .w, .w'));
+      // reveal each word's gray block (::after via class) progressively
+      var allWords = gsap.utils.toArray(st.querySelectorAll('.w'));
+      ScrollTrigger.create({
+        trigger: st.closest('.statement-panel'),
+        start: 'top 80%',
+        end: 'top 20%',
+        scrub: 0.6,
+        onUpdate: function (self) {
+          var n = Math.floor(self.progress * allWords.length + 0.0001);
+          allWords.forEach(function (w, i) { w.classList.toggle('clear', i < n); });
+        },
+        onLeave: function () { st.classList.add('revealed'); },
+        onLeaveBack: function () { st.classList.remove('revealed'); allWords.forEach(function (w) { w.classList.remove('clear'); }); }
+      });
+    }
+
+    // 2) Pin each chapter divider while its big number drifts (parallax)
+    gsap.utils.toArray('.divider').forEach(function (sec) {
+      var big = sec.querySelector('.num .big');
+      // pin the panel briefly
+      ScrollTrigger.create({
+        trigger: sec,
+        start: 'top top',
+        end: '+=60%',
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1
+      });
+      if (big) {
+        gsap.fromTo(big, { yPercent: 18, opacity: 0.35 }, {
+          yPercent: -18, opacity: 1, ease: 'none',
+          scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+        });
+      }
+      // headline stays visible (fading it fights the pin); let the pin + number carry the motion
+    });
+
+    // 3) Reading statement: big prose rises in
+    gsap.utils.toArray('.reading').forEach(function (el) {
+      gsap.fromTo(el, { yPercent: 8, opacity: 0 }, {
+        yPercent: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none', once: true }
+      });
+    });
+
+    // 4) Workflow sub-rows stagger
+    gsap.utils.toArray('.sub').forEach(function (row, i) {
+      gsap.from(row, { x: -24, opacity: 0, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: row, start: 'top 82%' } });
+    });
+
+    // 5) Datasheet rows + layer bands stagger in
+    gsap.utils.toArray('.datasheet').forEach(function (ds) {
+      gsap.from(ds.querySelectorAll('.ds-row'), { opacity: 0, x: 20, duration: 0.5, stagger: 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: ds, start: 'top 80%' } });
+    });
+    gsap.utils.toArray('.layers').forEach(function (lay) {
+      gsap.from(lay.querySelectorAll('.layer'), { opacity: 0, y: 26, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+        scrollTrigger: { trigger: lay, start: 'top 78%' } });
+    });
+
+    // 6) Output files + sources stagger
+    gsap.utils.toArray('.files').forEach(function (f) {
+      gsap.from(f.querySelectorAll('.file'), { opacity: 0, y: 30, duration: 0.6, stagger: 0.12, ease: 'power3.out',
+        scrollTrigger: { trigger: f, start: 'top 80%' } });
+    });
+    gsap.utils.toArray('.sources').forEach(function (s) {
+      gsap.from(s.querySelectorAll('.source'), { opacity: 0, x: -20, duration: 0.55, stagger: 0.12, ease: 'power2.out',
+        scrollTrigger: { trigger: s, start: 'top 82%' } });
+    });
+    // (install hosts reveal via their .reveal wrapper in step 7 — no separate tween)
+
+    // 7) Trust lead + any remaining .reveal content
+    gsap.utils.toArray('.reveal').forEach(function (el) {
+      el.classList.add('in'); // neutralize CSS hidden state
+      if (el.closest('.divider')) return; // dividers: pin carries the motion
+      gsap.fromTo(el, { opacity: 0, y: 22 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none', once: true }
+      });
+    });
+
+    ScrollTrigger.refresh();
+
+    // Safety net: if a reveal tween is ever skipped (fast jump / anchor nav),
+    // make sure its targets never stay invisible once scrolled past.
+    ScrollTrigger.addEventListener('refresh', function () {
+      gsap.utils.toArray('.sub, .ds-row, .layer, .file, .source, .host').forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < -40) gsap.set(el, { clearProps: 'opacity,transform' });
+      });
+    });
+  })();
+
+  // Copy-to-clipboard
+  (function () {
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var text = btn.parentElement.innerText.trim();
+        navigator.clipboard.writeText(text).then(function () {
+          btn.classList.add('copied');
+          setTimeout(function () { btn.classList.remove('copied'); }, 1400);
+        }).catch(function () {});
+      });
+    });
+  })();
+</script>
+</body>
+</html>
