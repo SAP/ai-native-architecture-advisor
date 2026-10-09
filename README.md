@@ -1,3 +1,5 @@
+[![AI Native Architecture Advisor](docs/assets/banner.svg)](https://sap.github.io/ai-native-architecture-advisor/)
+
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/ai-native-architecture-advisor)](https://api.reuse.software/info/github.com/SAP/ai-native-architecture-advisor)
 
 # AI Native Architecture Advisor
