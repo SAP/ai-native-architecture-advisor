@@ -48,7 +48,7 @@ Use the **layer cards' step numbers**, openly, with scenario-specific benefits a
 - Higher numbers mean broader capability on the **same dimension**, not automatic superiority. Lettered steps such as 2a/2b share a rank and represent alternatives or complements.
 - Show the known current position, recommended step and highest-level North Star opportunity for each material capability with a defined ladder. Omit an unknown current position and empty intermediate rungs. A recommendation may equal the current step or skip steps.
 - Explain what the highest-level opportunity would add and what enables it, even beyond initial delivery. When it has no useful application, explain why rather than adding components to fill a rung. A product's presence alone does not establish maturity.
-- Keep development tooling, deployment models and unranked design qualities as **choices**, not invented ladders. In particular, Platform deployment alternatives do not need numbered maturity. When several capability ladders matter in one layer, select one primary ladder for its diagram progression, name the concern, and explain the other dimensions separately in prose.
+- Keep development tooling, deployment models and unranked design qualities as **choices**, not invented ladders. In particular, Platform deployment alternatives do not need numbered maturity. When several capability ladders matter in one layer, select one primary ladder for its diagram progression, name the concern, and explain the other dimensions in the layer's bullets (see the output contract's layer-body format).
 - Label rungs as “Step 1,” “Step 2,” etc.; captions say which is current, recommended or the North Star. Never calculate an overall score.
 
 ## Ground recommendations locally
