@@ -32,7 +32,40 @@ SPDX-License-Identifier: Apache-2.0
       --platform-surface: #0a6ed1;
       --paper: #fff;
       --canvas: #f3f6f8;
+      /* surface tokens so dark mode can retarget hardcoded light fills */
+      --surface-soft: #fbfcfe;
+      --surface-tint: #eef4fa;
+      --surface-code: #f4f7f9;
+      --on-accent: #fff;
     }
+
+    /* ── Dark mode: SAP navy/teal palette (matches the project site) ──
+       Light mode is unchanged. Driven by data-theme on <html>; the toggle
+       sets it, and the inline script seeds it from localStorage or the OS. */
+    :root[data-theme="dark"] {
+        --ink: #eaf2fb;          /* headings — near-white, slight blue tint */
+        --body: #c5d6e8;         /* body text */
+        --muted: #7fa9c9;        /* muted light blue (site --gray-3) */
+        --line: rgba(28,200,238,0.18);  /* faint teal hairlines */
+        --blue: #1cc8ee;         /* accent → SAP teal (site accent) */
+        --blue-dark: #4ad4f2;    /* brighter teal for links on dark */
+        --ux-accent: #a78bfa;
+        --ux-surface: #1a2440;
+        --process-accent: #6d9bf2;
+        --process-surface: #152238;
+        --foundation-accent: #2fd4c6;
+        --foundation-surface: #0f2630;
+        --platform-accent: #1cc8ee;
+        --platform-surface: #0a6ed1;
+        --paper: #0e1826;        /* cards on navy */
+        --canvas: #0a0e17;       /* page base (site --ink) */
+        --surface-soft: #0f1a29;
+        --surface-tint: #11263d;
+        --surface-code: #0b1420;
+        --on-accent: #04202e;
+    }
+    /* page gets the site's navy gradient instead of flat canvas */
+    :root[data-theme="dark"] body { background: linear-gradient(135deg, #0a0e17 0%, #0d1b2e 100%); background-attachment: fixed; }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -170,14 +203,15 @@ SPDX-License-Identifier: Apache-2.0
       margin: 0 -42px;
       padding: 8px 42px;
       color: #3f5870;
-      background: #edf5fc;
+      background: var(--surface-tint);
       border-bottom: 1px solid #d4e7f8;
       font-size: 12px;
       text-align: center;
     }
     .meta {
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: 1fr auto 1fr auto;
+      gap: 0 14px;
       align-items: center;
       min-height: 50px;
       border-bottom: 1px solid #99a8b8;
@@ -185,7 +219,31 @@ SPDX-License-Identifier: Apache-2.0
       font-size: 12px;
     }
     .meta span:nth-child(2) { justify-self: center; }
-    .meta span:last-child { justify-self: end; }
+    .meta span:nth-child(3) { justify-self: end; }
+
+    /* theme toggle — icon-only, far right of the header meta row */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--muted);
+      cursor: pointer;
+      justify-self: end;
+      transition: color .18s ease, border-color .18s ease, background-color .18s ease;
+    }
+    .theme-toggle:hover { color: var(--blue); border-color: var(--blue); }
+    .theme-toggle svg { width: 15px; height: 15px; }
+    .theme-toggle .ico-light, .theme-toggle .ico-dark { display: inline-flex; }
+    .theme-toggle .ico-dark { display: none; }
+    :root[data-theme="dark"] .theme-toggle .ico-dark { display: inline-flex; }
+    :root[data-theme="dark"] .theme-toggle .ico-light { display: none; }
+    @media print { .theme-toggle { display: none; } }
 
     .title-block {
       padding: 30px 0 26px;
@@ -236,7 +294,7 @@ SPDX-License-Identifier: Apache-2.0
     }
     .layer-band {
       --accent: var(--blue);
-      --surface: #eef4fa;
+      --surface: var(--surface-tint);
       display: grid;
       grid-template-columns: minmax(200px, 290px) 1fr;
       align-items: center;
@@ -295,7 +353,7 @@ SPDX-License-Identifier: Apache-2.0
     }
     .layer-section {
       --accent: var(--blue);
-      --surface: #eef4fa;
+      --surface: var(--surface-tint);
       padding: 0 0 40px;
       border-bottom: 1px solid var(--line);
       scroll-margin-top: 18px;
@@ -378,6 +436,7 @@ SPDX-License-Identifier: Apache-2.0
       padding: 12px 16px;
       border: 1px solid;
       border-radius: 12px;
+      box-shadow: 0 1px 1px rgba(8, 31, 61, .04), 0 14px 30px -22px rgba(8, 31, 61, .5);
     }
     .markdown-body p.callout-solution {
       border-color: rgba(10, 110, 209, .28);
@@ -420,20 +479,20 @@ SPDX-License-Identifier: Apache-2.0
     }
     .markdown-body th {
       color: var(--ink);
-      background: #f4f7f9;
+      background: var(--surface-code);
       font-weight: 600;
     }
     .markdown-body code {
       padding: 1px 4px;
       border-radius: 3px;
-      background: #eef2f5;
+      background: var(--surface-code);
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: .92em;
     }
     .markdown-body pre {
       overflow: auto;
       padding: 14px;
-      background: #f4f7f9;
+      background: var(--surface-code);
       border: 1px solid var(--line);
     }
     .markdown-body pre code { padding: 0; background: transparent; }
@@ -447,15 +506,22 @@ SPDX-License-Identifier: Apache-2.0
       padding: 16px 18px 14px;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: #fbfcfe;
+      background: var(--surface-soft);
+      box-shadow: 0 1px 1px rgba(8, 31, 61, .04), 0 14px 30px -22px rgba(8, 31, 61, .5);
     }
     .prog-title {
-      margin: 0 0 12px;
+      margin: 0 0 6px;
       color: var(--muted);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.09em;
       text-transform: uppercase;
+    }
+    .prog-explainer {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.5;
     }
     .prog-steps {
       display: flex;
@@ -469,7 +535,18 @@ SPDX-License-Identifier: Apache-2.0
       align-items: center;
       flex: 0 0 auto;
       padding: 0 6px;
+      gap: 5px;
     }
+    .prog-role {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .prog-step.is-today .prog-role { color: var(--blue); }
+    .prog-step.is-target .prog-role { color: var(--ux-accent); }
     .prog-chip {
       display: inline-flex;
       align-items: center;
@@ -514,8 +591,45 @@ SPDX-License-Identifier: Apache-2.0
     .prog-rail {
       flex: 0 0 44px;
       height: 2px;
-      align-self: center;
+      margin-top: 15px;
+      align-self: flex-start;
       background: var(--line);
+    }
+    .prog-rail.is-skip {
+      position: relative;
+      flex-basis: 56px;
+      background: transparent;
+      border-top: 2px dashed var(--line);
+    }
+    .prog-skip-note {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0 4px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .prog-rail.is-alt {
+      background: transparent;
+      height: auto;
+      margin-top: 8px;
+      align-self: flex-start;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .prog-cap-role {
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.03em;
     }
     .prog-captions {
       margin: 12px 0 0;
@@ -543,7 +657,7 @@ SPDX-License-Identifier: Apache-2.0
     }
     .stack-group {
       --stack-accent: var(--blue);
-      --stack-band: #eef4fa;
+      --stack-band: var(--surface-tint);
       --stack-hover: rgba(10, 110, 209, .04);
       background: var(--paper);
     }
@@ -640,7 +754,7 @@ SPDX-License-Identifier: Apache-2.0
       .report-inner { padding: 0 20px 46px; }
       .managed-notice { margin: 0 -20px; padding: 8px 20px; }
       .meta { grid-template-columns: 1fr auto; }
-      .meta span:nth-child(2) { display: none; }
+      .meta span:nth-child(2), .meta span:nth-child(3) { display: none; }
       h1 { font-size: 30px; }
       .subtitle { font-size: 18px; }
       .layer-band { grid-template-columns: 1fr; gap: 2px; }
@@ -727,7 +841,7 @@ SPDX-License-Identifier: Apache-2.0
     .ref-arch-section h2 { margin: 0 0 4px; color: var(--blue-dark); font-size: 20px; }
     .ref-arch-section .section-sub { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
     .ref-arch-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
-    a.ref-arch-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--paper); text-decoration: none; color: inherit; transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+    a.ref-arch-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--paper); text-decoration: none; color: inherit; box-shadow: 0 1px 1px rgba(8, 31, 61, .04), 0 14px 30px -22px rgba(8, 31, 61, .5); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
     a.ref-arch-card:hover { border-color: var(--blue); box-shadow: 0 6px 20px rgba(10, 110, 209, .12); transform: translateY(-2px); }
     a.ref-arch-card:focus-visible { outline: 3px solid rgba(10, 110, 209, .32); outline-offset: 2px; }
     .ref-arch-diagram { background: #f8fafc; border-bottom: 1px solid var(--line); height: 160px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 12px; }
@@ -886,7 +1000,93 @@ SPDX-License-Identifier: Apache-2.0
       .flow-line { animation: none; stroke-dasharray: none; }
       .arch-diagram { box-shadow: none; }
     }
+
+    /* ── Dark mode: surfaces the variable remap can't reach ──
+       The architecture diagram keeps its brand layer gradients but sits in a
+       dark navy frame so it reads as a contained figure, not a white block. */
+    :root[data-theme="dark"] .arch-diagram {
+      background:
+        radial-gradient(560px 300px at 18% 4%, rgba(28,200,238,.10), transparent 62%),
+        radial-gradient(520px 320px at 88% 96%, rgba(10,110,209,.14), transparent 60%),
+        linear-gradient(180deg, #0f1a29, #0b1420);
+      box-shadow: inset 0 0 0 1px rgba(28,200,238,.14);
+    }
+    /* dim the pastel layer tiles so the white chips still pop, less glare */
+    :root[data-theme="dark"] .layer--ux { background: linear-gradient(180deg,#3a2f63,#2c2450); }
+    :root[data-theme="dark"] .layer--process { background: linear-gradient(180deg,#263a63,#1d2d50); }
+    :root[data-theme="dark"] .layer--foundation { background: linear-gradient(180deg,#1d4a4e,#163a3c); }
+    :root[data-theme="dark"] .layer-title-text { color: #eaf2fb; }
+    :root[data-theme="dark"] .layer, :root[data-theme="dark"] .platform-row { border-color: rgba(255,255,255,.12); }
+    :root[data-theme="dark"] .chip, :root[data-theme="dark"] .platform-chip { background: #0e1826; color: #4ad4f2; box-shadow: 0 1px 2px rgba(0,0,0,.4); }
+    :root[data-theme="dark"] .component-status { color: var(--muted); }
+    :root[data-theme="dark"] .found-row { background: rgba(255,255,255,.06); }
+    :root[data-theme="dark"] .found-row-label { color: #cfe0f0; }
+    /* diagram side panels + info bubbles */
+    :root[data-theme="dark"] .panel { border-color: var(--line); background: var(--surface-soft); color: var(--body); }
+    :root[data-theme="dark"] .panel--external { background: #0c1623; border-color: rgba(28,200,238,.14); box-shadow: 0 3px 10px rgba(0,0,0,.3); }
+    :root[data-theme="dark"] .arch-info { border-color: rgba(28,200,238,.2); background: var(--surface-soft); color: var(--muted); }
+    :root[data-theme="dark"] .arch-info:hover { color: var(--blue); background: var(--surface-tint); }
+    :root[data-theme="dark"] .ref-arch-diagram { background: var(--surface-soft); }
+    :root[data-theme="dark"] .diagram-warning { background: #2a2410; color: #e8d08a; }
+    /* the pale layer-band header gradients → navy tints */
+    :root[data-theme="dark"] .layer-band[data-layer="ux"] { --surface: #1a2440; }
+    :root[data-theme="dark"] .layer-band[data-layer="process"] { --surface: #152238; }
+    :root[data-theme="dark"] .layer-band[data-layer="foundation"] { --surface: #0f2630; }
+    /* layer-section chapter headers (mid-brief) → navy gradients */
+    :root[data-theme="dark"] .layer-section[data-layer="ux"] { --surface: linear-gradient(90deg, #241d3f 0%, #342a5c 100%); }
+    :root[data-theme="dark"] .layer-section[data-layer="process"] { --surface: linear-gradient(90deg, #152238 0%, #22365e 100%); }
+    :root[data-theme="dark"] .layer-section[data-layer="foundation"] { --surface: linear-gradient(90deg, #0f2630 0%, #164044 100%); }
+    /* Solution Stack per-layer header bands → navy gradients */
+    :root[data-theme="dark"] .stack-group[data-layer="ux"] { --stack-band: linear-gradient(90deg, #241d3f 0%, #342a5c 100%); }
+    :root[data-theme="dark"] .stack-group[data-layer="process"] { --stack-band: linear-gradient(90deg, #152238 0%, #22365e 100%); }
+    :root[data-theme="dark"] .stack-group[data-layer="foundation"] { --stack-band: linear-gradient(90deg, #0f2630 0%, #164044 100%); }
+    :root[data-theme="dark"] .stack-group-head { color: var(--ink); }
+    :root[data-theme="dark"] .stack-group + .stack-group .stack-group-head { border-top-color: var(--line); }
+
+    /* PDF/print is always light, regardless of the on-screen theme. */
+    @media print {
+      :root[data-theme="dark"] {
+        --ink: #081f3d; --body: #263a51; --muted: #61758a; --line: #d4dde6;
+        --blue: #0a6ed1; --blue-dark: #0854a0; --ux-accent: #7157c9;
+        --ux-surface: #eee9ff; --process-accent: #4f72c8; --process-surface: #e5efff;
+        --foundation-accent: #198f97; --foundation-surface: #e1f4f4;
+        --platform-accent: #0a6ed1; --platform-surface: #0a6ed1;
+        --paper: #fff; --canvas: #f3f6f8;
+        --surface-soft: #fbfcfe; --surface-tint: #eef4fa; --surface-code: #f4f7f9; --on-accent: #fff;
+      }
+      :root[data-theme="dark"] body { background: #fff; }
+      /* restore the diagram + layer surfaces to their light treatment */
+      :root[data-theme="dark"] .arch-diagram {
+        background: radial-gradient(560px 300px at 18% 4%, rgba(139,100,235,.12), transparent 62%), radial-gradient(520px 320px at 88% 96%, rgba(10,110,209,.10), transparent 60%), linear-gradient(180deg,#fbfaff,#f5f8fe);
+        box-shadow: inset 0 0 0 1px rgba(120,110,220,.08);
+      }
+      :root[data-theme="dark"] .layer--ux { background: linear-gradient(180deg,#d8c8f8,#c4b1f2); }
+      :root[data-theme="dark"] .layer--process { background: linear-gradient(180deg,#d5c5f7,#c0adf0); }
+      :root[data-theme="dark"] .layer--foundation { background: linear-gradient(180deg,#d2c2f6,#bca9ef); }
+      :root[data-theme="dark"] .layer-title-text { color: #23306b; }
+      :root[data-theme="dark"] .chip, :root[data-theme="dark"] .platform-chip { background: #fff; color: #0a6ed1; }
+      :root[data-theme="dark"] .layer-band[data-layer="ux"] { --surface: #eee9ff; }
+      :root[data-theme="dark"] .layer-band[data-layer="process"] { --surface: #e5efff; }
+      :root[data-theme="dark"] .layer-band[data-layer="foundation"] { --surface: #e1f4f4; }
+      :root[data-theme="dark"] .layer-section[data-layer="ux"] { --surface: linear-gradient(90deg, #eee9ff 0%, #c3b3f0 100%); }
+      :root[data-theme="dark"] .layer-section[data-layer="process"] { --surface: linear-gradient(90deg, #e5efff 0%, #b7cbf0 100%); }
+      :root[data-theme="dark"] .layer-section[data-layer="foundation"] { --surface: linear-gradient(90deg, #e1f4f4 0%, #a9dcdc 100%); }
+      :root[data-theme="dark"] .stack-group[data-layer="ux"] { --stack-band: linear-gradient(90deg, #eee9ff 0%, #c3b3f0 100%); }
+      :root[data-theme="dark"] .stack-group[data-layer="process"] { --stack-band: linear-gradient(90deg, #e5efff 0%, #b7cbf0 100%); }
+      :root[data-theme="dark"] .stack-group[data-layer="foundation"] { --stack-band: linear-gradient(90deg, #e1f4f4 0%, #a9dcdc 100%); }
+    }
   </style>
+  <script>
+    // Seed the theme before first paint (no flash): saved choice, else OS preference.
+    (function () {
+      try {
+        var saved = localStorage.getItem("ai-brief-theme");
+        var dark = saved ? saved === "dark"
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (dark) document.documentElement.setAttribute("data-theme", "dark");
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
@@ -1355,32 +1555,53 @@ SPDX-License-Identifier: Apache-2.0
       // Keep the original Markdown if the structured representation is incomplete.
       if (levels.some(level => typeof captions[level] !== "string" || !captions[level].trim())) return "";
 
+      // Role label shown under each chip so the stage is explicit, not colour-only.
+      const roleOf = level => level === current ? "Today"
+        : level === recommended ? "Recommended next"
+        : level === target ? "North Star target" : "";
+
       const rungs = levels.map(level => {
         const classes = ["prog-step"];
         if (level === current) classes.push("is-today");
         if (level === recommended) classes.push("is-rec");
         if (level === target) classes.push("is-target");
         const star = level === target ? '<span class="prog-star" aria-hidden="true">★ </span>' : "";
+        const role = roleOf(level);
+        const roleTag = role ? `<span class="prog-role">${role}</span>` : "";
         return `
           <div class="${classes.join(" ")}">
             <span class="prog-chip">${star}Step ${level}</span>
+            ${roleTag}
           </div>
         `;
       });
-      const row = rungs.flatMap((rung, index) =>
-        index < rungs.length - 1 ? [rung, progression.branched && parseInt(levels[index], 10) === parseInt(levels[index + 1], 10)
-          ? '<span class="prog-rail" style="background:transparent;text-align:center;height:auto" aria-label="alternative">/</span>'
-          : '<span class="prog-rail" aria-hidden="true"></span>'] : [rung]
-      ).join("");
+      // Rails: a gap between non-consecutive levels (e.g. 2 → 4) is deliberate —
+      // mark it so a skipped step does not read as a missing/broken one.
+      const row = rungs.flatMap((rung, index) => {
+        if (index >= rungs.length - 1) return [rung];
+        const a = parseInt(levels[index], 10), b = parseInt(levels[index + 1], 10);
+        if (progression.branched && a === b) {
+          return [rung, '<span class="prog-rail is-alt" aria-label="alternative">/</span>'];
+        }
+        const skips = Number.isFinite(a) && Number.isFinite(b) && b - a > 1;
+        return [rung, skips
+          ? `<span class="prog-rail is-skip" title="intermediate steps skipped"><span class="prog-skip-note">skips ${b - a - 1}</span></span>`
+          : '<span class="prog-rail" aria-hidden="true"></span>'];
+      }).join("");
 
       const captionLines = levels
         .filter(level => captions[level] !== undefined)
-        .map(level => `<p><strong>Step ${level}:</strong> ${escapeHtml(String(captions[level]))}</p>`)
+        .map(level => {
+          const role = roleOf(level);
+          const roleLead = role ? `<span class="prog-cap-role">${role} · </span>` : "";
+          return `<p><strong>Step ${level}:</strong> ${roleLead}${escapeHtml(String(captions[level]))}</p>`;
+        })
         .join("");
 
       return `
         <div class="layer-progression">
           <p class="prog-title">${escapeHtml(progression.title || "Capability progression")}</p>
+          <p class="prog-explainer">Maturity on SAP's AI-native North Star scale (Step 1 = foundational, higher = more AI-native). Only the meaningful stages for this layer are shown — gaps mean intermediate steps are skipped on purpose.</p>
           <div class="prog-steps">${row}</div>
           ${captionLines ? `<div class="prog-captions">${captionLines}</div>` : ""}
         </div>
@@ -1473,6 +1694,10 @@ SPDX-License-Identifier: Apache-2.0
               <span>AI Native Solution Brief</span>
               <span>${escapeHtml(model.status)}</span>
               <span>${escapeHtml(model.updated)}</span>
+              <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle light or dark theme" title="Toggle theme">
+                <span class="ico-light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></span>
+                <span class="ico-dark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+              </button>
             </div>
             <div class="title-block">
               <h1>${escapeHtml(model.title)}</h1>
@@ -1618,6 +1843,18 @@ SPDX-License-Identifier: Apache-2.0
       if (exportPdf) exportPdf.addEventListener("click", () => window.print());
       updateScrollUI();
       loadReport();
+      // The theme toggle is injected by renderReport (inside loadReport above),
+      // so bind it only now that it exists in the DOM.
+      const themeToggle = document.getElementById("themeToggle");
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+          const next = isDark ? "light" : "dark";
+          if (next === "dark") document.documentElement.setAttribute("data-theme", "dark");
+          else document.documentElement.removeAttribute("data-theme");
+          try { localStorage.setItem("ai-brief-theme", next); } catch (e) {}
+        });
+      }
     }
 
     if (typeof window !== "undefined" && typeof document !== "undefined") initializeBrowserRuntime();

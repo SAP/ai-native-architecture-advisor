@@ -72,7 +72,11 @@ Reimagine the next scope: a buyer could ask for an exception investigation throu
 
 ### User Experience Layer
 
-Keep line-by-line review, exception detail, and approval in the existing Fiori worklist. The proposed Joule interaction answers a narrow status question and links back to the case, saving navigation without requiring buyers to edit detailed confirmations in chat. In a later recommendation, Joule can initiate investigation if that supported integration adds value.
+Keep the existing Fiori worklist as the main work surface and add a narrow Joule interaction.
+
+- **Worklist stays primary:** line-by-line review, exception detail, and approval remain in the existing Fiori worklist.
+- **Add a focused Joule lookup:** it answers a narrow status question and links back to the case, saving navigation without asking buyers to edit detailed confirmations in chat.
+- **Later step, not now:** Joule can initiate investigation in a future recommendation, if that supported integration proves to add value.
 
 **Progression:** Step 1 → Step 2 → Step 3 → ★ Step 5
 
@@ -87,11 +91,13 @@ Keep line-by-line review, exception detail, and approval in the existing Fiori w
 
 ### Process Layer
 
-Improve the existing single agent's evidence gathering and draft follow-up. A buyer reviews proposed actions; deterministic application rules govern approval and changes to purchase orders. The recommended build remains one agent. The reimagined scope adds coordinated resolution only when procurement and planning capabilities can contribute distinct decisions or actions.
+Improve the existing single agent's evidence gathering and draft follow-up; the recommended build stays one agent.
 
-Reuse the application's evidence/status capability for the worklist and proposed Joule lookup. First confirm its API and tool coverage. If an API exists but suitable MCP tools do not, add the adapter; if the business capability/API itself is missing, build that service and expose the required operations. These interfaces may share a deployment. No separate Confirmation Case API is assumed. PO lookup uses governed PO MCP tools over released S/4HANA APIs.
-
-SAP Cloud SDK for AI supports the existing pro-code agent; Joule Studio is a candidate for the supported status-extension route. Both belong to Process — Development tooling, distinct from business services and their runtime.
+- **Control stays deterministic:** a buyer reviews proposed actions, and application rules govern approval and purchase-order changes.
+- **Expand only when it pays off:** add coordinated resolution only where procurement and planning capabilities contribute distinct decisions or actions.
+- **Reuse before build:** reuse the application's evidence/status capability for the worklist and proposed Joule lookup — confirm its API and tool coverage first. If an API exists but suitable MCP tools do not, add the adapter; if the capability/API itself is missing, build the service and expose the required operations. These interfaces may share a deployment; no separate Confirmation Case API is assumed.
+- **Governed PO access:** PO lookup uses governed PO MCP tools over released S/4HANA APIs.
+- **Development tooling:** SAP Cloud SDK for AI supports the existing pro-code agent; Joule Studio is a candidate for the supported status-extension route. Both belong to Process — Development tooling, distinct from business services and their runtime.
 
 **Progression:** Step 2 → ★ Step 4
 
@@ -104,9 +110,13 @@ SAP Cloud SDK for AI supports the existing pro-code agent; Joule Studio is a can
 
 ### Foundation Layer
 
-Ground investigation in current PO and confirmation context retrieved through the Process layer's governed tools. Use the existing generative AI hub connection for investigation and summarization. Transactional PO access does not require a BDC data product or a vector store, so neither appears in this diagram. If cross-domain data products are later proposed, establish SAP Business Data Cloud availability, package access and the specific data needed before adding them. Preserve authorization and source references in the evidence presented to the buyer.
+Ground investigation in current PO and confirmation context, reusing existing governed foundation services.
 
-The [Bring Your Own Agent reference](https://architecture.learning.sap.com/docs/ref-arch/7b6426) supports the pro-code, tools, model-access and runtime pattern. The [Integrating AI Agents with Joule reference](https://architecture.learning.sap.com/docs/ref-arch/ae6821) explains the integration direction and its current limitations. These references inform the design; they do not confirm customer entitlement.
+- **Governed context retrieval:** ground investigation in current PO and confirmation context retrieved through the Process layer's governed tools.
+- **Reuse the existing LLM access:** use the existing generative AI hub connection for investigation and summarization.
+- **No data product or vector store yet:** transactional PO access needs neither, so neither appears in this diagram. If cross-domain data products are later proposed, establish SAP Business Data Cloud availability, package access and the specific data needed before adding them.
+- **Preserve provenance:** keep authorization and source references in the evidence presented to the buyer.
+- **Reference patterns:** the [Bring Your Own Agent reference](https://architecture.learning.sap.com/docs/ref-arch/7b6426) supports the pro-code, tools, model-access and runtime pattern; the [Integrating AI Agents with Joule reference](https://architecture.learning.sap.com/docs/ref-arch/ae6821) explains the integration direction and its current limitations. These inform the design; they do not confirm customer entitlement.
 
 **In this solution:** A richer evidence payload from existing governed tools.
 
@@ -120,9 +130,14 @@ The [Bring Your Own Agent reference](https://architecture.learning.sap.com/docs/
 
 ### Platform Layer
 
-The fictional starting point uses SAP BTP, but Cloud Foundry versus Kyma is not confirmed; the diagram shows both until that choice is established. SAP Cloud Identity Services is a candidate to assess against the customer's identity and authorization setup. User-triggered operations preserve user attribution; scheduled checks use a distinct narrowly scoped identity. Use SAP Cloud Logging for operational logs, metrics and traces, with an operational owner. Audit-event requirements are assessed separately; SAP Audit Log Service is not a default component here. Multi-tenancy is not needed to improve this customer's outcome.
+Run the custom agent on SAP BTP with per-identity access and operational tracing; confirm the specific services.
 
-The side panels name discovery and development candidates concisely. Agent Hub is an assessment for discoverability; Agent Gateway belongs to the higher-step integration discussion, not the current one-agent deployment.
+- **Runtime to confirm:** the fictional starting point uses SAP BTP, but Cloud Foundry versus Kyma is not confirmed — the diagram shows both until that choice is established.
+- **Identity to assess:** SAP Cloud Identity Services is a candidate to assess against the customer's identity and authorization setup.
+- **Scoped access:** user-triggered operations preserve user attribution; scheduled checks use a distinct, narrowly scoped identity.
+- **Operational logging:** use SAP Cloud Logging for operational logs, metrics and traces, with a named operational owner. Audit-event requirements are assessed separately; SAP Audit Log Service is not a default component here.
+- **No multi-tenancy needed:** it is not required to improve this customer's outcome.
+- **Side-panel candidates:** Agent Hub is an assessment for discoverability; Agent Gateway belongs to the higher-step integration discussion, not the current one-agent deployment.
 
 **In this solution:** Clear ownership and end-to-end investigation traces.
 
