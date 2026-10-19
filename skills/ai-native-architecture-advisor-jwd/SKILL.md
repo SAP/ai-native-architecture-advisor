@@ -111,18 +111,32 @@ This section **replaces** the file-writing and HTML-publishing workflow of the C
 5. **Solution Stack** — a table of the recommended components (Component / Layer-Role / Purpose). Link verified service names to their `links.discoveryCenter` URL from the service directory; keep features/libraries as plain text.
 6. **Related Reference Architectures** — ordered list, only when a pattern genuinely fits.
 
-**Step 2 — Render rich cards.** Use `render_ui` to make the brief scannable. Map sections to hints:
+**Step 2 — Render rich cards.** Use `render_ui` to make the brief scannable.
 
-- `render_ui` with `hint="text"` for the Use Case, AI-Native Direction, and each layer's prose.
-- `render_ui` with `hint="table"` for the **capability progression** (one row per material layer: Layer / Today / Recommended step / North Star step / what each adds) and for the **Solution Stack** table.
-- `render_ui` with `hint="object-list"` for the **SAP service recommendations** (each item: service name, layer/role, purpose, Discovery Center link).
-- Keep the four-layer architecture as a `hint="text"` or `hint="table"` summary of components per layer — do **not** attempt to draw the HTML diagram from the other build. Describe each layer's components and their connections in words/rows.
+All brief sections use `hint="object-list"` with structured data fields — never `hint="text"` with markdown prose blobs. Each card's data array contains items with title, status/role, and description fields so they render as scannable tiles with badges.
+
+Map sections to object-list data shapes:
+
+- **Use Case & Problem Statement** — 4 items: Actors, Problem, Target Outcome, Constraints. Fields: title, description.
+- **The AI-Native Direction** — 3–4 items showing the transformation journey: Today (status: "Current"), Reimagined process (status: "Proposed"), Clerk's new role (status: "Shift"), North Star vision (status: "Vision"). Fields: title, status, description.
+- **Each architecture layer** — one item per component/capability. Fields: title (component name), role (function), status (Confirmed/Proposed/To confirm), description. Include a final "Progression" item with the step ladder in the description.
+- **Capability Progression** — one item per material ladder. Fields: title (capability name), layer, today, recommended, northStar.
+- **Solution Stack** — consolidate related components into logical groups (e.g. combine "S/4HANA OData APIs" and "MCP Servers" into one item). Target 8–10 items, not 14+ rows. Fields: title (component name), layer, role, description.
+- **Open Items** — one item per open item with priority badge. Fields: title (item name), priority (P1–P5 with type: Blocker/Decision/Verification), layer, description including impact.
+- **Related Reference Architectures** — one item per pattern. Fields: title, relevance (Strongest fit/Strong fit/Supporting pattern), url, description.
+
+**Card design principle:** Never put markdown prose into a `hint="text"` card. Every card should use structured data fields (title, status, role, description) so the renderer can create visual tiles with badges and labels. If content doesn't break into multiple items, restructure it — e.g. split a paragraph into "Today" vs "Reimagined" items, or split a layer description into one item per component.
 
 **Step 3 — Offer to save as a Space.** After presenting the brief, offer to persist it as a dashboard:
 
 - Before creating anything, check for an existing Space for this scenario: call `list_spaces` and, when a plausible match exists, `get_space` to read its current cards. If this scenario already has a Space (a repeat run, or an update to an earlier brief), **update it in place** rather than creating a duplicate — refresh the changed cards and keep the rest. Create a new Space only when none matches.
 - New Space: `create_space({ name: "<Solution title> — AI Solution Brief" })`
-- Then one `add_card_to_space()` per section: **Executive Summary** (Use Case + AI-Native Direction condensed), **Architecture Layers**, **Capability Progression**, **SAP Services**, **Next Steps**.
+- Target 7–10 cards in a Space across 4 sections:
+  - **Executive Summary** (2 cards): Use Case & Problem Statement, The AI-Native Direction
+  - **Architecture Layers** (4 cards): one object-list per layer (UX, Process, Foundation, Platform)
+  - **Solution Stack & Progression** (2 cards): Solution Stack, Capability Progression
+  - **Next Steps** (2 cards): Open Items, Related Reference Architectures
+- Size guidance: Executive Summary cards → L, Layer cards → L, Solution Stack → XL, Progression → L, Open Items → L, Reference Architectures → L.
 - Only create or update the Space when the user wants it persisted; otherwise the inline cards are the deliverable.
 
 **Status & revision discipline (unchanged from the contract).** A new or materially changed proposal is **Draft**; **Accepted** requires explicit user approval. Keep the prose, the component list, the progression and the reasoning aligned — when the direction changes, update all of them together. Because there is no reasoning-log file here, maintain the decision rationale **in the conversation**: confirmed facts, assumptions, recommendations versus user decisions, open questions, and bundled-source dates / validation gaps (including anything you confirmed via `web_search`). When the user asks *why*, answer from that running rationale. If the user wants the rationale persisted, add it as a **Reasoning** card to the Space.
