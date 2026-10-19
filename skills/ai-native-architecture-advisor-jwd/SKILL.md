@@ -100,16 +100,10 @@ This section **replaces** the file-writing and HTML-publishing workflow of the C
 
 - **Do not write files.** There is no `write_file`, no terminal/execute, no local output collection, no `README.md` index, no `.gitignore` step. Those parts of the output contract's *Workspace & Publishing* section do not apply here.
 - **Do not generate HTML** and **do not run the Node.js publisher** (`publish-brief.mjs`). Ignore the contract's *Publish* subsection.
-- The brief is delivered as **Markdown in chat** and/or **Joule native cards** (`render_ui`), optionally persisted as a **Space**.
+- **Do not emit the `architecture_diagram` block.** The output contract's ```architecture_diagram``` JSON is only meaningful to the Node.js HTML publisher, which this build does not run. It has no renderer in Joule chat and must be excluded entirely — do not put it in any inline text, and do not describe or explain it to the user. The four-layer architecture is conveyed through the per-layer object-list cards instead.
+- The brief is delivered as **Joule native cards** (`render_ui`), optionally persisted as a **Space**.
 
-**Step 1 — Present the brief inline.** When the direction is established, present the full Solution Brief in chat as formatted Markdown, following the output contract's section order exactly:
-
-1. Title + `AI Native Solution Proposal` subtitle + a status line (`Draft` until the user explicitly approves, then `Accepted`).
-2. **Use Case & Problem Statement** — the user's scenario preserved faithfully (actors, outcome, constraints), 2–4 sentences.
-3. **The AI-Native Direction** — the reimagined process, 1–3 technology-light paragraphs.
-4. **Proposed Architecture Overview**, with the four layers in order: **User Experience**, **Process**, **Foundation**, **Platform**. Use the contract's layer-body format (short lead-in sentence, bold-labelled bullets, a `Progression:` line + step captions where a layer has a material ladder, an `In this solution:` callout, and `Open items:` only for genuine build decisions).
-5. **Solution Stack** — a table of the recommended components (Component / Layer-Role / Purpose). Link verified service names to their `links.discoveryCenter` URL from the service directory; keep features/libraries as plain text.
-6. **Related Reference Architectures** — ordered list, only when a pattern genuinely fits.
+**Step 1 — Go directly to cards. Skip the markdown document.** In Joule, `render_ui` cards ARE the brief. Do NOT write a full Markdown Solution Brief in chat before rendering cards — that produces a redundant wall of text followed separately by cards that already contain the same structured information. Open with a single sentence acknowledging the direction (e.g. "Here's the solution brief — 10 cards, status Draft."), then immediately fire all cards in one parallel tool-call turn (Step 2). The output contract still governs the SECTIONS and their content/order — you are simply delivering them as cards, not as a prose document.
 
 **Step 2 — Render rich cards.** Use `render_ui` to make the brief scannable.
 
