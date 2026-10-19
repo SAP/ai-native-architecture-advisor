@@ -11,3 +11,6 @@ AI Native Solutions/
 output/
 outputs/
 /examples/*.html
+
+# Build artifacts (reproducible via scripts/package-jwd-skill.sh)
+/dist/
