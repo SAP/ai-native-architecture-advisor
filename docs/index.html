@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Native Architecture Advisor">
 <meta property="og:title" content="The AI Native Architecture Advisor">
-<meta property="og:description" content="Describe an SAP business problem and this Claude Code / Codex plugin helps you design an AI-native solution — grounded in SAP's North Star architecture, Golden Path and reference architectures.">
+<meta property="og:description" content="Describe an SAP business problem and this Claude Code / Codex / Joule Work Desktop plugin helps you design an AI-native solution — grounded in SAP's North Star architecture, Golden Path and reference architectures.">
 <meta property="og:url" content="https://sap.github.io/ai-native-architecture-advisor/">
 <meta property="og:image" content="https://sap.github.io/ai-native-architecture-advisor/assets/social-preview.png">
 <meta property="og:image:width" content="1280">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="AI Native Architecture Advisor — North Star, Golden Path, Reference Architectures">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The AI Native Architecture Advisor">
-<meta name="twitter:description" content="Describe an SAP business problem and this Claude Code / Codex plugin helps you design an AI-native solution, grounded in SAP's architectural guidance.">
+<meta name="twitter:description" content="Describe an SAP business problem and this Claude Code / Codex / Joule Work Desktop plugin helps you design an AI-native solution, grounded in SAP's architectural guidance.">
 <meta name="twitter:image" content="https://sap.github.io/ai-native-architecture-advisor/assets/social-preview.png">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=neue-montreal@400,500,700&f[]=mondwest@400&display=swap" rel="stylesheet">
@@ -127,6 +127,14 @@
   .project-by { color: var(--gray-3); }
   .project-by b { display: block; color: var(--paper); font-weight: 500; letter-spacing: 0.04em; }
 
+  /* hero on phones: stack everything into one column so the spec grid stops
+     squashing + overflowing the viewport */
+  @media (max-width: 680px) {
+    .cover-foot { grid-template-columns: 1fr; gap: clamp(28px,8vw,40px); align-items: stretch; }
+    .cover-foot .right { grid-template-columns: 1fr; gap: 28px; }
+    .cover-sub { max-width: none; }
+  }
+
   /* hero install CTA */
   .cta-install {
     display: inline-flex; align-items: center; gap: 12px; margin-top: 28px;
@@ -226,6 +234,17 @@
   /* ---- Install ---- */
   .hosts { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line-on-dark); border: 1px solid var(--line-on-dark); margin-top: clamp(28px,4vw,56px); }
   @media (max-width: 820px) { .hosts { grid-template-columns: 1fr; } }
+  /* JWD side-load card — full width, its own treatment (not a /plugin one-liner) */
+  .host-jwd { background: var(--ink); border: 1px solid var(--line-on-dark); padding: clamp(24px,3vw,40px); margin-top: 2px; }
+  .host-jwd h3 { font-size: clamp(20px,2.2vw,28px); margin-bottom: 8px; }
+  .host-jwd .lede { font-size: 14px; opacity: 0.6; margin-bottom: 22px; max-width: 70ch; }
+  .jwd-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: jwd; }
+  .jwd-steps li { position: relative; background: #050a12; border: 1px solid var(--line-on-dark); border-radius: 8px; padding: 18px 20px 18px 54px; }
+  .jwd-steps li::before { counter-increment: jwd; content: counter(jwd); position: absolute; left: 16px; top: 16px; width: 24px; height: 24px; display: grid; place-items: center; font-family: var(--mono); font-size: 12px; color: var(--ink); background: var(--amber); border-radius: 999px; }
+  .jwd-steps .st-t { font-size: 15px; font-weight: 500; }
+  .jwd-steps .st-d { font-size: 13.5px; opacity: 0.62; margin-top: 4px; line-height: 1.55; }
+  .jwd-dl { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); background: var(--amber); border: 1px solid var(--amber); border-radius: 999px; padding: 10px 18px; transition: background 180ms var(--ease), color 180ms var(--ease), gap 220ms var(--ease); }
+  .jwd-dl:hover { background: transparent; color: var(--amber); gap: 14px; }
   .host { background: var(--ink); padding: clamp(24px,3vw,40px); min-width: 0; }
   .host h3 { font-size: clamp(20px,2.2vw,28px); margin-bottom: 18px; }
   .code { position: relative; background: #050a12; border: 1px solid var(--line-on-dark); border-radius: 8px; padding: 16px 46px 16px 16px; margin-bottom: 12px; font-family: var(--mono); font-size: 12.5px; line-height: 1.7; color: var(--paper-dim); overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
@@ -305,6 +324,7 @@
           <div class="spec-line"><span class="mono">Active ingredients</span></div>
           <div class="spec-line"><span class="mono">Claude Code</span><span class="mono">Host</span></div>
           <div class="spec-line"><span class="mono">Codex</span><span class="mono">Host</span></div>
+          <div class="spec-line"><span class="mono">Joule Work Desktop</span><span class="mono">Host</span></div>
         </div>
         <div>
           <div class="spec-line"><span class="mono">Chapters</span></div>
@@ -509,7 +529,7 @@
         <h2>Install and use</h2>
         <div class="num"><span class="lab">Chapter:</span><span class="big">05</span></div>
       </div>
-      <div class="foot"><span class="mono">One skill, two hosts</span><span class="mono">↓</span></div>
+      <div class="foot"><span class="mono">One skill, three hosts</span><span class="mono">↓</span></div>
     </div>
   </section>
 
@@ -528,6 +548,30 @@
 codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
           <p class="hint">Run these in your terminal, then start a new Codex thread.</p>
         </div>
+      </div>
+
+      <div class="host-jwd reveal">
+        <h3>Joule Work Desktop</h3>
+        <p class="lede">Joule doesn't use the plugin marketplace — it loads a skill from a local folder. Download the Joule build, unzip it, and add that folder in Joule's Skills section. Same guided discovery, delivered as Joule cards instead of files.</p>
+        <ol class="jwd-steps">
+          <li>
+            <div class="st-t">Download the Joule build</div>
+            <div class="st-d">Grab just the Joule Work Desktop skill folder as a zip — no repo clone needed.</div>
+            <a class="jwd-dl" href="https://download-directory.github.io/?url=https://github.com/SAP/ai-native-architecture-advisor/tree/main/skills/ai-native-architecture-advisor-jwd"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download skill folder (.zip)</a>
+          </li>
+          <li>
+            <div class="st-t">Unzip it</div>
+            <div class="st-d">You'll get an <span class="mono">ai-native-architecture-advisor-jwd/</span> folder containing <span class="mono">SKILL.md</span> and its <span class="mono">references/</span>. Keep the folder intact — Joule reads the whole folder.</div>
+          </li>
+          <li>
+            <div class="st-t">Add it in Joule Work Desktop</div>
+            <div class="st-d">Open <strong>Your extensions</strong> (lower-left) → <strong>Skills</strong> → <strong>+ New → Add Skill</strong>, then select the unzipped <span class="mono">ai-native-architecture-advisor-jwd/</span> folder.</div>
+          </li>
+          <li>
+            <div class="st-t">Start designing</div>
+            <div class="st-d">Ask Joule <em>"Help me design an SAP AI solution"</em> and the advisor delivers the AI Native Solution Brief as Joule cards.</div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
