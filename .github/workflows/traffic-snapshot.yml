@@ -1,0 +1,70 @@
+# Persists GitHub repo traffic (clones + views) past the 14-day API window.
+#
+# GitHub's Insights -> Traffic only keeps the last 14 days. This workflow runs
+# weekly, reads the traffic API, and merges each day's counts into committed
+# CSV files under metrics/ so the history accrues indefinitely. De-dupes by
+# date, so re-runs never double-count.
+#
+# Clones are the best available proxy for Claude Code / Codex installs, since
+# both do a `git clone` of the repo when the plugin marketplace is added.
+name: traffic-snapshot
+
+on:
+  schedule:
+    - cron: "17 3 * * 1" # Mondays 03:17 UTC (off-peak minute, weekly)
+  workflow_dispatch: {}   # allow manual runs
+
+permissions:
+  contents: write # commit the updated CSVs
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch + merge traffic into metrics/*.csv
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          mkdir -p metrics
+
+          # Merge helper: $1=api path, $2=json array key, $3=csv file, $4=count field
+          merge() {
+            api="$1"; key="$2"; csv="$3"; field="$4"
+            [ -f "$csv" ] || echo "date,count,uniques" > "$csv"
+            gh api "repos/$REPO/traffic/$api" \
+              --jq ".${key}[] | [.timestamp[0:10], .${field}, .uniques] | @csv" \
+              > /tmp/new.csv || { echo "traffic API returned nothing for $api"; return 0; }
+            # Keep existing rows whose date is NOT in the new pull; then append new.
+            new_dates=$(cut -d, -f1 /tmp/new.csv | tr -d '"' | sort -u || true)
+            {
+              head -1 "$csv"
+              tail -n +2 "$csv" | awk -F, -v d="$new_dates" '
+                BEGIN{ n=split(d,a,"\n"); for(i=1;i<=n;i++) seen[a[i]]=1 }
+                { k=$1; gsub(/"/,"",k); if(!(k in seen)) print }'
+              cat /tmp/new.csv
+            } | awk 'NR==1 || !s[$0]++' | sort -t, -k1,1 > "$csv.tmp"
+            mv "$csv.tmp" "$csv"
+          }
+
+          merge clones  clones  metrics/clones.csv count
+          merge views   views   metrics/views.csv  count
+
+          echo "--- metrics/clones.csv (tail) ---"; tail -5 metrics/clones.csv
+          echo "--- metrics/views.csv (tail) ---";  tail -5 metrics/views.csv
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- metrics/; then
+            echo "No traffic changes to commit."
+          else
+            git add metrics/
+            git commit -m "chore(metrics): weekly traffic snapshot [skip ci]"
+            git push
+          fi
