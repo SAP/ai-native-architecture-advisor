@@ -915,7 +915,6 @@ codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advis
       if (a.hasAttribute('data-install')) return; // already tracked above
       var href = a.getAttribute('href') || '';
       var label = /\/issues\//.test(href) ? 'issues'
-        : /download-directory/.test(href) ? 'download-host'
         : /github\.com\/SAP\/ai-native-architecture-advisor/.test(href) ? 'repo'
         : null;
       if (label) a.addEventListener('click', function () { track('outbound:' + label); });
