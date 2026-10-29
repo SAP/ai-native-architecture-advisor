@@ -315,7 +315,7 @@
     <div class="cover-foot">
       <div>
         <div class="cover-sub">The creative process of reimagining an SAP use case for the AI-native era</div>
-        <a href="#install" class="cta-install" id="ctaInstall">Install<span class="arw" aria-hidden="true">↓</span></a>
+        <a href="#install" class="cta-install" id="ctaInstall" data-install="cta-hero">Install<span class="arw" aria-hidden="true">↓</span></a>
         <div class="barcode" style="margin-top:28px"></div>
       </div>
       <div class="right">
@@ -538,13 +538,13 @@
       <div class="hosts">
         <div class="host">
           <h3>Claude Code</h3>
-          <div class="code"><button class="copy" type="button" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>/plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
+          <div class="code"><button class="copy" type="button" data-install="claude-code" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>/plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
 /plugin install ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
           <p class="hint">Run these inside Claude Code, then reload plugins or start a new session.</p>
         </div>
         <div class="host">
           <h3>Codex</h3>
-          <div class="code"><button class="copy" type="button" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>codex plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
+          <div class="code"><button class="copy" type="button" data-install="codex" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>codex plugin marketplace add https://github.com/SAP/ai-native-architecture-advisor.git
 codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advisor</div>
           <p class="hint">Run these in your terminal, then start a new Codex thread.</p>
         </div>
@@ -557,7 +557,7 @@ codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advis
           <li>
             <div class="st-t">Download the Joule build</div>
             <div class="st-d">Grab just the Joule Work Desktop skill folder as a zip — no repo clone needed.</div>
-            <a class="jwd-dl" href="https://download-directory.github.io/?url=https://github.com/SAP/ai-native-architecture-advisor/tree/main/skills/ai-native-architecture-advisor-jwd"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download skill folder (.zip)</a>
+            <a class="jwd-dl" data-install="joule-zip" href="https://download-directory.github.io/?url=https://github.com/SAP/ai-native-architecture-advisor/tree/main/skills/ai-native-architecture-advisor-jwd"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download skill folder (.zip)</a>
           </li>
           <li>
             <div class="st-t">Unzip it</div>
@@ -891,6 +891,26 @@ codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advis
       });
     });
   })();
+
+  // Install / download analytics — fire a Cloudflare Web Analytics custom event
+  // for each install action (Claude Code / Codex / Joule zip / hero CTA).
+  (function () {
+    function track(name) {
+      try {
+        if (window.cloudflareInsights && typeof window.cloudflareInsights.beacon === 'function') {
+          window.cloudflareInsights.beacon({ name: name });
+        }
+      } catch (e) {}
+    }
+    document.querySelectorAll('[data-install]').forEach(function (el) {
+      el.addEventListener('click', function () { track('install:' + el.getAttribute('data-install')); });
+    });
+  })();
 </script>
+
+<!-- Cloudflare Web Analytics (hostname: sap.github.io, standalone JS beacon).
+     Pageviews are automatic; custom install events fire via the script above. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "be9ff3f96f8149f2a251e0e9aca8c1db"}'></script>
 </body>
 </html>
