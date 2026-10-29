@@ -1,0 +1,13 @@
+name = "aina-download-proxy"
+main = "download-proxy.js"
+compatibility_date = "2025-01-01"
+
+# Analytics Engine dataset — where download hits are logged. The binding name
+# (DOWNLOADS) is what the Worker code references as env.DOWNLOADS.
+[[analytics_engine_datasets]]
+binding = "DOWNLOADS"
+dataset = "aina_downloads"
+
+# No KV, no secrets, no routes needed. After `wrangler deploy` the Worker is
+# reachable at  https://aina-download-proxy.<your-subdomain>.workers.dev/d/joule-zip
+# Point the site's download link at that URL (see worker/README.md).

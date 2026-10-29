@@ -893,7 +893,9 @@ codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advis
   })();
 
   // Install / download analytics — fire a Cloudflare Web Analytics custom event
-  // for each install action (Claude Code / Codex / Joule zip / hero CTA).
+  // for each install action (Claude Code / Codex / Joule zip / hero CTA),
+  // for outbound clicks (repo / issues / download host), and once when the
+  // Install section is reached. All browser-only (a bot/agent fetch fires none).
   (function () {
     function track(name) {
       try {
@@ -902,9 +904,33 @@ codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advis
         }
       } catch (e) {}
     }
+
+    // Tagged install actions
     document.querySelectorAll('[data-install]').forEach(function (el) {
       el.addEventListener('click', function () { track('install:' + el.getAttribute('data-install')); });
     });
+
+    // Outbound links (repo, issues, external download host) — skip in-page anchors
+    document.querySelectorAll('a[href^="http"]').forEach(function (a) {
+      if (a.hasAttribute('data-install')) return; // already tracked above
+      var href = a.getAttribute('href') || '';
+      var label = /\/issues\//.test(href) ? 'issues'
+        : /download-directory/.test(href) ? 'download-host'
+        : /github\.com\/SAP\/ai-native-architecture-advisor/.test(href) ? 'repo'
+        : null;
+      if (label) a.addEventListener('click', function () { track('outbound:' + label); });
+    });
+
+    // Reached the Install section (once per page load)
+    var install = document.getElementById('install');
+    if (install && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { track('reached:install'); io.disconnect(); }
+        });
+      }, { threshold: 0.4 });
+      io.observe(install);
+    }
   })();
 </script>
 
