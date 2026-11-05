@@ -18,7 +18,7 @@ This is initial **high-level solution design** for solution/enterprise architect
 
 ## Requirements
 
-- An AI host that supports skills or plugins: **Claude Code** or **OpenAI Codex**. See the host guidance under [Install and use](#install-and-use).
+- An AI host that supports skills or plugins: **Claude Code**, **OpenAI Codex** or **Joule Work Desktop**. See the host guidance under [Install and use](#install-and-use).
 - A capable reasoning model available to that host (see [Recommended models](#recommended-models)). The plugin does not provide or configure a model.
 - **Node.js 22+**, only if you render the HTML brief locally or run the publishing tests. Normal skill usage inside the host needs no separate runtime.
 - **Git**, for marketplace installation, updates and local development.
@@ -50,7 +50,7 @@ The collection's `README.md` indexes previous proposals with their summary, stat
 
 When the collection is inside a Git repository, the Advisor ensures that **that repository's** ignore rules exclude it before generating content. The plugin's own `.gitignore` cannot protect another repository. Already tracked files need a separate untracking decision; Git ignore is not access control or a backup. Sharing generated content is an explicit user choice.
 
-Markdown is the content source. Continue the conversation to revise it; the Advisor regenerates the HTML. The proposed solution uses supported SAP runtimes and generative AI hub for solution-controlled LLM calls. That design guidance concerns the proposed SAP solution, not the model running Claude Code or Codex.
+Markdown is the content source. Continue the conversation to revise it; the Advisor regenerates the HTML. The proposed solution uses supported SAP runtimes and generative AI hub for solution-controlled LLM calls. That design guidance concerns the proposed SAP solution, not the model running your AI host.
 
 ## Recommended models
 
@@ -58,12 +58,13 @@ For architecture reasoning and proposal generation, prefer a capable reasoning m
 
 - **Claude Code:** Opus or Fable, where available; Sonnet is also a useful quality/cost balance. See [Anthropic's model guidance](https://github.com/anthropics/skills/blob/main/skills/claude-api/shared/models.md).
 - **Codex:** Astra or Sol, where available. See [OpenAI's model guidance](https://learn.chatgpt.com/docs/models).
+- **Joule Work Desktop:** the model is provided by Joule; there is no separate reasoning model to select or configure.
 
 Choose from the models your account and organization actually provide. These are recommendations, not a benchmark of this skill or a guarantee of correctness. Lighter models can help with simple revisions, but review complex architecture decisions with a stronger model and a human architect. The plugin does not select or change your model automatically.
 
 ## Install and use
 
-One shared skill powers both hosts. Install through **one route per host** to avoid duplicate skill entries. These commands use the repository's published default branch; unpushed local changes are not available to other users.
+One shared skill powers these hosts. Install through **one route per host** to avoid duplicate skill entries. The Claude Code and Codex routes use the repository's published default branch; unpushed local changes are not available to other users.
 
 ### Claude Code
 
@@ -98,6 +99,17 @@ $ai-native-architecture-advisor:ai-native-architecture-advisor Help me reimagine
 ```
 
 If your Codex version has marketplace commands but no `plugin add`, install from that marketplace in its plugin interface, or use the standalone fallback below. See [OpenAI's plugin packaging and marketplace guidance](https://developers.openai.com/plugins/build/plugins).
+
+### Joule Work Desktop
+
+Joule doesn't use the plugin marketplace—it loads a skill from a local folder. Download the Joule build, unzip it, and add that folder in Joule's Skills section. Same guided discovery, delivered as Joule cards instead of files.
+
+1. **Download the Joule build.** Grab just the Joule Work Desktop skill folder as a zip—no repo clone needed: [download the `ai-native-architecture-advisor-jwd/` folder](https://download-directory.github.io/?url=https://github.com/SAP/ai-native-architecture-advisor/tree/main/skills/ai-native-architecture-advisor-jwd).
+2. **Unzip it.** You'll get an `ai-native-architecture-advisor-jwd/` folder containing `SKILL.md` and its `references/`. Keep the folder intact—Joule reads the whole folder.
+3. **Add it in Joule Work Desktop.** Open **Your extensions** (lower-left) → **Skills** → **+ New → Add Skill**, then select the unzipped `ai-native-architecture-advisor-jwd/` folder.
+4. **Start designing.** Ask Joule *"Help me design an SAP AI solution"* and the Advisor delivers the AI Native Solution Brief as Joule cards.
+
+A side-loaded skill folder is not marketplace-managed: for new releases, re-download the zip and add the folder again (see [Updating the plugin](#updating-the-plugin)).
 
 ### Standalone skill fallback
 
@@ -144,7 +156,7 @@ These paths are inside `skills/ai-native-architecture-advisor/`. Source dates re
 
 Only the reference-architecture catalogue is narrowed to AI and Data. The four North Star layers and the service directory remain available for designing the complete solution. Reference cards use descriptions and source links; external diagram snapshots are not bundled. The proposal's own architecture overview is generated locally.
 
-**Self-contained does not mean the AI host is offline.** Claude Code/Codex still uses its configured model connection, and remote installation or updates use GitHub. This plugin adds no reference-service connection; it neither configures nor disables the host's networking. Any live research must be explicitly requested separately.
+**Self-contained does not mean the AI host is offline.** The host still uses its configured model connection, and remote installation or updates use GitHub. This plugin adds no reference-service connection; it neither configures nor disables the host's networking. Any live research must be explicitly requested separately.
 
 ## Updating the plugin
 
@@ -166,6 +178,8 @@ codex plugin add ai-native-architecture-advisor@sap-ai-native-architecture-advis
 ```
 
 Start a new Codex thread/session. Updating a separate Git clone alone does not update an installed plugin copy. Maintainers must increase both manifest versions for subsequent releases; the current version is `0.2.0` (Beta).
+
+**Joule Work Desktop** is not marketplace-managed. A side-loaded folder does not update itself: for a new release, re-download the `ai-native-architecture-advisor-jwd/` zip, replace the folder, and add it again in Joule's Skills section as in [Install and use](#install-and-use).
 
 ## Local development
 
@@ -201,7 +215,7 @@ docs/                               Project landing page
 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution process, the Developer Certificate of Origin (DCO) requirement and the guidelines on AI-generated code.
 
-Please [create an issue](https://github.com/SAP/ai-native-architecture-advisor/issues/new) for any problem you find. Include the plugin version, Claude Code/Codex version, model, steps to reproduce, expected result and relevant error or incorrect output. For a content issue, include the official source that supports the correction where possible. Remove customer data, credentials and confidential details before sharing prompts or proposals.
+Please [create an issue](https://github.com/SAP/ai-native-architecture-advisor/issues/new) for any problem you find. Include the plugin version, your host and its version (Claude Code, Codex or Joule Work Desktop), model, steps to reproduce, expected result and relevant error or incorrect output. For a content issue, include the official source that supports the correction where possible. Remove customer data, credentials and confidential details before sharing prompts or proposals.
 
 ## Security / Disclosure
 
