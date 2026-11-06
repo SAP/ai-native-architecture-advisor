@@ -104,7 +104,7 @@ If your Codex version has marketplace commands but no `plugin add`, install from
 
 Joule doesn't use the plugin marketplace—it loads a skill from a local folder. Download the Joule build, unzip it, and add that folder in Joule's Skills section. Same guided discovery, delivered as Joule cards instead of files.
 
-1. **Download the Joule build.** Grab just the Joule Work Desktop skill folder as a zip—no repo clone needed: [download the `ai-native-architecture-advisor-jwd/` folder](https://download-directory.github.io/?url=https://github.com/SAP/ai-native-architecture-advisor/tree/main/skills/ai-native-architecture-advisor-jwd).
+1. **Download the Joule build.** Grab just the Joule Work Desktop skill folder as a zip—no repo clone needed: [download `ai-native-architecture-advisor-jwd.zip` from the latest release](https://github.com/SAP/ai-native-architecture-advisor/releases/latest).
 2. **Unzip it.** You'll get an `ai-native-architecture-advisor-jwd/` folder containing `SKILL.md` and its `references/`. Keep the folder intact—Joule reads the whole folder.
 3. **Add it in Joule Work Desktop.** Open **Your extensions** (lower-left) → **Skills** → **+ New → Add Skill**, then select the unzipped `ai-native-architecture-advisor-jwd/` folder.
 4. **Start designing.** Ask Joule *"Help me design an SAP AI solution"* and the Advisor delivers the AI Native Solution Brief as Joule cards.
