@@ -59,6 +59,12 @@ jobs:
               exit 1
             fi
             echo "traffic/$api: $(wc -l < /tmp/new.csv) day-rows fetched"
+            echo "::group::DEBUG /tmp/new.csv for $api"
+            echo "-- wc -lc --"; wc -lc < /tmp/new.csv
+            echo "-- cat -A (show line endings / hidden chars) --"; cat -A /tmp/new.csv
+            echo "-- awk NF check (field counts per line) --"; awk -F, '{print NR": NF="NF" ["$0"]"}' /tmp/new.csv
+            echo "-- existing csv before merge --"; cat -A "$csv" 2>/dev/null || echo "(no csv)"
+            echo "::endgroup::"
             # Merge old + new data rows, keyed by date (last-wins, so an overlapping
             # 14-day window updates existing dates with the latest counts), sort by
             # date, then re-prepend the header. Header is kept out of the sort.
