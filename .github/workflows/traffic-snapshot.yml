@@ -47,8 +47,9 @@ jobs:
           merge() {
             api="$1"; key="$2"; csv="$3"; field="$4"
             [ -f "$csv" ] || echo "date,count,uniques" > "$csv"
+            # Raw output (no @csv) so dates are unquoted and the file stays clean.
             if ! gh api "repos/$REPO/traffic/$api" \
-                 --jq ".${key}[] | [.timestamp[0:10], .${field}, .uniques] | @csv" \
+                 --jq ".${key}[] | \"\(.timestamp[0:10]),\(.${field}),\(.uniques)\"" \
                  > /tmp/new.csv; then
               echo "::error::gh api traffic/$api failed (token lacks traffic access?)" >&2
               exit 1
@@ -58,15 +59,15 @@ jobs:
               exit 1
             fi
             echo "traffic/$api: $(wc -l < /tmp/new.csv) day-rows fetched"
-            # Keep existing rows whose date is NOT in the new pull; then append new.
-            new_dates=$(cut -d, -f1 /tmp/new.csv | tr -d '"' | sort -u || true)
+            # Merge old + new data rows, keyed by date (last-wins, so an overlapping
+            # 14-day window updates existing dates with the latest counts), sort by
+            # date, then re-prepend the header. Header is kept out of the sort.
             {
-              head -1 "$csv"
-              tail -n +2 "$csv" | awk -F, -v d="$new_dates" '
-                BEGIN{ n=split(d,a,"\n"); for(i=1;i<=n;i++) seen[a[i]]=1 }
-                { k=$1; gsub(/"/,"",k); if(!(k in seen)) print }'
+              tail -n +2 "$csv"
               cat /tmp/new.csv
-            } | awk 'NR==1 || !s[$0]++' | sort -t, -k1,1 > "$csv.tmp"
+            } | awk -F, 'NF>=3 { rows[$1]=$0 } END { for (k in rows) print rows[k] }' \
+              | sort -t, -k1,1 > /tmp/body.csv
+            { echo "date,count,uniques"; cat /tmp/body.csv; } > "$csv.tmp"
             mv "$csv.tmp" "$csv"
           }
 
