@@ -1,6 +1,6 @@
 # User Experience Layer Card
 
-Advisor-curated guidance · content updated 2026-09-22. Source: [North Star publication](north-star.md#3-user-experience-layer); [provenance](SOURCES.md#north-star).
+Advisor-curated guidance · content updated 2026-09-22; GA items refreshed against SAP TechEd 2026 on 2026-11-16. Source: [North Star publication](north-star.md#3-user-experience-layer); [provenance](SOURCES.md#north-star).
 
 ## Intent
 
@@ -19,6 +19,10 @@ Fiori applications remain first-class for specialist views, detailed screens, ad
 | 3 | Joule for bounded transactional actions | A clerk uploads a PDF invoice in Joule; a custom agent performs one bounded action (extract, check, post or return an exception). |
 | 4 | Joule as primary interface for the main workflow | Upload, match, and post-or-escalate run through Joule end to end; the clerk makes judgment calls; Fiori keeps the deep screens. |
 | 5 | Joule as primary engagement across the whole process | Analytics, transactions, approvals, exceptions, and follow-up all engage through Joule; Fiori remains for specialist/admin views. |
+
+## Joule Work — the AI-first workspace
+
+The Joule engagement above covers Joule embedded in SAP applications (status, search, bounded actions in context). **Joule Work** is a distinct surface in **phased GA** (SAP TechEd Oct 2026): a standalone AI-first entry point for intent-driven, multi-step work across SAP and non-SAP systems. It reasons, plans and executes complex workflows, runs multiple agents concurrently with real-time progress tracking and failure notification, and ships out-of-the-box connections to SAP applications and non-SAP surfaces (e.g. Office 365, Claude Cowork, Glean, ServiceNow); Joule Studio is reachable directly through it. When a scenario centres on cross-system, multi-step orchestration from a single AI-first surface, name Joule Work specifically rather than the embedded Joule assistant. Confirm phased-GA availability and the specific connections in scope. Source: [Top SAP TechEd 2026 announcements](https://www.sap.com/blogs/top-sap-teched-2026-announcements), checked 2026-11-16.
 
 ## Applied judgment
 

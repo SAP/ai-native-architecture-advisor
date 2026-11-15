@@ -1,6 +1,6 @@
 # Process Layer Card
 
-Advisor-curated guidance · content updated 2026-09-22. Source: [North Star publication](north-star.md#4-process-layer); [provenance](SOURCES.md#north-star).
+Advisor-curated guidance · content updated 2026-09-22; GA items refreshed against SAP TechEd 2026 on 2026-11-16. Source: [North Star publication](north-star.md#4-process-layer); [provenance](SOURCES.md#north-star).
 
 ## Intent
 
@@ -23,7 +23,7 @@ When human decisions, handoffs or long-running coordination matter, establish th
 
 ## 2.2 Application and agent development
 
-Pro-code and Joule Studio are alternative or complementary development approaches, not a maturity ranking. Distinguish how the team builds and maintains the application/agent from where it runs; these questions can share one batch. SAP Cloud SDK for AI is a development dependency for AI-service access; Joule Studio supports relevant skills/agent authoring subject to current capabilities and entitlement.
+Pro-code and Joule Studio are alternative or complementary development approaches, not a maturity ranking. Distinguish how the team builds and maintains the application/agent from where it runs; these questions can share one batch. SAP Cloud SDK for AI is a development dependency for AI-service access; Joule Studio supports relevant skills/agent authoring. Confirmed GA at SAP TechEd 2026: role-based access (business users and developers collaborating in one tool), intent-based development (natural-language description → relevant processes, APIs, data and authorizations identified via SAP Knowledge Graph), AI agent extensions (instructions, APIs, MCP connections, workflow triggers), observability and admin controls (agent behaviour, model usage, spend), governance via SAP AI Agent Hub (up to 500 agents), 70+ selectable models, and CLI tooling/container orchestration for pro-code. Joule Studio's **n8n workflow integration is early-adopter only and NOT GA** — do not present it as a GA option. Confirm entitlement for gated items.
 
 Call a scenario-specific implementation a **custom agent**, regardless of whether a customer or partner builds it.
 
