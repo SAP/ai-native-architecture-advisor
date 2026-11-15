@@ -25,19 +25,39 @@ jobs:
 
       - name: Fetch + merge traffic into metrics/*.csv
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The default GITHUB_TOKEN CANNOT read the /traffic API — it returns
+          # empty, which previously made this job silently write empty CSVs and
+          # "succeed". The traffic API needs a user token with push access, so a
+          # PAT with repo scope is stored as the TRAFFIC_TOKEN secret.
+          GH_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
+
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::TRAFFIC_TOKEN secret is not set. The default GITHUB_TOKEN cannot read /traffic; add a PAT (repo scope) as TRAFFIC_TOKEN." >&2
+            exit 1
+          fi
+
           mkdir -p metrics
 
-          # Merge helper: $1=api path, $2=json array key, $3=csv file, $4=count field
+          # Merge helper: $1=api path, $2=json array key, $3=csv file, $4=count field.
+          # Fails LOUDLY: an API error or an empty result is a hard failure, so a
+          # broken run goes red instead of quietly committing nothing.
           merge() {
             api="$1"; key="$2"; csv="$3"; field="$4"
             [ -f "$csv" ] || echo "date,count,uniques" > "$csv"
-            gh api "repos/$REPO/traffic/$api" \
-              --jq ".${key}[] | [.timestamp[0:10], .${field}, .uniques] | @csv" \
-              > /tmp/new.csv || { echo "traffic API returned nothing for $api"; return 0; }
+            if ! gh api "repos/$REPO/traffic/$api" \
+                 --jq ".${key}[] | [.timestamp[0:10], .${field}, .uniques] | @csv" \
+                 > /tmp/new.csv; then
+              echo "::error::gh api traffic/$api failed (token lacks traffic access?)" >&2
+              exit 1
+            fi
+            if [ ! -s /tmp/new.csv ]; then
+              echo "::error::traffic/$api returned no rows — expected recent daily data. Check TRAFFIC_TOKEN scope/push access." >&2
+              exit 1
+            fi
+            echo "traffic/$api: $(wc -l < /tmp/new.csv) day-rows fetched"
             # Keep existing rows whose date is NOT in the new pull; then append new.
             new_dates=$(cut -d, -f1 /tmp/new.csv | tr -d '"' | sort -u || true)
             {
