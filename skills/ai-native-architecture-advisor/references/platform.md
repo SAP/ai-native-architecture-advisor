@@ -1,6 +1,6 @@
 # Platform Layer Card
 
-Advisor-curated guidance · content updated 2026-09-22. Source: [North Star publication](north-star.md#6-platform-layer); [provenance](SOURCES.md#north-star).
+Advisor-curated guidance · content updated 2026-09-22; GA items refreshed against SAP TechEd 2026 on 2026-11-16. Source: [North Star publication](north-star.md#6-platform-layer); [provenance](SOURCES.md#north-star).
 
 ## Intent
 
@@ -8,7 +8,7 @@ The Platform layer makes AI applications and agents deployable, governable, obse
 
 ## Runtime and SaaS Deployment — alternatives
 
-Apply SKILL.md's SAP runtime boundary. Use SAP BTP Cloud Foundry or Kyma for custom application/agent deployments, or a supported SAP product runtime for product-managed capabilities. An externally hosted primary runtime is an anti-pattern within this Advisor's design scope, not a lower maturity rung. External business systems and approved interoperability remain valid integration participants. Distinguish an SAP-managed service hosted on hyperscaler infrastructure from a customer-built application hosted directly outside SAP.
+Apply SKILL.md's SAP runtime boundary. Use SAP BTP Cloud Foundry or Kyma for custom application/agent deployments, or a supported SAP product runtime for product-managed capabilities. SAP BTP is now positioned within **SAP Business AI Platform (BAIP)** — the umbrella that combines SAP BTP (build/integrate/extend), SAP Business Data Cloud (data fabric) and SAP Business AI (AI services, generative AI hub, SAP AI Core, Joule). This is a repositioning, not a retirement: prefer current BAIP framing, but the underlying runtimes are unchanged and Cloud Foundry/Kyma remain the correct runtime guidance. An externally hosted primary runtime is an anti-pattern within this Advisor's design scope, not a lower maturity rung. External business systems and approved interoperability remain valid integration participants. Distinguish an SAP-managed service hosted on hyperscaler infrastructure from a customer-built application hosted directly outside SAP.
 
 For proposed custom applications/agents, establish available hosting capabilities and runtime constraints. A connected business system's deployment does not establish where the proposed solution runs. For example, a custom BTP workload warrants asking whether Cloud Foundry or Kyma is available or preferred. Name the confirmed runtime; for unresolved custom hosting use `SAP BTP Cloud Foundry / Kyma` with `Pending confirmation`, explaining whether availability, runtime choice or both remain open. For product-managed capabilities, name the supported product runtime without adding separate custom hosting.
 
@@ -19,7 +19,7 @@ For proposed custom applications/agents, establish available hosting capabilitie
 
 ## 4.2 Agent Hub — discovery and governance
 
-Include **Agent Hub** as a standing discovery/governance consideration in the marketplace side panel, explicitly distinguishing a candidate or later step from selected infrastructure. A reusable agent should have a defined discovery and management path; confirm the supported product scope and access. Development tooling remains a Process grouping, even though both panels sit beside the layers.
+Include **SAP AI Agent Hub** as a standing discovery/governance consideration in the marketplace side panel, explicitly distinguishing a candidate or later step from selected infrastructure. Two capabilities are confirmed GA (SAP TechEd Oct 2026): an AI registry that auto-discovers agents, LLMs and MCP servers across vendors, and an evaluation/verification workflow that scores and validates agents before deployment. It is bundled with a Joule Studio subscription for up to 500 agents; four further planned capabilities are not yet GA. A reusable agent should have a defined discovery and management path. Development tooling remains a Process grouping, even though both panels sit beside the layers.
 
 ## 4.3 Identity and Authorization
 
