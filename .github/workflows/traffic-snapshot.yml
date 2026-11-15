@@ -82,10 +82,14 @@ jobs:
           set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- metrics/; then
+          # Stage first, THEN check for a staged diff. `git diff --quiet` (unstaged)
+          # does NOT see brand-new untracked files, so on the first run the freshly
+          # created metrics/*.csv were silently skipped and nothing ever committed.
+          # Staging + `git diff --cached --quiet` catches both new and changed files.
+          git add -A metrics/
+          if git diff --cached --quiet -- metrics/; then
             echo "No traffic changes to commit."
           else
-            git add metrics/
             git commit -m "chore(metrics): weekly traffic snapshot [skip ci]"
             git push
           fi
