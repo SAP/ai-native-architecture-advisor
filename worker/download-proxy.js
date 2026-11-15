@@ -15,15 +15,14 @@
  * browser vs curl vs likely-agent.
  */
 
-// The real artifact a download resolves to. Points at the static GitHub Release
-// asset — a prebuilt, folder-wrapped zip. This replaced an on-the-fly
-// download-directory.github.io redirect, which shared GitHub's unauthenticated
-// 60 req/hr/IP API limit and intermittently failed with a rate-limit page.
-// The release asset is static: no rate limit, no third party, and GitHub reports
-// its own download count. Bump the version in the URL when a newer release ships.
+// The real artifact a download resolves to. Uses the /releases/latest/download
+// URL (GitHub's stable alias for the newest release's asset) so this never needs
+// updating when a new version ships — cut a release with the same asset name and
+// the Worker follows it automatically. Static GitHub release asset: no rate limit,
+// no third party, and GitHub reports its own download count per release.
 const TARGETS = {
   "joule-zip":
-    "https://github.com/SAP/ai-native-architecture-advisor/releases/download/v0.2.0/ai-native-architecture-advisor-jwd.zip",
+    "https://github.com/SAP/ai-native-architecture-advisor/releases/latest/download/ai-native-architecture-advisor-jwd.zip",
 };
 
 // Coarse client classification from the User-Agent, for the analytics blob.
