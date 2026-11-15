@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-native-architecture-advisor",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Help SAP customers and partners reimagine use cases for the AI-native era using North Star architectural layers, AI Golden Path guidance, and SAP reference architectures.",
   "author": { "name": "SAP" },
   "repository": "https://github.com/SAP/ai-native-architecture-advisor",
