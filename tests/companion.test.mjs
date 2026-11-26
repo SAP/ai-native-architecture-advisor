@@ -18,7 +18,7 @@ const template = readFileSync(resolve(skill, "assets/ai-native-solution-brief.ht
 // The template has multiple <script> blocks (a short theme seed first, the renderer later).
 // Select the block that actually defines the renderer rather than assuming its position.
 function rendererScript() {
-  const blocks = [...template.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]);
+  const blocks = [...template.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(m => m[1]);
   const src = blocks.find(b => b.includes("renderTokens") && b.includes("buildReportModel"));
   assert.ok(src, "renderer <script> block not found in template");
   return src;
@@ -33,7 +33,7 @@ test("publisher embeds the example with no network or remote resource loaders", 
   const html = readFileSync(out, "utf8");
   assert.match(html, /window.__BRIEF_MD__/);
   assert.match(html, /AI Native Solution Brief/);
-  for (const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) new vm.Script(match[1]);
+  for (const match of html.matchAll(/<script>([\s\S]*?)<\/script>/gi)) new vm.Script(match[1]);
   // No file may make network calls — applies to the brief AND the landing page.
   for (const source of [template, readFileSync(resolve(root, "docs/index.html"), "utf8"), readFileSync(resolve(skill, "scripts/publish-brief.mjs"), "utf8")]) {
     assert.doesNotMatch(source, /\bfetch\s*\(|XMLHttpRequest|WebSocket|EventSource|sendBeacon|node:https?|\brefreshCaches\b/);
@@ -42,7 +42,7 @@ test("publisher embeds the example with no network or remote resource loaders", 
   // and carries a strict CSP. The GitHub Pages landing page (docs/index.html) is a normal web page
   // that may load a web font, so it is intentionally out of scope for these two invariants.
   for (const source of [template, readFileSync(resolve(skill, "scripts/publish-brief.mjs"), "utf8")]) {
-    assert.doesNotMatch(source, /<(?:script|img)[^>]+src=["']https?:|<link[^>]+href=["']https?:|@import|url\(["']?https?:/);
+    assert.doesNotMatch(source, /<(?:script|img)[^>]+src=["']https?:|<link[^>]+href=["']https?:|@import|url\(["']?https?:/i);
   }
   for (const page of [html]) {
     assert.match(page, /Content-Security-Policy/);
@@ -62,7 +62,7 @@ test("renderer keeps safe source links and authored order, but only embeds local
   for (const url of ["https://example.com", "mailto:team@example.com", "../notes.html", "#process"]) {
     assert.match(render(`[example](<${url}>)`), /href=/);
   }
-  assert.doesNotMatch(render("![Remote image](https://example.com/image.svg)"), /<img/);
+  assert.doesNotMatch(render("![Remote image](https://example.com/image.svg)"), /<img/i);
 
   let section;
   context.document = {
@@ -83,7 +83,7 @@ test("renderer keeps safe source links and authored order, but only embeds local
   ] };
   vm.runInContext("renderRefArchSection(model)", context);
   assert.doesNotMatch(section.innerHTML, /remote\.svg/);
-  assert.doesNotMatch(section.innerHTML, /<img[^>]+src=["']https?:/);
+  assert.doesNotMatch(section.innerHTML, /<img[^>]+src=["']https?:/i);
   assert.ok(section.innerHTML.includes("Chosen first") && section.innerHTML.includes("Chosen second"));
   assert.ok(section.innerHTML.indexOf("Chosen first") < section.innerHTML.indexOf("Chosen second"));
 });
