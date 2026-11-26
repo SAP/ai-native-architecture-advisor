@@ -2,7 +2,7 @@
 
 Curated selection guidance · reviewed 2026-09-18; GA rows refreshed against SAP TechEd 2026 (Berlin, Oct 27–29) on 2026-11-16.
 
-Choose capabilities by business need within SKILL.md's SAP model-access and runtime boundaries. Layer cards own progression numbers; this map uses capability names to avoid a second numbering scale. Look up relevant service descriptions, features, names and links in the bundled `service-directory.json`. This is not a GA catalogue. Follow SKILL.md's snapshot-only source policy: validation requests below identify evidence needed, not instructions to browse. Confirm customer entitlement with the customer; record unsupported current features, availability, plans and integrations as **Needs source validation**.
+Choose capabilities by business need within SKILL.md's SAP model-access and runtime boundaries. Layer cards own progression numbers; this map uses capability names to avoid a second numbering scale. Look up relevant service descriptions, features, names and links in the bundled `service-directory.json`; to place a use case in SAP's autonomous-domain / industry / line-of-business map use `ai-dictionary.json`, and for agents, Joule assistants or embedded AI features SAP already ships use `ai-agents.json` / `ai-assistants.json` / `ai-features.json`. This is not a GA catalogue. Follow SKILL.md's snapshot-only source policy: validation requests below identify evidence needed, not instructions to browse. Confirm customer entitlement with the customer; record unsupported current features, availability, plans and integrations as **Needs source validation**.
 
 ## User Experience
 

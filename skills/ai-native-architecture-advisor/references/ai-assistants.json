@@ -1,0 +1,713 @@
+{
+ "source": "SAP Discovery Center Business AI catalogue",
+ "sourceUrl": "https://discovery-center.cloud.sap/servicecatalog/api/v1/ai/ai-catalog?type=ai-assistant",
+ "note": "English, text-only snapshot of the Joule Assistants listed in the Discovery Center Business AI catalogue on the capture date. Joule Assistants: domain-scoped multi-agent surfaces that coordinate the linked agents. Detail page: https://discovery-center.cloud.sap/ai-assistant/{uuid}. domain/processes/productCategories codes decode via ai-dictionary.json. Catalogue presence is availability-to-validate with the customer, not an entitlement and not proof of GA. Omission does not establish retirement. Internal ranking/routing fields are not retained. Maintainers replace this copy deliberately; no runtime refresh or API connection.",
+ "capturedAt": "2026-11-26",
+ "count": 44,
+ "items": [
+  {
+   "id": "80c02f76-7361-41bd-93b3-9d9ba1ca1bb8",
+   "name": "AI Governance Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "The AI Governance Assistant support managing AI capabilities in SAP Agent Hub.",
+   "domain": "AD.6",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "AI Governance Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "1842edfd-d3f3-46c3-9154-cc7af440830f",
+   "name": "Accounts Payable Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Resolve payment exceptions and reconcile vendors.",
+   "domain": "AD.1",
+   "processes": "AD.1.4",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Accounts Payable Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ea5ff1f9-4a6d-43a2-be69-d42a3cb76e66",
+   "name": "Accounts Receivable Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Prepare collection calls and automate dispute resolution.",
+   "domain": "AD.1",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Accounts Receivable Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "9261f306-f329-43e3-a284-296fb2f42ae3",
+   "name": "Asset Operations Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Interpret asset signals and prioritize and execute maintenance tasks.",
+   "domain": "AD.3",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "Asset Operations Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c2af7b30-3f8b-4651-b63b-3f193d0dc05d",
+   "name": "Billing Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Prevent billing errors, resolve issues faster, and deliver accurate invoices.",
+   "domain": "AD.1",
+   "processes": "AD.1.3",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Billing Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "575ae154-7e63-4d9f-8bb0-4ae143ecab69",
+   "name": "Campaign Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "AI-powered campaign orchestration and optimization across channels.",
+   "domain": "AD.5",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Campaign Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "f3ca3f82-891c-4424-8e0a-f55c1bc3f6ad",
+   "name": "Career and Talent Development Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate talent management to support growth, drive performance, and save time.",
+   "domain": "AD.4",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "Career and Talent Development Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "3950afb8-8e64-4c56-8aec-7977d834ef5e",
+   "name": "Case Management Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate case handling with context analysis and actions for processing.",
+   "domain": "AD.5",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Case Management Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "47b652f0-94f4-4de1-a087-df1bcd0990d4",
+   "name": "Cash and Treasury Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Streamline liquidity and risk with smart forecasting and bank insights.",
+   "domain": "AD.1",
+   "processes": "AD.1.6",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Cash and Treasury Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "3ae01d4f-2b2a-46a0-8bae-6ceaa8055324",
+   "name": "Category Management Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Optimize category strategies in procurement using AI-driven insights from spend data, supplier context, and market intelligence.",
+   "domain": "AD.2",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Category Management Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "2d968968-7de9-4462-9dcd-8f6f46b1501a",
+   "name": "Compensation Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Design, approve, and execute fair, data-driven pay decisions at scale.",
+   "domain": "AD.4",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "Compensation Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "023c8b6a-a6e7-4e1e-a576-be8db6978d26",
+   "name": "Content Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Personalize every interaction with real-time, AI-driven content.",
+   "domain": "AD.5",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Content Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "497b3e3b-d330-48e4-be88-80609d5ceffe",
+   "name": "Data Management Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate data quality monitoring and correction.",
+   "domain": "AD.6",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "Data Management Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a13acde8-f299-4fef-bc6f-3b00bda38176",
+   "name": "Deal Closing Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automates quotes, orders, and marks opportunities won.",
+   "domain": "AD.5",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Deal Closing Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "27b8a2fb-983a-45e0-979c-fe96b2b3177e",
+   "name": "Deal Qualification Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Deal Qualification Assistant: filters, enriches, and routes qualified leads.",
+   "domain": "AD.5",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Deal Qualification Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "aefe42cc-bb23-49d8-bf3e-98452ccd27df",
+   "name": "Enterprise Architecture Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Accelerate enterprise architecture using AI agents in SAP LeanIX.",
+   "domain": "AD.6",
+   "processes": "AD.6.1",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "Enterprise Architecture Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "355d68c3-f86c-4e99-afab-7283a2e6f618",
+   "name": "Financial Closing Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate financial closing to accelerate execution and simplify activities.",
+   "domain": "AD.1",
+   "processes": "AD.1.2",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Financial Closing Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "56d96ff1-2175-4276-bfa2-80ee841b0fa3",
+   "name": "Financial Consolidation Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Accelerate financial consolidation by preparing high-quality data, resolving issues, and enabling simulations and faster closing.",
+   "domain": "AD.1",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Financial Consolidation Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "1e8417ec-6984-4af8-ada2-7fa28cd1cfb8",
+   "name": "HR Operations Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate core HR to keep employee data compliant, consistent, and ready.",
+   "domain": "AD.4",
+   "processes": "AD.4.4",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "HR Operations Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "4382318a-ea9c-459d-958c-c95c83305838",
+   "name": "HR Service Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Streamline HR support with instant answers and minimal case creation.",
+   "domain": "AD.4",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "HR Service Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "6a4a72ea-29f1-4683-ae97-59ba62feaa1d",
+   "name": "HR System Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Simplify HR admin, govern configuration changes, and keep systems audit‑ready.",
+   "domain": "AD.4",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "HR System Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "77320a1c-8b3f-4414-a9d7-ef7356668480",
+   "name": "International Trade Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Speeds up international trade.",
+   "domain": "AD.1",
+   "processes": "",
+   "productCategories": "",
+   "products": [
+    {
+     "productName": "International Trade Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "301818f6-68d6-4518-bb7f-b9a2e000584d",
+   "name": "Invoicing Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate AP processes to minimize human intervention in invoicing and payments.",
+   "domain": "AD.2",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Invoicing Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ff063bf5-d416-4bfd-9ac1-c71705e3595d",
+   "name": "Learning Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Build a future-ready workforce with skills-based learning.",
+   "domain": "AD.4",
+   "processes": "AD.4.6",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "Learning Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "674e9dc6-1b69-4cd2-9ed1-76b2251dabc6",
+   "name": "Logistics Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Gain efficiency in resilient, scalable logistics operations.",
+   "domain": "AD.3",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "Logistics Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "071c3ce4-e11b-4dd8-bfd9-180f83d4c0f8",
+   "name": "Manufacturing Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Rethink manufacturing with agent-driven execution.",
+   "domain": "AD.3",
+   "processes": "AD.3.2",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "Manufacturing Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "9596377d-23ca-4def-86ca-0b3994d1acbc",
+   "name": "Merchandising Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Optimize product content at scale to improve discovery and expose unmet demand.",
+   "domain": "AD.5",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Merchandising Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "edc09cf9-a125-4682-95f3-7d1ba24ceec8",
+   "name": "Onboarding Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Streamline onboarding for consistent, compliant, and scalable productivity.",
+   "domain": "AD.4",
+   "processes": "AD.4.1",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "Onboarding Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "80de98ed-8ef0-4b64-9acb-f6775a351f23",
+   "name": "Operational Procurement Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automates operational procurement execution, reduces off-contract spend, and improves contract compliance across the full procure-to-pay cycle.",
+   "domain": "AD.2",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Operational Procurement Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "2384ff7d-e2b9-429a-a1ae-6df4ce3a8671",
+   "name": "Payroll Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate payroll with agentic precision for accurate, compliant, timely cycles.",
+   "domain": "AD.4",
+   "processes": "AD.4.2",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "Payroll Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c2a78567-07b4-4d85-8a75-8ba98150f1ba",
+   "name": "Performance & Goals Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Helps set aligned goals, track progress, & support fair, consistent calibration.",
+   "domain": "AD.4",
+   "processes": "AD.4.3",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "Performance and Goals Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c7aeba5e-18df-466e-9b1d-dc505cd90991",
+   "name": "Process Transformation Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Accelerate process transformation using AI agents in SAP Signavio.",
+   "domain": "AD.6",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "Process Transformation Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "80f7a5ed-db35-4d3e-9a63-f6da027dbb79",
+   "name": "Procurement Contract Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Elevate contracts into intelligent, compliant tools of business trust.",
+   "domain": "AD.2",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Procurement Contract Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "5f26ac8e-9e68-46aa-a352-b760de40a88d",
+   "name": "Product Design Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Accelerate design, sharpen decisions, and cut costly rework.",
+   "domain": "AD.3",
+   "processes": "AD.3.1",
+   "productCategories": "PP.1,PP.6,PP.8",
+   "products": [
+    {
+     "productName": "Product Design Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d71c2437-3a59-4f01-86b4-2e11943df581",
+   "name": "Purchasing Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Identify products or services, compare options, prepare purchase requests, and guide users through procurement processes.",
+   "domain": "AD.2",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Purchasing Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "2b34fe18-b81e-4844-a63d-d733ca2018f2",
+   "name": "Receiving Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate goods receipt, service entry sheets, returns, and quality control.",
+   "domain": "AD.2",
+   "processes": "AD.2.2",
+   "productCategories": "",
+   "products": [
+    {
+     "productName": "Receiving Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "76f0ada2-d9ce-4fa6-bb31-8d82edff6cc2",
+   "name": "Recurring Receivables Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate high-volume, order-to-cash receivables with AI-powered billing.",
+   "domain": "AD.1",
+   "processes": "",
+   "productCategories": "PP.1,PP.7",
+   "products": [
+    {
+     "productName": "Recurring Receivables Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c6c5c984-03e9-4eab-a0be-75a200e052d6",
+   "name": "Requisition Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Helps buyers find and procure the item or service they need.",
+   "domain": "AD.2",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Requisition Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "b925da46-e194-4121-957f-d18f8667d790",
+   "name": "Sales Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Embed AI into daily sales workflows to manage opportunities, automate updates, and recommend next-best actions.",
+   "domain": "AD.5",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Sales Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "10cc5d3d-d756-43ff-9a96-e1535635613a",
+   "name": "Sales Operations Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Automate order processing, resolve issues, and ensure accurate sales data.",
+   "domain": "AD.1",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Sales Operations Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "2f81c285-9835-451f-aa61-2d3d4e2c1cc7",
+   "name": "Sourcing Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Orchestrate end-to-end sourcing from supplier discovery to final negotiation.",
+   "domain": "AD.2",
+   "processes": "AD.2.1",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Sourcing Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "79bde9e5-ecd3-4148-8639-6957c09fb615",
+   "name": "Supplier Management Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "AI-driven supplier creation, insights, risk management, and collaboration.",
+   "domain": "AD.2",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Supplier Management Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "6a08e602-3c69-449c-b0f3-e8c84c23cd5e",
+   "name": "Supply Chain Planning Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Help planners make fast, informed decisions across all time horizons.",
+   "domain": "AD.3",
+   "processes": "AD.3.4",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "Supply Chain Planning Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "7ac06bf5-5e81-4ff9-92c6-f102146e6060",
+   "name": "Tax and Compliance Assistant",
+   "type": "ai_assistant",
+   "shortDescription": "Transform tax and compliance into an automated, AI-driven system.",
+   "domain": "AD.1",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Tax and Compliance Assistant"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  }
+ ]
+}

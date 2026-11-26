@@ -1,0 +1,586 @@
+{
+ "source": "SAP Discovery Center Business AI dictionary",
+ "sourceUrl": "https://discovery-center.cloud.sap/servicecatalog/api/v1/ai/dictionary",
+ "note": "English, text-only snapshot of the Business AI taxonomy codes used across the Discovery Center AI catalogues: autonomous domains and sub-domains, industries, line-of-business product categories, and Joule assistant codes. Codes decode the domain/productCategories/processes fields in ai-agents.json, ai-assistants.json and ai-features.json. A vocabulary for placing a use case, not a scored maturity ladder and not proof of current availability. Maintainers replace this copy deliberately; no runtime refresh or API connection.",
+ "capturedAt": "2026-11-26",
+ "autonomousDomainCount": 40,
+ "industryCount": 25,
+ "productCategoryCount": 11,
+ "aiAssistantCodeCount": 56,
+ "autonomousDomainsAndSubDomains": [
+  {
+   "code": "AD.3.2",
+   "name": "Manufacturing",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.1.3",
+   "name": "Quote to Cash",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.6.1",
+   "name": "Govern & Manage",
+   "type": "ai_agent,ai_assistant"
+  },
+  {
+   "code": "AD.3.3",
+   "name": "Asset Operations",
+   "type": "ai_agent,ai_agent_partner"
+  },
+  {
+   "code": "AD.4.3",
+   "name": "Performance and Goals",
+   "type": "ai_agent,ai_assistant"
+  },
+  {
+   "code": "AD.2.2",
+   "name": "Procurement",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.6",
+   "name": "Business AI Platform",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.5",
+   "name": "Autonomous CX",
+   "type": "ai_agent,ai_agent_package,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.1",
+   "name": "Autonomous Finance",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.1.4",
+   "name": "Invoice-to-Pay",
+   "type": "ai_agent,ai_assistant"
+  },
+  {
+   "code": "AD.3",
+   "name": "Autonomous SCM",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.6.2",
+   "name": "System Admin",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.3.1",
+   "name": "Product Design",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.4",
+   "name": "Autonomous HCM",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.1.6",
+   "name": "Cash Management",
+   "type": "ai_agent,ai_assistant"
+  },
+  {
+   "code": "AD.2",
+   "name": "Autonomous Spend",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.7",
+   "name": "Industry AI",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.2.1",
+   "name": "Sourcing",
+   "type": "ai_agent,ai_assistant"
+  },
+  {
+   "code": "AD.1.2",
+   "name": "Accounting & Financial Close",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.4.4",
+   "name": "Core HR",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.4.1",
+   "name": "Career & Talent",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.1.7",
+   "name": "Financial Planning & Analysis",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.5.2",
+   "name": "Sales & Revenue",
+   "type": "ai_agent,ai_agent_partner"
+  },
+  {
+   "code": "AD.5.3",
+   "name": "Service",
+   "type": "ai_agent,ai_agent_partner"
+  },
+  {
+   "code": "AD.4.5",
+   "name": "Talent Acquisition",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.4.6",
+   "name": "Learning",
+   "type": "ai_agent,ai_assistant"
+  },
+  {
+   "code": "AD.4.2",
+   "name": "Payroll",
+   "type": "ai_agent,ai_assistant"
+  },
+  {
+   "code": "AD.4.7",
+   "name": "Skills",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.4.8",
+   "name": "Workforce Management",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.1.5",
+   "name": "Treasury & Working Capital",
+   "type": "ai_agent,ai_agent_partner"
+  },
+  {
+   "code": "AD.1.9",
+   "name": "Globalization",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.3.5",
+   "name": "Logistics",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.3.4",
+   "name": "Planning",
+   "type": "ai_agent,ai_agent_partner,ai_assistant"
+  },
+  {
+   "code": "AD.1.1",
+   "name": "Governance, Risk & Compliance",
+   "type": "ai_agent,ai_agent_partner"
+  },
+  {
+   "code": "AD.2.4",
+   "name": "Invoice-to-Pay",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.1.10",
+   "name": "Treasury & Working Capital",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.4.9",
+   "name": "HR Service Management",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.5.1",
+   "name": "Unified Commerce",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.5.4",
+   "name": "Marketing",
+   "type": "ai_agent"
+  },
+  {
+   "code": "AD.2.5",
+   "name": "Purchasing",
+   "type": "ai_agent"
+  }
+ ],
+ "industries": [
+  {
+   "code": "IC.1",
+   "name": "Aerospace and Defense"
+  },
+  {
+   "code": "IC.10",
+   "name": "Healthcare"
+  },
+  {
+   "code": "IC.11",
+   "name": "High Tech"
+  },
+  {
+   "code": "IC.13",
+   "name": "Industrial Manufacturing"
+  },
+  {
+   "code": "IC.15",
+   "name": "Life Sciences"
+  },
+  {
+   "code": "IC.17",
+   "name": "Mill Products"
+  },
+  {
+   "code": "IC.18",
+   "name": "Mining"
+  },
+  {
+   "code": "IC.2",
+   "name": "Automotive"
+  },
+  {
+   "code": "IC.20",
+   "name": "Professional Services"
+  },
+  {
+   "code": "IC.22",
+   "name": "Retail"
+  },
+  {
+   "code": "IC.25",
+   "name": "Utilities"
+  },
+  {
+   "code": "IC.27",
+   "name": "Wholesale Distribution"
+  },
+  {
+   "code": "IC.5",
+   "name": "Chemicals"
+  },
+  {
+   "code": "IC.6",
+   "name": "Consumer Products"
+  },
+  {
+   "code": "IC.4",
+   "name": "Sports and Entertainment"
+  },
+  {
+   "code": "IC.19",
+   "name": "Oil, Gas, and Energy"
+  },
+  {
+   "code": "IC.24",
+   "name": "Travel and Transportation"
+  },
+  {
+   "code": "IC.7",
+   "name": "Cross Industry"
+  },
+  {
+   "code": "IC.21",
+   "name": "Public Sector"
+  },
+  {
+   "code": "IC.8",
+   "name": "Defense and Security"
+  },
+  {
+   "code": "IC.3",
+   "name": "Banking"
+  },
+  {
+   "code": "IC.9",
+   "name": "Engineering, Construction, and Operations"
+  },
+  {
+   "code": "IC.23",
+   "name": "Telecommunications"
+  },
+  {
+   "code": "IC.16",
+   "name": "Media"
+  },
+  {
+   "code": "IC.28",
+   "name": "Agribusiness"
+  }
+ ],
+ "productCategories": [
+  {
+   "code": "PP.1.3",
+   "name": "Business Transformation Management"
+  },
+  {
+   "code": "PP.2",
+   "name": "Customer Relationship Management"
+  },
+  {
+   "code": "PP.3",
+   "name": "Human Capital Management"
+  },
+  {
+   "code": "PP.4",
+   "name": "Technology Platform"
+  },
+  {
+   "code": "PP.5",
+   "name": "Spend Management"
+  },
+  {
+   "code": "PP.6",
+   "name": "Product Lifecycle Management"
+  },
+  {
+   "code": "PP.7",
+   "name": "Financial Management"
+  },
+  {
+   "code": "PP.8",
+   "name": "Supply Chain Management"
+  },
+  {
+   "code": "PP.1",
+   "name": "Cloud ERP applications"
+  },
+  {
+   "code": "PP.9",
+   "name": "Sustainability Management"
+  },
+  {
+   "code": "PP.4.3",
+   "name": "Data and Analytics"
+  }
+ ],
+ "aiAssistants": [
+  {
+   "code": "AA.5.1",
+   "name": "Travel Assistant"
+  },
+  {
+   "code": "AA.5",
+   "name": "Spend Management"
+  },
+  {
+   "code": "AA.4.1",
+   "name": "Product Design Assistant"
+  },
+  {
+   "code": "AA.5.2",
+   "name": "Expense Management Assistant"
+  },
+  {
+   "code": "AA.3.1",
+   "name": "Performance and Goals Assistant"
+  },
+  {
+   "code": "AA.1.3",
+   "name": "Cash and Treasury Assistant"
+  },
+  {
+   "code": "AA.3",
+   "name": "HCM"
+  },
+  {
+   "code": "AA.4.3",
+   "name": "Manufacturing Assistant"
+  },
+  {
+   "code": "AA.4",
+   "name": "Supply Chain Management"
+  },
+  {
+   "code": "AA.6.2",
+   "name": "Enterprise Architecture Assistant"
+  },
+  {
+   "code": "AA.6",
+   "name": "SAP Business AI Platform"
+  },
+  {
+   "code": "AA.1",
+   "name": "Finance"
+  },
+  {
+   "code": "AA.4.2",
+   "name": "Asset and Service Assistant"
+  },
+  {
+   "code": "AA.2",
+   "name": "CX"
+  },
+  {
+   "code": "AA.5.3",
+   "name": "Sourcing Assistant"
+  },
+  {
+   "code": "AA.1.4",
+   "name": "Billing Assistant"
+  },
+  {
+   "code": "AA.3.5",
+   "name": "HR Service Assistant"
+  },
+  {
+   "code": "AA.1.1",
+   "name": "Accounts Receivable Assistant"
+  },
+  {
+   "code": "AA.1.2",
+   "name": "Financial Closing Assistant"
+  },
+  {
+   "code": "AA.7",
+   "name": "Industry AI"
+  },
+  {
+   "code": "AA.3.14",
+   "name": "HR Operations Assistant"
+  },
+  {
+   "code": "AA.3.3",
+   "name": "Payroll Assistant"
+  },
+  {
+   "code": "AA.3.12",
+   "name": "HR System Assistant"
+  },
+  {
+   "code": "AA.3.9",
+   "name": "Learning Assistant"
+  },
+  {
+   "code": "AA.2.4",
+   "name": "Deal Qualification Assistant"
+  },
+  {
+   "code": "AA.3.8",
+   "name": "Onboarding Assistant"
+  },
+  {
+   "code": "AA.1.10",
+   "name": "Financial Consolidation Assistant"
+  },
+  {
+   "code": "AA.2.6",
+   "name": "Case Management Assistant"
+  },
+  {
+   "code": "AA.3.10",
+   "name": "Career and Talent Development Assistant"
+  },
+  {
+   "code": "AA.1.7",
+   "name": "Recurring Receivables Assistant"
+  },
+  {
+   "code": "AA.1.9",
+   "name": "Sales Operations Assistant"
+  },
+  {
+   "code": "AA.2.5",
+   "name": "Self-Service Assistant"
+  },
+  {
+   "code": "AA.1.5",
+   "name": "Tax and Compliance Assistant"
+  },
+  {
+   "code": "AA.4.4",
+   "name": "Planning Assistant"
+  },
+  {
+   "code": "AA.1.6",
+   "name": "Governance Assistant"
+  },
+  {
+   "code": "AA.4.5",
+   "name": "Logistics Assistant"
+  },
+  {
+   "code": "AA.1.12",
+   "name": "International Trade Assistant"
+  },
+  {
+   "code": "AA.5.5",
+   "name": "Invoicing Assistant"
+  },
+  {
+   "code": "AA.6.3",
+   "name": "Data Management Assistant"
+  },
+  {
+   "code": "AA.4.7",
+   "name": "Supply Chain Planning Assistant"
+  },
+  {
+   "code": "AA.4.6",
+   "name": "Asset Operations Assistant"
+  },
+  {
+   "code": "AA.5.8",
+   "name": "Category Management Assistant"
+  },
+  {
+   "code": "AA.2.7",
+   "name": "Order Management Assistant"
+  },
+  {
+   "code": "AA.5.11",
+   "name": "Purchasing Assistant"
+  },
+  {
+   "code": "AA.5.12",
+   "name": "Supplier Management Assistant"
+  },
+  {
+   "code": "AA.5.4",
+   "name": "Procurement Contract Assistant"
+  },
+  {
+   "code": "AA.5.9",
+   "name": "Receiving Assistant"
+  },
+  {
+   "code": "AA.2.9",
+   "name": "Content Assistant"
+  },
+  {
+   "code": "AA.5.13",
+   "name": "Requisition Assistant"
+  },
+  {
+   "code": "AA.2.8",
+   "name": "Campaign Assistant"
+  },
+  {
+   "code": "AA.5.14",
+   "name": "Operational Procurement Assistant"
+  },
+  {
+   "code": "AA.3.6",
+   "name": "Compensation Assistant"
+  },
+  {
+   "code": "AA.2.2",
+   "name": "Merchandising Assistant"
+  },
+  {
+   "code": "AA.2.10",
+   "name": "Deal Closing Assistant"
+  },
+  {
+   "code": "AA.2.3",
+   "name": "Sales Assistant"
+  },
+  {
+   "code": "AA.6.9",
+   "name": "AI Governance Assistant"
+  }
+ ]
+}

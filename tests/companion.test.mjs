@@ -15,6 +15,15 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const skill = resolve(root, "skills/ai-native-architecture-advisor");
 const template = readFileSync(resolve(skill, "assets/ai-native-solution-brief.html"), "utf8");
 
+// The template has multiple <script> blocks (a short theme seed first, the renderer later).
+// Select the block that actually defines the renderer rather than assuming its position.
+function rendererScript() {
+  const blocks = [...template.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(m => m[1]);
+  const src = blocks.find(b => b.includes("renderTokens") && b.includes("buildReportModel"));
+  assert.ok(src, "renderer <script> block not found in template");
+  return src;
+}
+
 test("publisher embeds the example with no network or remote resource loaders", () => {
   const out = resolve(mkdtempSync(resolve(tmpdir(), "ai-native-architecture-advisor-test-")), "demo.html");
   const noFetch = "data:text/javascript," + encodeURIComponent("globalThis.fetch = () => { throw new Error('Network is disabled'); };");
@@ -24,12 +33,18 @@ test("publisher embeds the example with no network or remote resource loaders", 
   const html = readFileSync(out, "utf8");
   assert.match(html, /window.__BRIEF_MD__/);
   assert.match(html, /AI Native Solution Brief/);
-  for (const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) new vm.Script(match[1]);
+  for (const match of html.matchAll(/<script>([\s\S]*?)<\/script>/gi)) new vm.Script(match[1]);
+  // No file may make network calls — applies to the brief AND the landing page.
   for (const source of [template, readFileSync(resolve(root, "docs/index.html"), "utf8"), readFileSync(resolve(skill, "scripts/publish-brief.mjs"), "utf8")]) {
     assert.doesNotMatch(source, /\bfetch\s*\(|XMLHttpRequest|WebSocket|EventSource|sendBeacon|node:https?|\brefreshCaches\b/);
-    assert.doesNotMatch(source, /<(?:script|img)[^>]+src=["']https?:|<link[^>]+href=["']https?:|@import|url\(["']?https?:/);
   }
-  for (const page of [html, readFileSync(resolve(root, "docs/index.html"), "utf8")]) {
+  // The self-contained brief (template + generated HTML + publisher) embeds no remote resources
+  // and carries a strict CSP. The GitHub Pages landing page (docs/index.html) is a normal web page
+  // that may load a web font, so it is intentionally out of scope for these two invariants.
+  for (const source of [template, readFileSync(resolve(skill, "scripts/publish-brief.mjs"), "utf8")]) {
+    assert.doesNotMatch(source, /<(?:script|img)[^>]+src=["']https?:|<link[^>]+href=["']https?:|@import|url\(["']?https?:/i);
+  }
+  for (const page of [html]) {
     assert.match(page, /Content-Security-Policy/);
     assert.match(page, /connect-src 'none'/);
     assert.match(page, /img-src data:/);
@@ -39,7 +54,7 @@ test("publisher embeds the example with no network or remote resource loaders", 
 test("renderer keeps safe source links and authored order, but only embeds local image data", () => {
   const marked = createRequire(import.meta.url)(resolve(skill, "assets/marked.umd.js"));
   const context = vm.createContext({ module: { exports: {} }, marked, URL });
-  vm.runInContext([...template.matchAll(/<script>([\s\S]*?)<\/script>/g)][0][1], context);
+  vm.runInContext(rendererScript(), context);
   const render = markdown => context.module.exports.renderTokens(marked.lexer(markdown));
   for (const url of ["javascript:alert(1)", "java\tscript:alert(1)", "java\nscript:alert(1)", "data:text/html,unsafe", "vbscript:unsafe"]) {
     assert.doesNotMatch(render(`[example](<${url}>)`), /href=/);
@@ -47,32 +62,36 @@ test("renderer keeps safe source links and authored order, but only embeds local
   for (const url of ["https://example.com", "mailto:team@example.com", "../notes.html", "#process"]) {
     assert.match(render(`[example](<${url}>)`), /href=/);
   }
-  assert.doesNotMatch(render("![Remote image](https://example.com/image.svg)"), /<img/);
+  assert.doesNotMatch(render("![Remote image](https://example.com/image.svg)"), /<img/i);
 
   let section;
   context.document = {
     querySelector: () => ({ querySelector: () => ({ appendChild: value => { section = value; } }) }),
     createElement: () => ({}),
   };
-  const embedded = "data:image/svg+xml;base64," + Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"/>').toString("base64");
+  // The redesigned Fiori card system intentionally drops the bundled diagram image
+  // from reference-architecture cards (an outline icon carries the visual role now).
+  // The card renders from model.relatedArchitectures; it must preserve authored order
+  // and must never emit a remote URL.
   context.window = { __REF_ARCH_INDEX__: [
     { url: "https://example.com/one", diagram_url: "https://example.com/remote.svg", diagram_data: "https://example.com/remote.svg" },
-    { url: "https://example.com/two", diagram_data: embedded },
+    { url: "https://example.com/two", diagram_data: "data:image/svg+xml;base64," + Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"/>').toString("base64") },
   ] };
   context.model = { relatedArchitectures: [
     { url: "https://example.com/two", title: "Chosen first", description: "Scenario fit" },
     { url: "https://example.com/one", title: "Chosen second", description: "Supporting pattern" },
   ] };
   vm.runInContext("renderRefArchSection(model)", context);
-  assert.match(section.innerHTML, /img src="data:image\/svg\+xml;base64,/);
   assert.doesNotMatch(section.innerHTML, /remote\.svg/);
+  assert.doesNotMatch(section.innerHTML, /<img[^>]+src=["']https?:/i);
+  assert.ok(section.innerHTML.includes("Chosen first") && section.innerHTML.includes("Chosen second"));
   assert.ok(section.innerHTML.indexOf("Chosen first") < section.innerHTML.indexOf("Chosen second"));
 });
 
 test("diagram contract supports growing component lists and contains malformed data", () => {
   const marked = createRequire(import.meta.url)(resolve(skill, "assets/marked.umd.js"));
   const context = vm.createContext({ module: { exports: {} }, marked, URL });
-  vm.runInContext([...template.matchAll(/<script>([\s\S]*?)<\/script>/g)][0][1], context);
+  vm.runInContext(rendererScript(), context);
   const { buildReportModel, normalizeArchitectureDiagram } = context.module.exports;
   const example = readFileSync(resolve(root, "examples/supplier-confirmation-solution-brief.md"), "utf8");
   const original = buildReportModel(example);
