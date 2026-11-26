@@ -1,0 +1,6608 @@
+{
+ "source": "SAP Discovery Center Business AI catalogue",
+ "sourceUrl": "https://discovery-center.cloud.sap/servicecatalog/api/v1/ai/ai-catalog?type=ai-feature",
+ "note": "English, text-only snapshot of the Embedded AI Features listed in the Discovery Center Business AI catalogue on the capture date. Embedded AI features shipped inside SAP products (type ai_feature). Detail page: https://discovery-center.cloud.sap/ai-feature/{uuid}. domain/processes/productCategories codes decode via ai-dictionary.json. Catalogue presence is availability-to-validate with the customer, not an entitlement and not proof of GA. Omission does not establish retirement. Internal ranking/routing fields are not retained. Maintainers replace this copy deliberately; no runtime refresh or API connection.",
+ "capturedAt": "2026-11-26",
+ "count": 412,
+ "items": [
+  {
+   "id": "8871f2ac-2fb2-4d65-868f-afcd7534179f",
+   "name": "Cohere North on SAP Business AI Platform",
+   "type": "ai_feature",
+   "shortDescription": "Cohere North, hosted on SAP Business AI Platform.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "Cohere North on SAP Business AI Platform"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d1cb475f-b088-471f-8723-c2586d5ee23c",
+   "name": "Chart of Accounts Upload",
+   "type": "ai_feature",
+   "shortDescription": "Automate the import of expense accounts from accounting systems into Concur.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "2411eb3f-953f-4ca2-b12b-b0a61b43258f",
+   "name": "Configuration for Audit Rules",
+   "type": "ai_feature",
+   "shortDescription": "Manage and explain expense audit rules in plain language with an AI assistant.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5b97d85e-1282-4df0-9a54-dbce764a3569",
+   "name": "Corporate Card Management",
+   "type": "ai_feature",
+   "shortDescription": "Empower virtual card management through AI automation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f137ecf1-a099-49ab-812b-0b86802d7260",
+   "name": "ERP Configuration for Finance",
+   "type": "ai_feature",
+   "shortDescription": "Auto-import and map liability account codes from your accounting system.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5727f719-99ab-4f95-8a88-221bacf02525",
+   "name": "Hotel Receipt Itemization",
+   "type": "ai_feature",
+   "shortDescription": "Automatic itemization of hotel receipts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c75d552d-8cc5-400f-9cb3-abb470e4b560",
+   "name": "Intelligent Audit",
+   "type": "ai_feature",
+   "shortDescription": "Check expense reports to identify errors and compliance issues.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6e510fad-120e-4b9a-9eb1-e1cfb5352436",
+   "name": "Policy Assistance",
+   "type": "ai_feature",
+   "shortDescription": "Boost policy awareness and drive compliance with AI-generated policy trip tips.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "2236aa72-6093-4548-8c6e-f2cc7164aa70",
+   "name": "Policy Navigator",
+   "type": "ai_feature",
+   "shortDescription": "Provide instant, trusted policy answers with natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "982bbac5-9098-46fb-87d6-5db578179c44",
+   "name": "Pre-submit Receipt Check",
+   "type": "ai_feature",
+   "shortDescription": "Check expenses for receipt issues before submission.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e09f662e-cec3-404d-b98c-f83fe6174310",
+   "name": "Verify",
+   "type": "ai_feature",
+   "shortDescription": "Check expense reports to identify errors and compliance issues.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Expense"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "a366bdbe-3b50-4ea5-9492-8793acf08117",
+   "name": "ERP Configuration for Finance",
+   "type": "ai_feature",
+   "shortDescription": "Auto-import and map liability account codes from your accounting system.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Invoice"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "63280713-0de9-43d1-9fac-893c06cb8d28",
+   "name": "Expense Type Classification",
+   "type": "ai_feature",
+   "shortDescription": "Extract and classify expense types on invoices using AI, so required fields are populated automatically and manual effort drops.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Invoice"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "71917827-81f0-4a94-9597-d1395486c865",
+   "name": "Invoice Capture",
+   "type": "ai_feature",
+   "shortDescription": "Eliminate the hassle of paper invoices and speed up accounts payable processes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Invoice"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0cd3cbf7-fa77-413a-80dc-c0c1dfd8b527",
+   "name": "Invoice Intake",
+   "type": "ai_feature",
+   "shortDescription": "Extract and classify invoice fields with AI to cut manual entry and speed up accurate processing.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Invoice"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "04b097c6-f18c-4ae0-a869-6c0736ec5e7f",
+   "name": "Request Assistant",
+   "type": "ai_feature",
+   "shortDescription": "Estimate costs when planning business trips.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Request"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "faf4d13f-b190-4af3-9cd8-cdc233e4ec40",
+   "name": "AI-Assisted Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Provide flight and car recommendations to users.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Travel"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "47844870-d3f6-4ffd-abdf-945d6bc20ae7",
+   "name": "Booking Agent",
+   "type": "ai_feature",
+   "shortDescription": "Streamline trip planning for business travelers.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Travel"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e1add036-0af8-449d-a45d-7e7443f10fe6",
+   "name": "Policy Rule Generator",
+   "type": "ai_feature",
+   "shortDescription": "Streamline travel policy setup by auto-generating rules from travel policies.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Travel"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "cd305785-853f-4c12-b1dd-31bc70f95d4d",
+   "name": "Travel Filters",
+   "type": "ai_feature",
+   "shortDescription": "Smart Filters powered by AI to help travelers find the right flight faster.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Travel"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3442df1e-a3f2-4e4e-b3d1-163554832170",
+   "name": "Travel Search",
+   "type": "ai_feature",
+   "shortDescription": "Find any station naturally, in any language, and always get accurate results.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Travel"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3f76ddee-48c1-4808-83e1-0e102f5f8471",
+   "name": "Trip Changes",
+   "type": "ai_feature",
+   "shortDescription": "Enable seamless trip changes in Joule through simple chat interactions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur Travel"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d606b980-bcf2-4258-8153-f2ea05dd0730",
+   "name": "Joule with Concur solutions",
+   "type": "ai_feature",
+   "shortDescription": "Get smart support to minimize errors and simplify expense submission.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "Concur solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "fedeca14-3e69-472c-a0ea-82396735c35f",
+   "name": "Document Grounding",
+   "type": "ai_feature",
+   "shortDescription": "Add context to Joule Q&A using information retrieved from custom documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "7d8e2b6c-cc25-466c-9037-ee756ce90bd8",
+   "name": "Personalized Search",
+   "type": "ai_feature",
+   "shortDescription": "Displays search results with products tailored to users’ interests.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Intelligent Selling Services for SAP Commerce Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "07502ba4-aca2-405a-99f2-671d9c4ff94a",
+   "name": "Product Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Show visitors the right products at the right time in their shopping journey.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Intelligent Selling Services for SAP Commerce Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f89c8657-4f82-42b3-9163-4dfb82484b7a",
+   "name": "Search Term Suggestions",
+   "type": "ai_feature",
+   "shortDescription": "Analyzes user search phrases and displays the most popular results.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "Intelligent Selling Services for SAP Commerce Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b354ca6f-3bbc-43d0-9c83-b3140b925962",
+   "name": "Analytical Insights",
+   "type": "ai_feature",
+   "shortDescription": "Get analytical insights with natural language from any SAP business application.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.7",
+   "products": [
+    {
+     "productName": "Joule"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0cbab727-02fe-47d3-9bf1-ff96d6c2ae62",
+   "name": "Deep Research Capability",
+   "type": "ai_feature",
+   "shortDescription": "Get tailored business insights combining internal SAP and external web data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "Joule"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4dfa3fea-c5d2-40e3-959d-317b07b6b64e",
+   "name": "Joule and Microsoft 365 Copilot",
+   "type": "ai_feature",
+   "shortDescription": "Bi-directional integration between Joule and Microsoft 365 Copilot.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.7",
+   "products": [
+    {
+     "productName": "Joule"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c95490eb-95c3-4b0a-b9ea-08144355d482",
+   "name": "Agent Builder",
+   "type": "ai_feature",
+   "shortDescription": "Easily build Joule agents to automate complex business processes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "Joule studio, classic edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "e93aa292-e7f4-449d-9586-f1a8510d5ab6",
+   "name": "Skill Builder",
+   "type": "ai_feature",
+   "shortDescription": "Extend Joule with skills that fit your unique needs.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "Joule studio, classic edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6dd7eb88-60a6-4693-989d-b9fa447b0f4d",
+   "name": "Mistral on SAP Business AI Platform",
+   "type": "ai_feature",
+   "shortDescription": "Mistral Vibe & Studio, hosted on SAP Business AI Platform.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "Mistral on SAP Business AI Platform"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "90b39e72-5dd5-4ae1-aef1-840c6e1ff6b2",
+   "name": "Joule with Regulatory Change Manager",
+   "type": "ai_feature",
+   "shortDescription": "Discover and evaluate regulatory updates and maintain compliance.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.7",
+   "products": [
+    {
+     "productName": "Regulatory Change Manager"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "942e1e4b-32e0-480f-9f11-d31badf54186",
+   "name": "Error Resolution",
+   "type": "ai_feature",
+   "shortDescription": "Resolve errors identified during financial close processes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Advanced Financial Closing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b0112bf9-3bff-4991-b029-44248df82479",
+   "name": "AI-Assisted Calculations",
+   "type": "ai_feature",
+   "shortDescription": "Generates and explains calculations using natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4.3,PP.7",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "3a0d3a44-e0c6-42e9-b489-cbbd0c1d1030",
+   "name": "AI-Assisted Commenting",
+   "type": "ai_feature",
+   "shortDescription": "Summarize existing comments and rephrase new comments when authoring.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4.3,PP.7",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "825764c4-6de1-4789-bd0c-74243c60854b",
+   "name": "Chart Summary",
+   "type": "ai_feature",
+   "shortDescription": "Summarizes a SAP Analytics Cloud chart as text in Microsoft PowerPoint.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4.3,PP.7",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "8e974edb-5d3e-4500-bc00-8549fbf8edd6",
+   "name": "Data Actions",
+   "type": "ai_feature",
+   "shortDescription": "Generates advanced formula scripts and comments data action descriptions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4.3,PP.7",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "1d307286-58be-4e0f-bbb6-5b15c9625717",
+   "name": "Metrics Trend Analysis",
+   "type": "ai_feature",
+   "shortDescription": "AI-assisted metrics trend analysis which generates historical trend summary.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6a655660-1f00-4b22-a6e4-b79167b527ec",
+   "name": "Natural Language Query",
+   "type": "ai_feature",
+   "shortDescription": "Deliver tailored, contextual insights on user questions in natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3,PP.7",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "07cbfbe5-5fec-4f2f-9e5b-8a7c2dfd6d74",
+   "name": "Predictive Planning",
+   "type": "ai_feature",
+   "shortDescription": "Predictive planning creates accurate forecasts to speed up planning activities.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "95d0b6d9-803f-4597-a749-f3a6cd25b12e",
+   "name": "Prompt Insights",
+   "type": "ai_feature",
+   "shortDescription": "Generate a response to LLM prompt stored as a story widget.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6ddc1967-60b4-4d85-b50e-121f4589d27e",
+   "name": "Run Forecasts in Time Series or Line Charts",
+   "type": "ai_feature",
+   "shortDescription": "Automatically predict future data values in stories time series and line charts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "793c4da0-4886-4ee0-9c53-0bc2c465a624",
+   "name": "Smart Grouping",
+   "type": "ai_feature",
+   "shortDescription": "ML clustering, groups similar data points in scatter and bubble charts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9ff17406-6da6-4066-bbb7-2edb8d898dbd",
+   "name": "Smart Insights",
+   "type": "ai_feature",
+   "shortDescription": "Smart Insights analyzes data deviations, providing insights as text and visuals.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3e3dbf93-52e2-4a08-b6f3-58b7396bc445",
+   "name": "Smart Predict",
+   "type": "ai_feature",
+   "shortDescription": "Create predictive models, deliver accurate predictions for analytics & planning.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6f863dc0-f047-4120-b632-99aa12b58484",
+   "name": "Story Code Generation",
+   "type": "ai_feature",
+   "shortDescription": "AI-assisted story code generation generates scripts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.4.3",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "cbb8f121-ace8-4a27-9103-f2812552b5e4",
+   "name": "Story Versioning",
+   "type": "ai_feature",
+   "shortDescription": "Generates readable differences between two versions of SAP Analytics Cloud story artifacts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Analytics Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0a042c55-cdb4-40d5-9a7a-e946bab60817",
+   "name": "Root Cause Analysis",
+   "type": "ai_feature",
+   "shortDescription": "Speed up root cause analysis for issues in HTML5 applications.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Application Frontend"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "a0297dce-3704-4914-907b-33aa8a6b1c1d",
+   "name": "Catalog Item Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Suggest products and services based on users' past purchases.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Buying"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "60dc710e-feb8-44ce-9f05-c3f5d999fbb0",
+   "name": "Popular Items",
+   "type": "ai_feature",
+   "shortDescription": "Discover popular items in your company's catalog.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Buying"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "137007a4-ec25-47ab-8ee8-25770f505bf0",
+   "name": "Recommended Material Groups",
+   "type": "ai_feature",
+   "shortDescription": "Get material group recommendations based on product name and description.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Buying"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e05e0f4d-1b29-4260-99fa-aec0a595a6cf",
+   "name": "Category Segmentation",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate content recommendations based on AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Category Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "5250c365-fe36-4737-9429-24cbda1a187a",
+   "name": "Category Strategy Recommendation",
+   "type": "ai_feature_package",
+   "shortDescription": "Accelerate category planning with AI-powered recommendations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Category Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "2717ff1c-0d84-49d2-9ed5-9b5824f4aa51",
+   "name": "Cost Structure Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate content recommendations based on AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Category Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "0b25207e-a9d9-4ffc-9e33-711d7a42eabb",
+   "name": "Market Dynamics Chart Plotting",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate content recommendations based on AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Category Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "e5329885-d1a9-4fbe-97cd-eea7e62b70c4",
+   "name": "Strategy Summarizer",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate summaries of category strategy documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Category Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "6aa3651e-47b6-400b-87db-64b185fee92b",
+   "name": "Material Group Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Suggest the most relevant material groups based on purchase orders.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Central Procurement"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ff9c2a25-610b-44f6-a6ad-e0b6aaf93ebb",
+   "name": "Contract Creation from Documents",
+   "type": "ai_feature",
+   "shortDescription": "Parse uploaded contracts, preview extracted data for review before creation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Contracts"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3860c7dc-24c0-4316-b44b-a36e4d6338db",
+   "name": "Contract Creation from Prompts",
+   "type": "ai_feature",
+   "shortDescription": "Create contracts using natural language prompts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Contracts"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c68bac4b-4714-4d92-80ec-a1b50bb6b78a",
+   "name": "Contract Field Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "AI suggests field values from reliable data to speed up contract completion.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Contracts"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3e7d54f8-2981-45bf-b528-b432b0d1b855",
+   "name": "Demand Intake",
+   "type": "ai_feature",
+   "shortDescription": "Natural language queries to route queries to correct intake process.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Intake Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "eaf5dcf1-f7aa-4104-8157-d1b72f3881b5",
+   "name": "G/L Line-Item Determination",
+   "type": "ai_feature",
+   "shortDescription": "Auto-enrich and complete draft invoices using historical invoice data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Invoicing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "92b79a8b-a2fe-49bd-b221-ea833b9318fa",
+   "name": "Multi-Model Data Extraction",
+   "type": "ai_feature",
+   "shortDescription": "Leverage generative AI for a reliable invoice processing experience.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Invoicing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5d5fda3a-7fcc-49b2-b997-54813c31bfed",
+   "name": "Supplier Invoice File Extraction",
+   "type": "ai_feature",
+   "shortDescription": "Enhance data extraction accuracy for complex invoice layouts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Invoicing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1fe463ff-29c7-4fe9-83f4-23a9ab36bca6",
+   "name": "Supplier Prediction",
+   "type": "ai_feature",
+   "shortDescription": "Suggests suppliers for guided sourcing events based on past similar events.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Sourcing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ee84d654-fec3-48ea-9a8b-9dd22e933f26",
+   "name": "Supplier Details Summary",
+   "type": "ai_feature",
+   "shortDescription": "Summarize supplier strengths, risks, and actions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba Supplier Lifecycle and Performance"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4db522da-c249-46e3-9e0c-af03f663aba0",
+   "name": "Joule with SAP Ariba solutions",
+   "type": "ai_feature",
+   "shortDescription": "Streamline your informational, navigational, and transactional tasks.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Ariba solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9e7f8b8b-77c6-48aa-9b6e-1f027879a587",
+   "name": "Anomaly Detection",
+   "type": "ai_feature",
+   "shortDescription": "Identify and monitor unusual patterns or behavior in technical objects.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Asset Performance Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "48add62d-58d0-43f4-adcd-76b404e80eed",
+   "name": "Failure Curve Analytics",
+   "type": "ai_feature",
+   "shortDescription": "Predict probabilities of failures for technical objects.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Asset Performance Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4bb1fe03-5a2a-419a-a224-a5b40640903d",
+   "name": "Joule with SAP Asset Performance Management",
+   "type": "ai_feature",
+   "shortDescription": "Get quick answers based on product documentation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Asset Performance Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "63024b68-9658-4758-8086-837e1334c3aa",
+   "name": "Visual Inspection",
+   "type": "ai_feature",
+   "shortDescription": "Monitor asset conditions from visual inspections.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Asset Performance Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1f5b7c78-b43f-468c-b577-934a6d89447e",
+   "name": "Product Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Get system-generated product recommendations for your assortment.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Assortment Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "be607323-864e-4898-9fe4-0be8f0440d40",
+   "name": "Generation of Operations Automations",
+   "type": "ai_feature",
+   "shortDescription": "Generate DevOps and SRE automation flows based on a simple prompt.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Automation Pilot"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7f373198-9a41-4416-9eed-bdfca445d37a",
+   "name": "SAP Joule for Developers, ABAP AI capabilities",
+   "type": "ai_feature",
+   "shortDescription": "Accelerate ABAP development with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.7",
+   "products": [
+    {
+     "productName": "SAP BAIP, ABAP environment"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "54f43edb-71bb-4560-bb23-452f34610374",
+   "name": "Joule with SAP BTP, Kyma runtime",
+   "type": "ai_feature",
+   "shortDescription": "Assistant to help with getting started, troubleshoot issues, and more.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP BTP, Kyma runtime"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8d70903b-faa7-4f5d-ae4a-123557fdd733",
+   "name": "Batch Release Processing",
+   "type": "ai_feature",
+   "shortDescription": "Users can easily access critical information and make decisions swiftly.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.6",
+   "products": [
+    {
+     "productName": "SAP Batch Release Hub for Life Sciences"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "98b2a842-c25c-4b08-bf19-1b48224b0dd3",
+   "name": "Custom Release Checks",
+   "type": "ai_feature",
+   "shortDescription": "Analyze the documents attached to custom release checks.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.6",
+   "products": [
+    {
+     "productName": "SAP Batch Release Hub for Life Sciences"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "98319fdc-fd0d-4887-bba2-a3d6a15f31ed",
+   "name": "Generation of Full-Stack Applications",
+   "type": "ai_feature",
+   "shortDescription": "Generate full-stack applications using natural language in SAP Build Code.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Build Code"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "08cc63b7-8fd7-4535-a9d6-f66a9030174c",
+   "name": "Generation of SAP Fiori Elements and SAPUI5 Applications",
+   "type": "ai_feature",
+   "shortDescription": "Generate full-stack applications using  natural language in SAP Build Code.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Build Code"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7ee277ac-20af-4458-bb5a-8836d6a51899",
+   "name": "Generation of SAP HANA Applications",
+   "type": "ai_feature",
+   "shortDescription": "Generate SAP HANA applications using natural language in SAP Build Code.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Build Code"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9cd6bb5e-4178-44c2-b5b3-325c561273e4",
+   "name": "Generation of SAP Mobile Applications",
+   "type": "ai_feature",
+   "shortDescription": "Generate SAP Mobile applications using natural language in SAP Build Code.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Build Code"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8be96d98-f16d-41b4-968c-c295043c1d73",
+   "name": "Joule with SAP Build Work Zone",
+   "type": "ai_feature",
+   "shortDescription": "Interact with SAP apps and Work Zone via natural language for instant actions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Build Work Zone"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "39ef0f64-fc3b-4420-92ee-fa5e052d486b",
+   "name": "Content Creation and Summary",
+   "type": "ai_feature",
+   "shortDescription": "Generate, summarize & comment with AI to increase content creation efficiency.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Build Work Zone, advanced edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5b1c80e7-ae6a-45eb-89cf-cf7114bb00d4",
+   "name": "Joule with SAP Business Accelerator Hub",
+   "type": "ai_feature",
+   "shortDescription": "Find relevant prebuilt content using Joule with natural language search.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Business Accelerator Hub"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6a50a96f-e86c-4f48-9faa-5f6594309750",
+   "name": "Business Integrity Screening",
+   "type": "ai_feature",
+   "shortDescription": "Scan large volumes of data in real time with increased accuracy.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Business Integrity Screening for SAP S/4HANA Cloud, private edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ec7cf891-7318-4583-8468-64ad23d605e3",
+   "name": "Enhanced Responses to Discovery Posting",
+   "type": "ai_feature",
+   "shortDescription": "Generate accurate responses to buyers’ request for information.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Business Network for Procurement and Supply Chain"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "37100360-fb06-4794-9f31-abef001ccb39",
+   "name": "Intelligent Invoice Error Classification",
+   "type": "ai_feature",
+   "shortDescription": "Process rejected invoices submitted through the SAP Business Network.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Business Network for Procurement and Supply Chain"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c70b8e5c-86a3-4819-abb2-3428ee11e0a2",
+   "name": "Intelligent Listings",
+   "type": "ai_feature",
+   "shortDescription": "Generate product descriptions of suppliers’ catalog items.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Business Network for Procurement and Supply Chain"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "bdb5f0f8-d4c9-424e-8b01-56713d44dedf",
+   "name": "Matching Improvement",
+   "type": "ai_feature",
+   "shortDescription": "Find the best-fit suppliers based on requirements.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Business Network for Procurement and Supply Chain"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9c079680-7938-4ddd-83c4-3d89a7943311",
+   "name": "Joule with SAP Business Technology Platform",
+   "type": "ai_feature",
+   "shortDescription": "Quickly retrieve information about SAP BTP and your accounts with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Business Technology Platform"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1b81dee1-0c63-4d77-b0a2-2f78f01b3906",
+   "name": "Custom AI Tool Builder",
+   "type": "ai_feature_package",
+   "shortDescription": "Create custom​ AI tools for business users​ grounded in SAP data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "b2f729da-d601-4ad1-a190-5498088b7fad",
+   "name": "Image Generation",
+   "type": "ai_feature_package",
+   "shortDescription": "Use AI tools for seamless product visual transformation and editing.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d37ca55c-2e9a-4ab6-a225-31d2f0760fd5",
+   "name": "Intelligent Customer Profile",
+   "type": "ai_feature_package",
+   "shortDescription": "Harness data from SAP CX to generate a summary that is easy to comprehend.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "bbce9642-f71f-4e28-a338-11021c06c5a5",
+   "name": "Intelligent Q&A",
+   "type": "ai_feature_package",
+   "shortDescription": "Find answers to work-related questions by analyzing your company's content.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "f5d00884-5256-4af7-b92c-651c4419a709",
+   "name": "Knowledge Indexing",
+   "type": "ai_feature",
+   "shortDescription": "AI-powered data indexing for features and agents based on SAP CX AI Toolkit.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "26ba4bf2-a78e-444c-ab9f-99ff2df5ee3e",
+   "name": "Product Descriptions",
+   "type": "ai_feature_package",
+   "shortDescription": "Create personalized product descriptions that enrich your catalog data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "f68c60a5-ac32-4124-80dd-7b9dc1258061",
+   "name": "Product Tagging",
+   "type": "ai_feature_package",
+   "shortDescription": "Extract and enrich your product tags with AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c5a858eb-0f2c-4b03-abc2-cccdc2eab814",
+   "name": "Smart Actions",
+   "type": "ai_feature_package",
+   "shortDescription": "Proactive AI Insights for your emails, meetings, and more.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "95c190b5-0576-4ec8-afd1-5454d0329702",
+   "name": "Smart Scheduling",
+   "type": "ai_feature_package",
+   "shortDescription": "Streamline and optimize your calendar management.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "7c97317c-5b65-48d4-9288-540f6aca8e8d",
+   "name": "Standard Tools",
+   "type": "ai_feature_package",
+   "shortDescription": "Role specific prompts utilizing CX data to generate discovery questions etc.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "4a375760-55ec-45ab-9642-37ac252a59a6",
+   "name": "Visual Search",
+   "type": "ai_feature",
+   "shortDescription": "Find products in your catalog that match an uploaded image.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP CX AI Toolkit"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "8adc6e0a-2994-455e-8c0d-ecb27f311afa",
+   "name": "Accounts Receivable",
+   "type": "ai_feature",
+   "shortDescription": "Automate clearing and recommending proposed matches by accounts receivable.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Cash Application"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "492cf936-7733-408c-85bb-f4e197e8f502",
+   "name": "Contract Accounting",
+   "type": "ai_feature",
+   "shortDescription": "Automate clearing and recommending proposed matches by accounts receivable.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Cash Application, add-on for contract accounting"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "85e7c5e6-0438-4bf9-958f-8c28d6d9f59a",
+   "name": "Change Point Analyzer",
+   "type": "ai_feature",
+   "shortDescription": "Analyze performance degradations",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Cloud ALM"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "111df0da-5177-4769-88ea-6a200ecae091",
+   "name": "Document Summary",
+   "type": "ai_feature",
+   "shortDescription": "Summarize content of selected document based on AI capability.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Cloud ALM"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8ead7af8-c907-4fcf-98ef-620eb9dc23ab",
+   "name": "Exception Pattern Analysis",
+   "type": "ai_feature",
+   "shortDescription": "Quickly spot issues in high-volume error logs to prioritize them.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Cloud ALM"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "377cdf37-e73c-4116-b0e6-e4da64c422c9",
+   "name": "Joule with SAP Cloud ALM",
+   "type": "ai_feature",
+   "shortDescription": "Access the main functionalities and agents of SAP Cloud ALM via Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Cloud ALM"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0f084c61-3ae4-40ec-a87b-971bbddf5c28",
+   "name": "Operations Score Optimization",
+   "type": "ai_feature",
+   "shortDescription": "Explain operations scores and prioritise system issues using AI insights.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Cloud ALM"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e5701d25-2615-49ad-acf3-4f2a6363a206",
+   "name": "Requirement Generation",
+   "type": "ai_feature",
+   "shortDescription": "Generate requirements from meeting notes to improve Fit-to-Standard workshops.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Cloud ALM"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "83039846-5e59-440d-9ac0-26b462fd788d",
+   "name": "Access Review",
+   "type": "ai_feature",
+   "shortDescription": "Enhance certification review process with AI suggestions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP Cloud Identity Access Governance"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "56272991-a5e7-4817-bd58-f6714f80e6d8",
+   "name": "Commodity Work Center",
+   "type": "ai_feature_package",
+   "shortDescription": "Simplifies data entry related to deals for commodity traders.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Commodity Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a23536c8-ea76-4b16-97af-91cd8128f129",
+   "name": "Unified Demand Forecast Component",
+   "type": "ai_feature",
+   "shortDescription": "Forecast consumer demand for products.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Customer Activity Repository"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f9052d5d-bc3e-4d0c-8525-7fe0eff2e2c3",
+   "name": "Intrusion Detection",
+   "type": "ai_feature",
+   "shortDescription": "Prosecute malicious activity while ensuring a smooth UX for legitimate users.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Customer Data Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "809faf14-e4ef-47e0-abd4-2b51f7500892",
+   "name": "Data Anonymization",
+   "type": "ai_feature",
+   "shortDescription": "Anonymize unstructured data such as free text, text files, and images.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Data Privacy Integration"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "68658ffa-898f-4e8d-888f-b48e3be618f5",
+   "name": "AI-Assisted Search",
+   "type": "ai_feature",
+   "shortDescription": "Enables natural language search queries directly within in SAP Datasphere.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Datasphere"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "15213c47-7c33-4787-a97b-d28f3a031c5a",
+   "name": "Content Generation for Catalog",
+   "type": "ai_feature",
+   "shortDescription": "Automates the creation of business rich metadata in the catalog.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Datasphere"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a656197d-c093-41ca-a156-021d6c1442ec",
+   "name": "Data Pipeline Summaries",
+   "type": "ai_feature",
+   "shortDescription": "Explains pipeline structure, failures, and downstream data impact.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Datasphere"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "a2bc2dd0-4f0b-4d82-9f94-c3baaac6c83b",
+   "name": "Joule with SAP Datasphere",
+   "type": "ai_feature",
+   "shortDescription": "Streamline your SAP Datasphere tasks with an AI copilot.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.7",
+   "products": [
+    {
+     "productName": "SAP Datasphere"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "471bd97c-76d1-4265-af16-61a1d7d04971",
+   "name": "SQL Generation",
+   "type": "ai_feature",
+   "shortDescription": "Generate SQL in the SAP Datasphere View Builder using natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Datasphere"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d22ae902-3e3d-4c78-9f8e-a656ecd2686d",
+   "name": "Semantic Generation",
+   "type": "ai_feature",
+   "shortDescription": "Generate business semantics for non-SAP data sources.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Datasphere"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d49bebec-58ca-4ef7-9201-da88ec0365f8",
+   "name": "Description Enhancement",
+   "type": "ai_feature",
+   "shortDescription": "Generate and enhance textual descriptions for issue resolution.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Digital Manufacturing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "910ea3a0-20be-466d-8651-62147f5b0815",
+   "name": "Issue Resolution Guidance",
+   "type": "ai_feature",
+   "shortDescription": "Find similar processes using past cases and bundle them for efficiency.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Digital Manufacturing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "edf06dbd-9d29-45b2-93d0-8399c7c34efa",
+   "name": "Joule with SAP Digital Manufacturing",
+   "type": "ai_feature",
+   "shortDescription": "Get quick answers based on product documentation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Digital Manufacturing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "559401aa-0738-4448-b3cb-96d75802e463",
+   "name": "Production Engineering",
+   "type": "ai_feature",
+   "shortDescription": "Setup and manage production processes efficiently.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Digital Manufacturing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "97e4cc28-f70d-47f8-a82b-85682514dcb5",
+   "name": "Administrator Option",
+   "type": "ai_feature",
+   "shortDescription": "Configure, automate, and monitor document workflows.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Document AI"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "f9000cc5-4a1a-4c59-9dcd-a343c167d75d",
+   "name": "Embedded Edition",
+   "type": "ai_feature",
+   "shortDescription": "Automate document processing, workflow execution, and channel integration.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Document AI"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "41b32187-96c9-4780-aa15-fc3cdfac1006",
+   "name": "Workspace",
+   "type": "ai_feature",
+   "shortDescription": "Configure, manage, and analyze SAP Document AI schemas, channels and workflows.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Document AI"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "1a1b66db-191d-41e6-b01d-d69b4d645850",
+   "name": "Electronic Document Error Handling",
+   "type": "ai_feature",
+   "shortDescription": "Get easy-to-understand explanations for electronic document errors with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.7",
+   "products": [
+    {
+     "productName": "SAP Document and Reporting Compliance"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d755130d-328a-4e41-b5b8-b0f507ee396c",
+   "name": "Electronic Document Error Handling",
+   "type": "ai_feature",
+   "shortDescription": "Get easy-to-understand explanations for electronic document errors with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Document and Reporting Compliance"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d45d7c1a-40ce-4494-a8de-3fec3c9e6e99",
+   "name": "AI-Assisted Authoring",
+   "type": "ai_feature",
+   "shortDescription": "Enrich enablement content automatically with AI support.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP Enable Now, cloud edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "0482c3b0-8159-48c5-ad39-cd64de07394e",
+   "name": "AI Scores",
+   "type": "ai_feature",
+   "shortDescription": "Build customer segments powered by AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c223f3a4-49dd-4b0e-9bca-32463d21f3e7",
+   "name": "Content Composer",
+   "type": "ai_feature",
+   "shortDescription": "Generate copy and images for campaign content blocks.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "daed24bd-daeb-465d-a075-b688cdbfa759",
+   "name": "Email Campaign Duplication",
+   "type": "ai_feature",
+   "shortDescription": "Enable marketers to copy an existing campaign.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5860e88c-cf84-4552-94aa-dc1756ddc995",
+   "name": "Personalization Rules",
+   "type": "ai_feature",
+   "shortDescription": "Tailor the recommended product set to your business needs.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d8cc96bf-328c-4990-90e4-f8b40531cd0d",
+   "name": "Product Finder",
+   "type": "ai_feature_package",
+   "shortDescription": "Find and insert products into emails using AI-powered search.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "e398c338-0149-4add-8469-accbf9115416",
+   "name": "Report Builder",
+   "type": "ai_feature",
+   "shortDescription": "Flexible reporting with generative AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5ee667c1-5e60-42e5-987a-28a5686cb83f",
+   "name": "Send Time Optimization",
+   "type": "ai_feature",
+   "shortDescription": "Optimize sending time of your email campaigns.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "69ff31b4-d15f-4b9e-b485-3b9cc3116550",
+   "name": "Subject Line Generator",
+   "type": "ai_feature",
+   "shortDescription": "Context-driven generation of email subject lines.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Engagement Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4acc49c0-4605-46b1-865a-6298c866072e",
+   "name": "Backend Entity Extraction",
+   "type": "ai_feature",
+   "shortDescription": "Extract information and create entities in backends of SAP solutions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d49736a2-372f-4bdc-8d06-f0bb5117d3e3",
+   "name": "Case Categorization",
+   "type": "ai_feature",
+   "shortDescription": "Automate the case categorization process.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8aa60c53-e97c-4aae-ae81-1ca48c24bdc7",
+   "name": "Case Summary",
+   "type": "ai_feature",
+   "shortDescription": "Generate Case summary based on email interactions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ae71951e-9c6b-457f-9c7f-2cb3daa901f4",
+   "name": "Case Topic Analyzer",
+   "type": "ai_feature",
+   "shortDescription": "View trending topics from cases.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7cbca359-15ba-409f-8992-c67c13257529",
+   "name": "Case Type Determination",
+   "type": "ai_feature",
+   "shortDescription": "Determine the case type during the conversion of email to case.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "fc515493-e5e3-45b9-95d6-649a8de86c5d",
+   "name": "Document Extraction",
+   "type": "ai_feature",
+   "shortDescription": "Extract automatically relevant information from attachments.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "9aa89525-687f-4c69-8849-a107d366679c",
+   "name": "E-mail Draft Recommender",
+   "type": "ai_feature",
+   "shortDescription": "Generate e-mail drafts based on past interactions via AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "e8539290-4654-40f0-9f33-872ed9a12649",
+   "name": "Joule with SAP Enterprise Service Management",
+   "type": "ai_feature",
+   "shortDescription": "Provide service agents instant access to customer, supplier, and employee info.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b42f0ef7-0fda-4615-ae3e-998bbd5e2bd1",
+   "name": "Machine Translation",
+   "type": "ai_feature",
+   "shortDescription": "Use machine translation to translate emails.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7e1292bd-302d-4a6f-903d-77267cd92ec1",
+   "name": "NLP Classification",
+   "type": "ai_feature",
+   "shortDescription": "Identify sentiment from emails.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4db1437d-b807-4305-8f31-26815af1b898",
+   "name": "Profanity Check",
+   "type": "ai_feature",
+   "shortDescription": "Define a set of pejorative vocabulary.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4ed5f9f0-3521-4250-ab1e-066de78c7db1",
+   "name": "Similar Case Recommendation",
+   "type": "ai_feature",
+   "shortDescription": "Find solutions from similar cases from the past and apply to the current case.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "28d6b76a-769d-48f7-9ddd-e8e0f32ecf4c",
+   "name": "Text Editing",
+   "type": "ai_feature",
+   "shortDescription": "AI capabilities into the Rich Text Editor (RTE) to assist users.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Enterprise Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "4ffd8804-ce43-4ca8-a397-7035ee68bcdb",
+   "name": "Security Threat Processing",
+   "type": "ai_feature",
+   "shortDescription": "Generate recommendations automatically.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4,PP.7",
+   "products": [
+    {
+     "productName": "SAP Enterprise Treat Detection, cloud edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6d93231d-580e-43af-a9e4-4755223a1375",
+   "name": "Code Generator for Custom Logic",
+   "type": "ai_feature",
+   "shortDescription": "Generate JavaScript to change entitlements from user requirement descriptions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Entitlement Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9deeeefb-fd9f-422f-9fbe-e236f2e53cad",
+   "name": "Predictive Labor Demand Planning",
+   "type": "ai_feature",
+   "shortDescription": "Predict planned workload data based on picking and packing outbound processes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP Extended Warehouse Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "dcc6b99e-4545-40bc-beef-fd85272062d7",
+   "name": "Product Slotting",
+   "type": "ai_feature",
+   "shortDescription": "Determine product attributes for new products in the warehouse.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Extended Warehouse Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0fa4e6c1-fe9c-422a-95e9-cb07a9761743",
+   "name": "Activity Summary",
+   "type": "ai_feature",
+   "shortDescription": "Generate summaries of activities.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "03a87a45-87e2-4cb6-9bd0-cc45b4ac0b06",
+   "name": "Assignment Duration Prediction",
+   "type": "ai_feature",
+   "shortDescription": "Predict the assignment duration based on historic data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1186258c-64fc-4bd8-b489-0606eaf917e9",
+   "name": "Auto-Scheduling",
+   "type": "ai_feature",
+   "shortDescription": "Fully automate your planning and streamline your field service operations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b7b38102-02a7-4168-b0b5-140d80b6e618",
+   "name": "Automated Scheduling Analytics",
+   "type": "ai_feature",
+   "shortDescription": "Explain SAP Field Service Management auto-scheduling results.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ca488cee-68a8-47d4-885f-d778366b42ca",
+   "name": "Equipment Insights",
+   "type": "ai_feature",
+   "shortDescription": "Generate summary based on previous activities for a piece of equipment.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "cb3e2dbe-6c9a-4c22-972a-8339e0d7a06a",
+   "name": "Intelligent Filtering",
+   "type": "ai_feature",
+   "shortDescription": "Estimate the expected real duration of activities based on time efforts logged.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d29fce2c-4564-49bf-b633-cbc63ee427d7",
+   "name": "Joule with SAP Field Service Management",
+   "type": "ai_feature",
+   "shortDescription": "Streamline dispatching processes with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3f5f1534-0869-43e4-93ae-e60814d380fa",
+   "name": "Predictive Routing",
+   "type": "ai_feature",
+   "shortDescription": "Predict realistic driving distances and times.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Field Service Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7a83cedb-25ed-4ed7-af94-3e6cb1d2f85d",
+   "name": "Experience Assessment",
+   "type": "ai_feature",
+   "shortDescription": "How closely a job seeker's professional background aligns with a job posting.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Contingent Workforce Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c61dfef4-ec5c-4195-8736-116bc96c1abe",
+   "name": "Job Description Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Enhance job description with AI for efficiency and better candidate submissions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Contingent Workforce Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "0f6e0fdc-de01-4ab9-9db9-702ee0a927ae",
+   "name": "Job Description Translation",
+   "type": "ai_feature_package",
+   "shortDescription": "Simplify job requirement communication using AI-enhanced translation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Contingent Workforce Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "91ab4a9a-a6ec-4b3a-a06d-7e530af84f2c",
+   "name": "O*NET Labelling",
+   "type": "ai_feature",
+   "shortDescription": "Recommend O*NET codes for job classifications.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Contingent Workforce Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "39cbb1de-26fb-4412-8d09-344a26cdf689",
+   "name": "Resume Assessment",
+   "type": "ai_feature",
+   "shortDescription": "Evaluate how compatible is a job seeker's resume with a job posting.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Contingent Workforce Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "65d27c45-c084-4ac6-af73-13eeeeb8eb37",
+   "name": "Skill Based Job Posting",
+   "type": "ai_feature",
+   "shortDescription": "AI-powered skill-based hiring for faster, smarter talent matching.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Contingent Workforce Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ab95fb1c-6563-45f3-81c3-97e2ae526950",
+   "name": "SOW Deliverables Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Create precise and relevant SOW deliverables based on project scope.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Services Procurement"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "05a8ad20-8b56-4279-85ac-94136f8cc4d3",
+   "name": "SOW Description Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Simplify SOW collaboration with AI-enhanced descriptions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Services Procurement"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ce1ae953-6601-4eb3-acdf-fc24b16c0311",
+   "name": "SOW Worker Role Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Generate AI-driven worker role recommendations based on your SOW context.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP Fieldglass Services Procurement"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e52e6bbc-3b09-4a73-8829-c4ecdeff8560",
+   "name": "Joule with SAP Fieldglass solutions",
+   "type": "ai_feature",
+   "shortDescription": "Enhance efficiencies across hiring processes with AI in SAP Fieldglass.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Fieldglass solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5dba17a9-9d5d-4bd6-92c7-bd8c22eb34a4",
+   "name": "Sensitive Data Field Identification",
+   "type": "ai_feature",
+   "shortDescription": "Automatically identifies personal data fields and recommends standardized metadata group names and data categories for all SAP data types.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP GRC for SAP HANA"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1f77a991-b657-46ff-8bba-cf3f0c6503e4",
+   "name": "Workflow Self-Diagnostics",
+   "type": "ai_feature",
+   "shortDescription": "Automatically diagnoses failed monitoring jobs by collecting logs from multiple sources and classifying errors into actionable resolution categories.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP GRC for SAP HANA"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e3bee344-1efb-413b-971c-f837c1474b07",
+   "name": "Carbon Emission Analysis",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate ad hoc reports for detailed carbon data analysis.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Green Ledger"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ef9efdef-7300-4580-9c54-5664e1c99f95",
+   "name": "Declaration Image Analysis",
+   "type": "ai_feature",
+   "shortDescription": "Automatically extract information from declarations of different formats.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Green Token"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "28b14ec8-e7be-4966-b33e-787021b2d05d",
+   "name": "Database Administration",
+   "type": "ai_feature",
+   "shortDescription": "AI-powered tool for task simplification and efficiency enhancement.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP HANA Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "14bbef6b-5d85-4221-bd0e-342f569ef628",
+   "name": "SAP HANA application migration",
+   "type": "ai_feature",
+   "shortDescription": "Automate SAP HANA XS/XSA service layer migration to SAP CAP using GenAI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP HANA Cloud"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3fd1195b-1516-41e0-bbae-091865f28202",
+   "name": "Incentive and Payment Insights",
+   "type": "ai_feature",
+   "shortDescription": "Get quick answers in natural language to incentive management questions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Incentive Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "aa288890-0418-4503-a549-12bcc1a5a67d",
+   "name": "AI-Assisted Forecasting",
+   "type": "ai_feature",
+   "shortDescription": "Generate forecasts for scenarios or areas of your business.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ef5842b1-bae5-41cd-8b9a-0399fb1c3e7f",
+   "name": "Add-in for Microsoft Excel, AI-assisted Planning",
+   "type": "ai_feature_package",
+   "shortDescription": "AI-Assisted generation of SAP IBP formulas.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "6ae58e5c-05b5-450f-8d6d-1ee27a0b83e4",
+   "name": "Analysis of Inventory Optimization Results",
+   "type": "ai_feature_package",
+   "shortDescription": "Analyze safety stock output and support root cause analysis.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "5e1294e8-d7ab-4449-86ff-808caebb2421",
+   "name": "Automatic Outlier Correction",
+   "type": "ai_feature",
+   "shortDescription": "Automatically detect and correct outliers in time series data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5f28aaf2-0ff3-45a9-af25-ab079d8cd17c",
+   "name": "Curve Based Forecasting",
+   "type": "ai_feature",
+   "shortDescription": "Create reliable predictions when historical data is sparse or incomplete.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "08b50280-d6f0-4731-ba50-a6faa578f9d8",
+   "name": "Demand Sensing",
+   "type": "ai_feature",
+   "shortDescription": "Create optimized daily forecasts for multiple products based on demand.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "891ed108-7f7b-49f6-99ec-291c2efd18a4",
+   "name": "Forecast Results Analysis",
+   "type": "ai_feature_package",
+   "shortDescription": "Explain the forecast outcome and recommend ways to improve accuracy.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "7ce53ab4-0c98-44fd-9d6a-5e76fef797fc",
+   "name": "Joule with SAP Integrated Business Planning",
+   "type": "ai_feature",
+   "shortDescription": "Get quick answers based on product documentation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "00dc5f4d-fec2-49f0-baf0-8f80024550f0",
+   "name": "Lead Time Master Data Management",
+   "type": "ai_feature",
+   "shortDescription": "Detect and manage changes in dynamic master data, specifically lead time.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5fa5aaf1-ef2b-46c9-bf8e-b0038f6c4405",
+   "name": "MRO Inventory Analysis",
+   "type": "ai_feature_package",
+   "shortDescription": "Analyze safety stock and reorder outputs to support root cause analysis.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "059ce559-77a9-46d7-855b-b193363ee268",
+   "name": "Machine Learning Alerts",
+   "type": "ai_feature",
+   "shortDescription": "Prevent supply chain issues before they happen.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e32a154a-933b-400c-996f-c3b823393247",
+   "name": "Master Data Consistency",
+   "type": "ai_feature",
+   "shortDescription": "Discover patterns in your master data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "708721ca-6e0f-472c-9bee-21bb3bb03a1b",
+   "name": "Outlier Job Detection",
+   "type": "ai_feature",
+   "shortDescription": "Detect jobs that are taking longer or shorter than expected.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "58333cea-4364-414f-b408-dc892123c753",
+   "name": "Scenario Planning",
+   "type": "ai_feature",
+   "shortDescription": "Manage supply chain disruptions & simulate mitigation scenarios with confidence.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e29ae1ce-a444-4d21-a0a6-f75fec40ca32",
+   "name": "Supply Optimization Analysis",
+   "type": "ai_feature_package",
+   "shortDescription": "Summarize insights, analyze, explain the time-series optimization planning run.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "712c445f-4bae-49e6-83fd-210e64c86ca0",
+   "name": "System Security Check",
+   "type": "ai_feature_package",
+   "shortDescription": "Assess SAP IBP system configurations against security recommendations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Business Planning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c523c267-0a3d-4430-9cba-e75df8caac1b",
+   "name": "2D Hotspot Creation",
+   "type": "ai_feature",
+   "shortDescription": "Automatically create hotspots on 2D drawings and tag with business data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Product Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6929dc8e-fc39-4ee9-bbf5-cc974eeb7268",
+   "name": "Change Process and Problem Report Translation",
+   "type": "ai_feature",
+   "shortDescription": "Translates problem report descriptions to your target language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Product Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e8f27a24-5dcd-4b3d-a3db-5c246fde9da5",
+   "name": "Document Summary",
+   "type": "ai_feature",
+   "shortDescription": "Summarize complex engineering documents for faster insights and decision making.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Product Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ae03f251-ef7d-47cf-b7c5-cd15bb3b5d9e",
+   "name": "Joule with  SAP Integrated Product Development",
+   "type": "ai_feature",
+   "shortDescription": "Joule assisted navigation to SAP Integrated Product Development applications.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Product Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "971035b1-d2a3-4644-8e3a-9ebc79e2dbd2",
+   "name": "Problem Report Creation",
+   "type": "ai_feature",
+   "shortDescription": "Enable engineers to create structured maintenance reports in natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Product Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e52f4f82-e9c9-4ee2-9c33-27f3ad917b4c",
+   "name": "Product Specification Search",
+   "type": "ai_feature",
+   "shortDescription": "Search product specifications using natural language and apply search filters.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.6",
+   "products": [
+    {
+     "productName": "SAP Integrated Product Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d5113c03-265d-4d5d-a12d-16df0cb4b7c8",
+   "name": "Text Generation",
+   "type": "ai_feature",
+   "shortDescription": "Help product managers enrich or simplify the text content based on the field.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Integrated Product Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f74d29df-40d1-498f-905d-90b7af685799",
+   "name": "API Traffic Prediction",
+   "type": "ai_feature",
+   "shortDescription": "Identify trends in API calls and predict future API traffic.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Integration Suite"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c1bf4c86-b2bc-4101-b51d-bc5904ff5924",
+   "name": "Anomaly Detection",
+   "type": "ai_feature",
+   "shortDescription": "Identify and respond to unusual patterns or deviations in API traffic.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Integration Suite"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "464fdfbe-5809-4a0a-b6e8-65c79033837d",
+   "name": "Generation of Integrations",
+   "type": "ai_feature",
+   "shortDescription": "Generate integration scenarios using natural language prompts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Integration Suite"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "99357ead-1ee2-4b9d-9b2f-f74d10f09262",
+   "name": "Script Optimization",
+   "type": "ai_feature",
+   "shortDescription": "Optimize custom scripts effortlessly.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Integration Suite"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a8e9c59c-0f89-46ee-8fc9-528bd59ab4e5",
+   "name": "Farming Decision Framework",
+   "type": "ai_feature",
+   "shortDescription": "Inject farming decision support just-in-time during farming processes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Intelligent Agriculture"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5bc0fbcf-4ce3-48dc-8375-8d2fdb40bc21",
+   "name": "Joule with SAP Intelligent Clinical Supply Management",
+   "type": "ai_feature",
+   "shortDescription": "Streamline navigational and informational tasks with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Intelligent Clinical Supply Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "bbec33b6-b688-4ccd-8bb2-cbc6631e83e8",
+   "name": "Predictive Subject Dynamics",
+   "type": "ai_feature",
+   "shortDescription": "Predict patient enrollment and dropouts for accurate clinical supply planning.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Intelligent Clinical Supply Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "875f25ea-0abb-47e9-99b4-8722c17aa55d",
+   "name": "Requirements Processing",
+   "type": "ai_feature_package",
+   "shortDescription": "Extract needs from unstructured text description of customer requirements.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Intelligent Product Recommendation"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "8924ae11-6915-40c0-8e2a-6323e584dd61",
+   "name": "Custom Knowledge Benchmarking",
+   "type": "ai_feature_package",
+   "shortDescription": "Benchmark SAP Joule for Consultants and knowledge from your organization.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Joule for Consultants"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "3c3c6f7d-7310-47a9-ae52-d7ddd2f0c2f2",
+   "name": "SAP Joule for Consultants",
+   "type": "ai_feature_package",
+   "shortDescription": "Accelerate SAP projects and cloud transformations with AI assistance.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Joule for Consultants"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "86968b11-6426-4749-90c5-39d6711514a7",
+   "name": "AI-Assisted Texting",
+   "type": "ai_feature",
+   "shortDescription": "Simplify and standardize text creation by analyzing content and context.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5b68ce3e-c6d7-4e5d-a2cd-e137adb01d33",
+   "name": "Architecture Guidance",
+   "type": "ai_feature",
+   "shortDescription": "Architecture guidance delivers AI-derived insights and assists taking action.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "781fd821-920b-4cfe-b0f8-ab67eb58557f",
+   "name": "Automation Creation",
+   "type": "ai_feature",
+   "shortDescription": "Build automations in SAP LeanIX from plain-English descriptions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "fa2762c1-5080-480b-bf93-103933a0af11",
+   "name": "Context Generation",
+   "type": "ai_feature",
+   "shortDescription": "Provide users with task explanations for better understanding.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e9e98379-9c5f-4f4a-84f6-12a772c66ae2",
+   "name": "Enterprise Architecture Decision Management",
+   "type": "ai_feature",
+   "shortDescription": "Analyze and extract relevant data to generate architecture decisions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5f33578a-0170-46c8-b33f-63b934e57171",
+   "name": "Fact Sheet Field Calculations",
+   "type": "ai_feature",
+   "shortDescription": "Turn plain-language business rules into custom calculations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3b4cd740-d09d-4e79-9efc-69bf49221e83",
+   "name": "Inventory Builder",
+   "type": "ai_feature",
+   "shortDescription": "Upload and analyze data formats to auto-discover architectural elements.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "e3e00a83-6fc7-4ec4-9763-5d62f942e193",
+   "name": "Inventory Prompts",
+   "type": "ai_feature",
+   "shortDescription": "Support analyzes of IT application landscapes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "afef2f21-b812-4548-ab8a-cec5f8fedb10",
+   "name": "Joule with SAP LeanIX",
+   "type": "ai_feature",
+   "shortDescription": "Search and navigate to the right information through natural language queries.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6719d6d7-fda7-4ea9-b0dd-43b99fbab6b6",
+   "name": "Translation Support",
+   "type": "ai_feature",
+   "shortDescription": "Help users translate customized technical terms.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP LeanIX solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "60b3ce58-4697-4c44-a5a6-c1649dc67aff",
+   "name": "Joule with SAP Logistics Management",
+   "type": "ai_feature",
+   "shortDescription": "Simplify warehouse and transportation planning operations with natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Logistics Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7c179eaa-d412-4f0e-9773-90b515a43a71",
+   "name": "CONTRL-Message Explanation",
+   "type": "ai_feature",
+   "shortDescription": "Simplifies error analysis for CONTRL-message in the German energy market.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Market Communication for Utilities"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "f5849de1-7fb6-4849-84a6-a6bec610db33",
+   "name": "User Learning and Change Management",
+   "type": "ai_feature",
+   "shortDescription": "Accelerate adoption & reduce costs with AI for user learning lifecycle.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Micro-App Hub"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "5cd6a2a6-c3ba-4bf6-9111-5e2f95757a69",
+   "name": "Joule with SAP Multi-Bank Connectivity",
+   "type": "ai_feature",
+   "shortDescription": "Get quick answers about SAP Multi-Bank Connectivity from product documentation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Multi-Bank Connectivity"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4cdbd20f-3183-40ca-bbb6-eb008b076359",
+   "name": "Promotional Text Translation",
+   "type": "ai_feature",
+   "shortDescription": "Translate promotional texts into 150+ languages with AI-powered translation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Omnichannel Promotion Pricing"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b9498c45-6944-48e3-bb0e-902c71bef176",
+   "name": "Joule with SAP Order Management Services",
+   "type": "ai_feature",
+   "shortDescription": "Streamline key operational tasks using natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Order Management Services"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "114a2d42-80fc-4fa3-bf8c-b405dc81d9ab",
+   "name": "Optimal Order Quantities",
+   "type": "ai_feature",
+   "shortDescription": "Optimize order quantities for groups of products according to objectives.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Predictive Replenishment"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f473fe90-c579-4166-9f3d-a1b5aceb9834",
+   "name": "Gas Plant Statement Processing",
+   "type": "ai_feature",
+   "shortDescription": "Enable automatic extraction of plant statement information.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP Production and Revenue Accounting"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "24ff1cbe-25b2-4791-aa17-a639ca0c0114",
+   "name": "Advanced Skill Match",
+   "type": "ai_feature",
+   "shortDescription": "Find skilled employees for a resource request.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Project and Resource Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0555113a-ee74-45f8-8d8e-cca4ff5e737c",
+   "name": "Issue Resolution Guidance",
+   "type": "ai_feature",
+   "shortDescription": "Find similar processes using past cases and bundle them for efficiency.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.6",
+   "products": [
+    {
+     "productName": "SAP Quality Issue Resolution"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "bf2660f0-4652-40f7-9eb2-bbaaf7c73c4d",
+   "name": "SAP Regulatory Insights",
+   "type": "ai_feature",
+   "shortDescription": "Automate regulatory analysis and compliance gap detection with AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "52122e24-21ce-46a7-9a9b-46e73483e27f",
+   "name": "Rule Creation for User-defined Reports",
+   "type": "ai_feature",
+   "shortDescription": "Define reporting rules in plain language, then instantly convert to code.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.9",
+   "products": [
+    {
+     "productName": "SAP Responsible Design and Production"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d6b84cc4-1106-4690-a859-727d4ecfab78",
+   "name": "User-defined Report Explanations",
+   "type": "ai_feature",
+   "shortDescription": "Understand how EPR rules contribute to packaging assessment results.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.6",
+   "products": [
+    {
+     "productName": "SAP Responsible Design and Production"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0369fa2c-159e-4f75-b16b-451e71618f00",
+   "name": "AI-Assisted Forecasting",
+   "type": "ai_feature",
+   "shortDescription": "Create forecast for packaging demand.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Returnable Packaging Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "2fcc4e02-16bc-4c81-886b-ade4aa2a6efb",
+   "name": "Account Matching",
+   "type": "ai_feature",
+   "shortDescription": "Account matching and forecasting of packaging demand.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Returnable Packaging Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "524d8a65-c0c9-402d-add2-0cc3eb1cccc7",
+   "name": "Deal Sheet Generation",
+   "type": "ai_feature",
+   "shortDescription": "Generate retailer-ready deal sheets from promotion data automatically.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Revenue Growth Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7505a897-3bb9-49d1-8db0-5f27dd0aa2ab",
+   "name": "Trade Promotion Creation",
+   "type": "ai_feature",
+   "shortDescription": "Name a promo and AI pre-fills fields faster, compliant and each time.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Revenue Growth Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b4112dfa-12a4-43f8-b195-e6661fcad875",
+   "name": "Compliance Issue Decision Support",
+   "type": "ai_feature",
+   "shortDescription": "Predict the outcome of new compliance issues based on historic decisions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Risk and Assurance Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "42df6303-500a-46c4-93a6-ecb2d44e85dd",
+   "name": "Joule with SAP Risk and Assurance Management",
+   "type": "ai_feature",
+   "shortDescription": "Joule provides intuitive navigation and access to relevant enablement content.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Risk and Assurance Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "451531fc-438b-4ecd-a3be-3efb74cb99f5",
+   "name": "Sales Order Creation",
+   "type": "ai_feature",
+   "shortDescription": "Create sales orders from unstructured data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9b9439fc-3681-446c-989e-2540e2897331",
+   "name": "Behavioral Insights for Contract Accounting",
+   "type": "ai_feature",
+   "shortDescription": "Analyze historical customer behavior and predict, explain payment risk.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "54d5a00e-2519-46da-88fa-b58b4f8ff4dc",
+   "name": "Conversational Planning",
+   "type": "ai_feature_package",
+   "shortDescription": "Carry out planning operations in transportation cockpit using natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "7f81035d-7177-494f-b232-b1e290c05f0c",
+   "name": "Depreciation Key Explanation",
+   "type": "ai_feature_package",
+   "shortDescription": "Explain depreciation types and calculation procedures in natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "412634b2-ba74-4a85-b83c-823f398caab4",
+   "name": "Document Extraction for Business Partner Master Data",
+   "type": "ai_feature",
+   "shortDescription": "Extract information from printed or scanned documents to automate business partner creation in SAP S/4HANA Cloud Private Edition.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "45a1bff0-170b-45fe-8a56-ffae87960170",
+   "name": "Easy Filter",
+   "type": "ai_feature",
+   "shortDescription": "Streamline your filtering experience in SAP Fiori elements-based list reports.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6b5c2f2d-a5e5-4109-b64d-559dd3db9468",
+   "name": "Enterprise Search",
+   "type": "ai_feature",
+   "shortDescription": "Enterprise search enables the natural language search on Fiori launch.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "33aa19aa-0bb5-4816-8c06-28e44733f29e",
+   "name": "Error Explanation",
+   "type": "ai_feature",
+   "shortDescription": "Generate natural language descriptions and resolutions for error messages.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "780e16a7-74cf-4118-b200-c13484d2f9b5",
+   "name": "Fixed Asset Key Figures Explanation",
+   "type": "ai_feature",
+   "shortDescription": "Understand the explanation of fixed asset key figures in natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8d54e237-4ae9-427d-859a-c3e1cd694127",
+   "name": "Goods Receipt Processing",
+   "type": "ai_feature",
+   "shortDescription": "Automatically check delivery documents with AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "df0164e9-75f2-4547-80d3-586619709246",
+   "name": "In-house Service Initiation",
+   "type": "ai_feature_package",
+   "shortDescription": "Initiate in-house services from paper-based information using AI technology.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "98ee8608-82bb-49c3-b4ca-805bd6594314",
+   "name": "Joule with SAP S/4HANA Cloud Private Edition",
+   "type": "ai_feature",
+   "shortDescription": "Streamline your informational, navigational, and transactional tasks.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "be5c57fd-4b09-436f-8a63-16362fce5547",
+   "name": "Journal Upload",
+   "type": "ai_feature_package",
+   "shortDescription": "Accelerate period-end journal entries.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d2a47a4f-3ea2-4f5b-9bdf-43fc2a3d95f2",
+   "name": "Maintenance Order Recommendation",
+   "type": "ai_feature_package",
+   "shortDescription": "Get maintenance order recommendations from historical data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "4cb78833-492a-43db-abb2-01747e7e4335",
+   "name": "Master Data Governance",
+   "type": "ai_feature_package",
+   "shortDescription": "Create master data change requests and generate summaries.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d0d8a6a0-ef23-4ea0-9f60-6f4cad924020",
+   "name": "Processing of Incoming Quality Certificates with SAP Document AI",
+   "type": "ai_feature",
+   "shortDescription": "Automatically process incoming quality certificate documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "4d67f2b1-6f72-4c6f-bce3-e6d4c0e89b1c",
+   "name": "Resolution of Implausible Meter Readings",
+   "type": "ai_feature",
+   "shortDescription": "Enables machine learning-based processing of implausible meter readings in IS-U.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f9a4201e-955f-4aaf-b41a-d2479fb13ed1",
+   "name": "Resolution of Outsorted Billing Documents",
+   "type": "ai_feature",
+   "shortDescription": "Process outsorted billing documents in IS-U.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3de36a16-73ca-4df6-94d2-ccd0dc806192",
+   "name": "Retrieval of Equipment Information in Service Management",
+   "type": "ai_feature_package",
+   "shortDescription": "Give service managers a 360° view of service history on customer equipment.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "795cf9fa-d0cc-42b0-a3d7-52e8067e847d",
+   "name": "SAP Joule for Developers, ABAP AI capabilities",
+   "type": "ai_feature",
+   "shortDescription": "Accelerate ABAP development with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "836b7ca4-0177-4757-8152-51846c586f1e",
+   "name": "Sales Order Creation",
+   "type": "ai_feature",
+   "shortDescription": "Create sales orders from unstructured data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "16fe0c99-25ff-48e2-81e5-f100d4c64767",
+   "name": "Sales Order Fulfillment Monitoring",
+   "type": "ai_feature_package",
+   "shortDescription": "Monitor and resolve order fulfillment issues with AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "43cfa9f3-485c-4021-8dd1-e1349f471bea",
+   "name": "Settlement Rule Proposal for Asset Capitalization",
+   "type": "ai_feature",
+   "shortDescription": "Streamlines the creation of full settlement rules for investment measures.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "dc2ad1ab-ce16-4e75-beff-707c730760eb",
+   "name": "Smart Summarization",
+   "type": "ai_feature",
+   "shortDescription": "Jump start your communications or follow-ups by generated text proposals.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c264b09d-42ca-4256-8d8e-0da5af6c838a",
+   "name": "Supplier Delivery Date Prediction",
+   "type": "ai_feature",
+   "shortDescription": "Predict delivery dates for purchase order items based on historical data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Private Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "98937736-0f9a-4cb4-865f-f864eb56d078",
+   "name": "Aging Work in Progress Analytics and Management",
+   "type": "ai_feature",
+   "shortDescription": "Joule aids controllers in tracking WIP aging, insights & actions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "58e5fdf9-b00a-414b-97ef-74c65c21b10b",
+   "name": "Allocation Run Results",
+   "type": "ai_feature",
+   "shortDescription": "View allocation results attributes and navigate to results app.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "864e421f-e2dd-4f84-9aad-ea57294f75fd",
+   "name": "Analytical Business Insights",
+   "type": "ai_feature",
+   "shortDescription": "Quickly analyze, summarize, and turn data into clear insights.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "88bf4617-8a77-4dfb-8950-fc00a67cc01d",
+   "name": "Back Order Processing",
+   "type": "ai_feature",
+   "shortDescription": "Faster, smarter BOP execution powered by intuitive, prompt-driven interactions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c6a7c807-0bb4-4cf9-bf37-30f8d2fa7885",
+   "name": "Barcode Parsing Configuration",
+   "type": "ai_feature",
+   "shortDescription": "Configure barcode scanning and fix potential issues.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "89944fea-d96d-453c-9684-fe2b2c9cbb51",
+   "name": "Compliance Management",
+   "type": "ai_feature",
+   "shortDescription": "Enable automatic setup of obligation and relevant data from documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e547d658-368e-426f-986e-97e574bfb475",
+   "name": "Configuration for US Tax Jurisdictions",
+   "type": "ai_feature",
+   "shortDescription": "Simplify tax maintenance for the internal sales & use tax solution for the US.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "095edf47-cb36-48d8-bd8f-9a4bc9517991",
+   "name": "Creation of Fixed Asset Master Data",
+   "type": "ai_feature",
+   "shortDescription": "Facilitate the creation of fixed asset master data with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "2e884605-5069-4b6b-ab96-90447d4f4bec",
+   "name": "Document Extraction for Simplified Business Partner Master Data Maintenance",
+   "type": "ai_feature",
+   "shortDescription": "Extract business partner data from documents and auto-populate fields instantly.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "b054b110-d555-49ef-b233-e16be1a13eed",
+   "name": "Easy Fill",
+   "type": "ai_feature",
+   "shortDescription": "Enables users to populate fields of a business object using natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "96cf54f4-566b-4428-916c-1e6231f0fdb2",
+   "name": "Easy Filter",
+   "type": "ai_feature",
+   "shortDescription": "Streamline your filtering experience in SAP Fiori elements-based list reports.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ce1359ae-1f44-48ce-b9d8-6d2e73b23402",
+   "name": "Enterprise Search",
+   "type": "ai_feature",
+   "shortDescription": "Search business data with natural language queries in SAP Fiori Launchpad.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "a6e21835-397b-402d-be1a-e92846dcc47d",
+   "name": "Error Explanation",
+   "type": "ai_feature",
+   "shortDescription": "Generate natural language descriptions and resolutions for error messages.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "56d1e4d0-5c07-4aa8-b226-64c8dd99750d",
+   "name": "Error Resolution for Cost Accounting",
+   "type": "ai_feature",
+   "shortDescription": "Explain errors to the business user and offer smart actions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "577815a8-947e-4a06-a961-1307ddc49242",
+   "name": "Expiring Price Handling",
+   "type": "ai_feature",
+   "shortDescription": "Quickly detect and update all expiring prices in pricing systems with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "15f5b518-2786-4908-953f-801172d7972a",
+   "name": "Explanation of Fixed Asset Depreciation Keys",
+   "type": "ai_feature",
+   "shortDescription": "Explain depreciation types and calculation procedures in natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8658cb4d-fc45-4db1-b5e3-68a63a255955",
+   "name": "Explanation of Fixed Asset Key Figures",
+   "type": "ai_feature",
+   "shortDescription": "Better insights into fixed asset key figures using AI-generated explanations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f5f33f40-36d4-4265-b709-461c0c151587",
+   "name": "Form Extension in Localization as a Self-Service",
+   "type": "ai_feature",
+   "shortDescription": "Extend localized forms to meet your specific requirements.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8559af39-7823-4cf7-ac03-22b7a3ea939b",
+   "name": "Goods And Services Receipt Confirmation",
+   "type": "ai_feature",
+   "shortDescription": "Confirm goods receipts and service entries with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "24fe59ca-f858-4a92-8539-3cce3886d6bb",
+   "name": "Goods Receipt Processing",
+   "type": "ai_feature",
+   "shortDescription": "Extract delivery note data and pre-populate logistics documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1483aeac-7334-466d-ac17-a042b0ba6269",
+   "name": "Incoming Bill of Exchange Posting",
+   "type": "ai_feature",
+   "shortDescription": "Automate bill of exchange import, extraction, and posting.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "404793cc-5949-47f0-8e75-2a7293887b5a",
+   "name": "Input Recommendations for Returns Order Creation",
+   "type": "ai_feature",
+   "shortDescription": "Create returns orders faster and more accurately with input assistance.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "59d61974-9d59-4e32-9026-189462bbf54f",
+   "name": "Joule with SAP S/4HANA Cloud Public Edition",
+   "type": "ai_feature",
+   "shortDescription": "Streamline your informational, navigational, and transactional tasks.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5c96f50b-ee1f-4e61-8087-e77783369a7f",
+   "name": "KPI and Report Summary",
+   "type": "ai_feature",
+   "shortDescription": "Generate summaries for SAP S/4HANA Cloud Generic Drilldown KPIs and reports.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "75f538ae-e12c-463c-8fa5-c1abfea09bc7",
+   "name": "Localized Business Data Management",
+   "type": "ai_feature",
+   "shortDescription": "Explore localized financial and logistics data with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1fa927d7-80ce-4b9b-8ea1-8ed95be8b8d3",
+   "name": "Managing Supplier Invoices",
+   "type": "ai_feature",
+   "shortDescription": "Enable basic actions on supplier invoices.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "cab0dc5c-6c85-4d8e-963a-cad7a64e012a",
+   "name": "Note Corrections for Project Billing",
+   "type": "ai_feature",
+   "shortDescription": "Propose grammatically correct notes for project billing request items.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "016c719c-5363-47ff-945f-cdddd5241871",
+   "name": "Payment Exception Analysis",
+   "type": "ai_feature",
+   "shortDescription": "Analyze payment exceptions and discover recommended resolutions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f558354e-8de3-4b95-ae75-4cc5055cf911",
+   "name": "Posting Issue Handling for Billing Documents",
+   "type": "ai_feature",
+   "shortDescription": "Assist billing clerks to efficiently process billing docs with posting issues.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3fd5ea00-34fa-487e-a76a-be112a71220a",
+   "name": "Processing of Incoming Quality Certificates with SAP Document AI",
+   "type": "ai_feature",
+   "shortDescription": "Automatically process incoming quality certificate documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "988b6b7c-ac4f-4c5f-be46-0366c7dc5a2e",
+   "name": "Processing of Payment Advices with SAP Document AI",
+   "type": "ai_feature",
+   "shortDescription": "Automate payment-advice processing to reduce errors and manual fixes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c1773fec-9750-4589-a20b-69b898dd44a6",
+   "name": "Product Data Maintenance",
+   "type": "ai_feature",
+   "shortDescription": "Enables Joule to understand and retrieve key Product Master data attributes.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "bccabd59-564e-4a4d-84b3-67d6933348cd",
+   "name": "Project Services",
+   "type": "ai_feature",
+   "shortDescription": "Manages project tasks through a conversational interface.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "13b68daa-1ba2-4bfa-b7d3-4f65f4900d07",
+   "name": "Purchase Order Approvals Reminder",
+   "type": "ai_feature",
+   "shortDescription": "Streamline your purchase order approval workflows.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5,PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3c06a28b-576b-47ba-a2be-de0588391d6a",
+   "name": "SAP Joule for Developers, ABAP AI capabilities",
+   "type": "ai_feature",
+   "shortDescription": "Accelerate ABAP development with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "76d64fc7-204e-4a1f-979c-2a75a7a4ce29",
+   "name": "Safety Instruction Generation",
+   "type": "ai_feature",
+   "shortDescription": "Generate safety instructions grounded on risk assessments.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c3691d08-1455-4c6a-8cea-e524489e5b69",
+   "name": "Safety Observation Reporting",
+   "type": "ai_feature",
+   "shortDescription": "Enable users to report safety observations with natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "39a49e49-3ab6-46f5-889d-2035d9378cab",
+   "name": "Sales Order Automatic Completion",
+   "type": "ai_feature",
+   "shortDescription": "Streamline sales order completion with recommendations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5d3d1312-92d7-478a-8e95-f0f0130f5666",
+   "name": "Sales Order Creation",
+   "type": "ai_feature",
+   "shortDescription": "Create sales orders from unstructured data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "ffd1d0b2-76fc-4e1f-b1fd-523ec82bae54",
+   "name": "Sales Order Creation from Unstructured Data",
+   "type": "ai_feature",
+   "shortDescription": "Seamlessly create sales orders from unstructured data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "8e12da05-b0e4-490f-9cf4-0cc2a9482f71",
+   "name": "Sales Order Status Check",
+   "type": "ai_feature",
+   "shortDescription": "Track sales order fulfillment and spot issues blocking completion.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "2b5df257-bdfd-4396-a48b-a8362b2e02f7",
+   "name": "Smart Personalization of My Home for Applications",
+   "type": "ai_feature",
+   "shortDescription": "Personalize your home page by adding apps.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5205d1ac-b2a1-413b-8d5c-a01e22311cad",
+   "name": "Smart Personalization of My Home for Insights Cards",
+   "type": "ai_feature",
+   "shortDescription": "Personalize your home page by adding insights cards.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5a6f7a49-1bbf-4e9b-b2e0-57aad5f2de6d",
+   "name": "Smart Solution for Situations in My Home",
+   "type": "ai_feature",
+   "shortDescription": "Provide resolution suggestions directly on the homepage.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "a66caf9e-90e0-44c3-9f4a-47aa40f6027b",
+   "name": "Smart Summarization",
+   "type": "ai_feature",
+   "shortDescription": "Jump start your communications or follow-ups by generated text proposals.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b8dfd079-2d74-417a-ad38-8a5251110a4d",
+   "name": "Supplier Confirmation Mass Creation",
+   "type": "ai_feature",
+   "shortDescription": "Enable mass creation of several supplier confirmations in Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d7b65dad-4fa1-4430-a860-6c8eba5ff8e1",
+   "name": "Supplier Delivery Date Mass Update",
+   "type": "ai_feature",
+   "shortDescription": "Perform mass updates of delivery dates for multiple purchase orders with Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.5",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0d089203-038a-4f68-a7e0-79078e26eae4",
+   "name": "Task Automation",
+   "type": "ai_feature",
+   "shortDescription": "Enables users to create and run automated processes from natural language input.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud Public Edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "a0399e7f-e105-40a9-9169-d63e768735b8",
+   "name": "Central Governance",
+   "type": "ai_feature",
+   "shortDescription": "Streamline master data governance tasks using natural language.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1",
+   "products": [
+    {
+     "productName": "SAP S/4HANA Cloud for master data governance, private edition"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3b30cb7f-1819-4001-aa0e-1d1ad045c453",
+   "name": "Account Synopsis",
+   "type": "ai_feature_package",
+   "shortDescription": "Facilitate targeted and relevant sales conversations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "873f5df1-7f2f-4f3e-a710-9a8ff64c4301",
+   "name": "Business Interaction Intelligence",
+   "type": "ai_feature",
+   "shortDescription": "Provides insights for appointments and visits.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "2ca27b04-179b-4b91-8c17-4c98f3cb364e",
+   "name": "Business Text Intelligence",
+   "type": "ai_feature",
+   "shortDescription": "Get actionable insights for appointments from note texts.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "57ace435-bf2c-4749-b628-523d40ed2e09",
+   "name": "Deal Intelligence",
+   "type": "ai_feature",
+   "shortDescription": "Predict if an opportunity can be won or lost.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9de7582d-870d-4802-a4ec-90429c6922a5",
+   "name": "Duplicate Detection",
+   "type": "ai_feature_package",
+   "shortDescription": "Detect duplicate accounts automatically.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "92718e8e-da5f-426d-9561-d53b93671e08",
+   "name": "E-mail Draft Recommender",
+   "type": "ai_feature_package",
+   "shortDescription": "Reduce time to draft responses based on previous interactions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c93d21db-bf17-402d-99a5-463865957e7f",
+   "name": "Joule with SAP Sales Cloud Version 2",
+   "type": "ai_feature",
+   "shortDescription": "Enable your sales teams to win deals.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "13f8f984-4e7d-4f29-8e10-88ec87c4ebe7",
+   "name": "Lead Booster",
+   "type": "ai_feature_package",
+   "shortDescription": "Increase lead generation effectiveness.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "b8a09223-a2b7-48fd-ada8-430f043c2e31",
+   "name": "Lead Intelligence",
+   "type": "ai_feature",
+   "shortDescription": "Identify open leads that have a high potential of conversion.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "537d4f2d-e388-4ce0-9663-1f4d15adf235",
+   "name": "NLP Classification",
+   "type": "ai_feature",
+   "shortDescription": "Identify sentiment from emails.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "05abefb4-3b91-4fb0-8066-d0015c614c57",
+   "name": "Product Recommendation",
+   "type": "ai_feature",
+   "shortDescription": "Make quick upselling offers to customers.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "86ea8564-93d1-49b7-af83-896e5e3f20a2",
+   "name": "Sales Order Summary",
+   "type": "ai_feature_package",
+   "shortDescription": "Analyze and present insights from pricing simulations in sales orders.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "be5a87ca-9bc3-48d6-ae9c-b7b2bc9a2d2a",
+   "name": "Survey Trend Summary",
+   "type": "ai_feature_package",
+   "shortDescription": "Provide contextual guidance on improving the sales representative’s store visits",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "54c49190-cfc6-4119-bebb-3e1bd2fdfa49",
+   "name": "Text Editing",
+   "type": "ai_feature",
+   "shortDescription": "AI capabilities into the Rich Text Editor (RTE) to assist users.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sales Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "70e0fc04-7346-405a-a385-5ad137f11ff3",
+   "name": "Document Processing",
+   "type": "ai_feature",
+   "shortDescription": "Extract invoice data from files to automate billing in SAP Self-Billing Cockpit.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7",
+   "products": [
+    {
+     "productName": "SAP Self-Billing Cockpit"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "69270d79-572f-454e-a3a6-d3841320c6a4",
+   "name": "Account Synopsis",
+   "type": "ai_feature_package",
+   "shortDescription": "Provides all the information related to an account that helps service agents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "cac4bd46-0b7e-4e98-8f8d-585c3bba26bd",
+   "name": "Case Categorization",
+   "type": "ai_feature",
+   "shortDescription": "Automate the case categorization process.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "7062122c-d0be-4691-940b-1f3c275617f6",
+   "name": "Case Summary",
+   "type": "ai_feature_package",
+   "shortDescription": "Create a case summary using the email communications.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "09264474-b50b-4ba7-af49-75108ddc8a87",
+   "name": "Case Topic Analyzer",
+   "type": "ai_feature",
+   "shortDescription": "View trending topics from cases.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "9ad22245-4a30-4493-8b74-9b7c5dcc4a0b",
+   "name": "Case Type Determination",
+   "type": "ai_feature",
+   "shortDescription": "Determine the case type during the conversion of email to case.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "fbfe32ee-815b-4543-bab3-fe5376e60d48",
+   "name": "Duplicate Detection",
+   "type": "ai_feature_package",
+   "shortDescription": "Detect duplicate accounts automatically.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "05a916d0-170e-4be2-b60a-a3bc388d383b",
+   "name": "E-mail Draft Recommender",
+   "type": "ai_feature_package",
+   "shortDescription": "Produce email drafts using AI based on previous exchanges.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "710cb274-8600-4d6c-850e-0912aab35fda",
+   "name": "Entity Extraction​",
+   "type": "ai_feature_package",
+   "shortDescription": "Identify, extract, and organize relevant data from business-related content.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a7284cf2-cc3a-48aa-b286-42e57b5068b4",
+   "name": "Joule with SAP Service Cloud Version 2",
+   "type": "ai_feature",
+   "shortDescription": "Provide service agents instant access to customer information.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "500b5829-a388-4f10-b629-c0b0eea3820e",
+   "name": "Machine Translation",
+   "type": "ai_feature",
+   "shortDescription": "Use machine translation to translate emails.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "54affede-32fc-46b4-b9bf-c04eb12d341d",
+   "name": "NLP Classification",
+   "type": "ai_feature",
+   "shortDescription": "Identify sentiment from emails.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "3e851879-1943-49c9-8dd4-27589086bf0a",
+   "name": "Premise Billed Consumption Summary",
+   "type": "ai_feature_package",
+   "shortDescription": "Analyze billed consumption data and correlate it with temperature trends.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "7d48b7ea-dde6-40fe-a257-5cad59a19fee",
+   "name": "Profanity Check",
+   "type": "ai_feature",
+   "shortDescription": "Define a set of pejorative vocabulary.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0455ae3c-38bc-4b0c-b9a6-c6a08f0ed64e",
+   "name": "Registered Product Summary",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate registered product summaries.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ce71187b-3bb2-4771-9105-c6a220b66783",
+   "name": "Similar Case Recommendation",
+   "type": "ai_feature",
+   "shortDescription": "Find solutions from previous similar cases that can be applied to your case.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5104214c-a0a0-4942-9883-5586b3647017",
+   "name": "Text Editing",
+   "type": "ai_feature",
+   "shortDescription": "AI capabilities into the Rich Text Editor (RTE) to assist users.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Service Cloud Version 2"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "6c9a0bd1-95db-4b4c-8c12-c8c0e36898c2",
+   "name": "Mobile Execution",
+   "type": "ai_feature",
+   "shortDescription": "Voice-to-text for faster, accurate job reporting in the field.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.8",
+   "products": [
+    {
+     "productName": "SAP Service and Asset Manager"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "e4b92ea3-f81d-4f95-9afd-368b563700ad",
+   "name": "Role-based Process Overview",
+   "type": "ai_feature",
+   "shortDescription": "Get a personalized view of key processes, tools, and content for your role.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio Process Collaboration Hub"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c251cae4-d807-4144-94c8-fab6272ec3c6",
+   "name": "Process Comparison Documentation​",
+   "type": "ai_feature",
+   "shortDescription": "Compare diagram versions and generate summaries of changes to review.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.9",
+   "products": [
+    {
+     "productName": "SAP Signavio Process Governance"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4e247d5c-1135-4e50-8866-53e77c415af8",
+   "name": "Root Cause Analysis",
+   "type": "ai_feature",
+   "shortDescription": "Uncover root causes of KPI deviations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio Process Intelligence"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0614d66c-4e6d-42bc-b45b-135ba035d843",
+   "name": "Insights Description Generator",
+   "type": "ai_feature",
+   "shortDescription": "Creating clear, consistent, and business user–friendly descriptions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio Process Transformation Manager"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "45016b64-67d3-457e-a836-9ac08b193722",
+   "name": "BPMN Simulation Insights",
+   "type": "ai_feature",
+   "shortDescription": "Transform simulation results into AI-powered insights for faster decisions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "31657cef-3bb1-4d61-b7b6-0d7b36a328be",
+   "name": "Content Search",
+   "type": "ai_feature",
+   "shortDescription": "Semantic search engine that interprets user terminology for tailored results.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "1b4de3e7-2d74-4095-b606-5e925edcc1e3",
+   "name": "Context Analyzer, Sentiment Analysis",
+   "type": "ai_feature",
+   "shortDescription": "Analyze customer sentiment with AI to reveal process impact and boost loyalty.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c0d3da93-4a48-40c6-962e-f6391bc6843f",
+   "name": "Context Analyzer, Text to Event Matching",
+   "type": "ai_feature",
+   "shortDescription": "Matches free-text entries to process events using AI for actionable insights.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c1ed93ca-2efd-4096-8300-613adf55cfef",
+   "name": "Joule with SAP Signavio solutions",
+   "type": "ai_feature",
+   "shortDescription": "Elevate your organization's process management and optimization.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "4be4b091-a23d-4f59-975e-65cb6a4a8fc5",
+   "name": "Performance Indicators Recommender",
+   "type": "ai_feature",
+   "shortDescription": "Discover metrics relevant for your business.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "6d74c5e9-32c1-443c-be23-c7ebbc51d573",
+   "name": "Process Analyzer, Text To Widget",
+   "type": "ai_feature",
+   "shortDescription": "Generate dashboard widgets with natural language queries.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    },
+    {
+     "productName": "SAP Signavio Process Intelligence"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "a6dde1d9-6da4-443f-874a-e6eb183e2bd5",
+   "name": "Process Analyzer, Text to Insight",
+   "type": "ai_feature",
+   "shortDescription": "Prompt to discover insights from your data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "84eb743d-acdb-48ff-b933-ec51fe9f5f12",
+   "name": "Process Modeler",
+   "type": "ai_feature",
+   "shortDescription": "Generate a BPMN diagram from a text description or image of a business process.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0568e3e9-bef3-46d5-8b51-f519d8838320",
+   "name": "Process Recommender",
+   "type": "ai_feature",
+   "shortDescription": "Get instant best practice recommendations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "9ced0e83-412a-4e06-beda-6ef81e4bce95",
+   "name": "Transformation Advisory, Initiative Builder",
+   "type": "ai_feature",
+   "shortDescription": "Identify strategy-aligned opportunities and accelerate transformation execution.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.1.3",
+   "products": [
+    {
+     "productName": "SAP Signavio solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5bd44b95-d8b0-4bcb-af6d-83f9d6b54d0c",
+   "name": "AI-Assisted Scouting",
+   "type": "ai_feature",
+   "shortDescription": "Q&A on scouting reports and match reports.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Sports One"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c3aa4ca6-7b8b-4382-9569-79276a5d3096",
+   "name": "Scene Finder",
+   "type": "ai_feature",
+   "shortDescription": "Find relevant scenes with natural language search.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.2",
+   "products": [
+    {
+     "productName": "SAP Sports One"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0de86c2c-e2e8-4c76-9774-612af138e043",
+   "name": "Career Insights",
+   "type": "ai_feature_package",
+   "shortDescription": "Get insights into employees' development actions towards target role.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Career and Talent Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "ef16dd9e-a2db-44df-bb8b-23b16c68bd88",
+   "name": "Development Goal Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Build meaningful and inspiring development goals.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Career and Talent Development"
+    },
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "89c64e94-9341-4fc2-8f8b-1c05c19cc0f8",
+   "name": "Personalized Opportunities Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Improve assignment and open job recommendations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Career and Talent Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "c43b18e8-460c-4163-95f1-cc0342299995",
+   "name": "Successor Insights",
+   "type": "ai_feature_package",
+   "shortDescription": "Get insights on potential successors to help with succession planning.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Career and Talent Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "48c886ad-45f2-4263-a249-2584c2b5a877",
+   "name": "Person Insights for Compensation Discussions",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate insights into an employee's compensation.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Employee Central"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "49beea9f-592e-413b-9370-e3fb4d3efaec",
+   "name": "Explain Pay",
+   "type": "ai_feature_package",
+   "shortDescription": "Provide answers and explanations to questions regarding pay using Joule.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Employee Central Payroll"
+    },
+    {
+     "productName": "SAP SuccessFactors Employee Central"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "b56c5f60-17d9-4215-bf06-908e3d8c990d",
+   "name": "Image Generation for Learning",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate images more easily and effectively with AI-assistance.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Learning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "9e0871fa-e745-4aba-89b0-5b7b3699fb32",
+   "name": "Personalized Learning Recommendations",
+   "type": "ai_feature",
+   "shortDescription": "Get personalized AI-driven learning recommendations based on skills and role.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Learning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "b06f79b0-a8f9-45da-8303-8c112128e444",
+   "name": "Skill Inference for Learning",
+   "type": "ai_feature_package",
+   "shortDescription": "Associate skills with learning items in bulk through the import process.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Learning"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "9d527a11-ada5-466b-95d0-6a3e30ee8543",
+   "name": "Skills Inference for Open Content Network",
+   "type": "ai_feature",
+   "shortDescription": "Associate skills with Open Content Network (OCN) items.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Learning"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "f01b7a9c-23af-48f3-8f64-7bea3de91f25",
+   "name": "Assignment Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Create and edit assignments using generative AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Opportunity Marketplace"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "19be382b-8169-4310-8365-b8b2e7f88c2d",
+   "name": "Skill Inference for Assignment Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Create and edit assignments using generative AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Opportunity Marketplace"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "f6aa846b-238a-44c3-b3da-6faa76e8761b",
+   "name": "Insights into Detailed 360 Report",
+   "type": "ai_feature_package",
+   "shortDescription": "Gain insights into Detailed 360 Report.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "231d6a91-c550-4bca-8de7-b903cb7e7f5b",
+   "name": "Performance Goal Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Build meaningful and inspiring performance goals.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "3724bee9-7e25-4416-b9c9-b03cbb37d7b6",
+   "name": "Performance Insights",
+   "type": "ai_feature_package",
+   "shortDescription": "Get insights on an employee's performance based on the feedback received.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "fbff7183-4055-4a73-ba53-a19ff4ece39f",
+   "name": "Sentiment Analysis in 360 Reviews",
+   "type": "ai_feature_package",
+   "shortDescription": "Analyze the sentiment of a feedback delivered in a 360 review.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "0b01a305-b10b-4891-82ad-7be208aadf7b",
+   "name": "Skill Inference for Continuous Performance Mgmt",
+   "type": "ai_feature_package",
+   "shortDescription": "Infer skills to employees using Continuous Performance Management data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "60263926-2bb3-4e38-b7bc-15a0d9b4004b",
+   "name": "Team Goals",
+   "type": "ai_feature_package",
+   "shortDescription": "Build meaningful and inspiring team goals.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "3ea4fec4-1f6d-4865-9459-54ac5b337641",
+   "name": "Applicant Screening",
+   "type": "ai_feature_package",
+   "shortDescription": "Match the applicant's skills with the ones required for a job.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Recruiting"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a3b668e4-9c02-4890-8620-1bb524c04aeb",
+   "name": "Interview Feedback Insights",
+   "type": "ai_feature_package",
+   "shortDescription": "Get insights into interviewer feedback and notes about a given candidate.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Recruiting"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "e90b2438-e873-4759-a174-ffe5c950c88a",
+   "name": "Interview Questions Generation",
+   "type": "ai_feature_package",
+   "shortDescription": "Use generative AI to provide interviewers with suggested questions.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Recruiting"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "1d925a29-4254-4fcc-9726-2ade8885d242",
+   "name": "Job Description Enhancement",
+   "type": "ai_feature_package",
+   "shortDescription": "Generate enhanced job descriptions using generative AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Recruiting"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "fda4fbef-a125-48bf-ade6-6fbf21dc91d9",
+   "name": "Job Skills on Career Sites",
+   "type": "ai_feature_package",
+   "shortDescription": "Allows to upload a resume on career sites and receive job recommendations.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Recruiting"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "9ec70701-a3c5-4be6-bfc3-e9ff5008d13b",
+   "name": "Successor Recommendation",
+   "type": "ai_feature_package",
+   "shortDescription": "View recommended successors based on skills, competencies, and experience.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors Succession & Development"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "d686bb39-e55a-49f2-a303-2c06fd802304",
+   "name": "AI-Assisted Writing",
+   "type": "ai_feature_package",
+   "shortDescription": "Enhance the quality of the content writing in text fields.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    },
+    {
+     "productName": "SAP SuccessFactors Performance and Goals"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "f793a99e-8d57-45f2-958a-fcf71d61e5ee",
+   "name": "Bulk Translation",
+   "type": "ai_feature_package",
+   "shortDescription": "Instantly translate preset page content into multiple languages with ease.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "60772d47-5ec6-4d66-9d41-ae8a2b869996",
+   "name": "Extended AI Locales",
+   "type": "ai_feature_package",
+   "shortDescription": "Review, customize, and enable AI-translated locales for use.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a1bff183-cd0b-4671-bf79-989b9bae42a2",
+   "name": "Joule Q&A",
+   "type": "ai_feature",
+   "shortDescription": "Get answers about an organization’s HR policy documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "d513b99f-7ec5-40ba-9e8d-7d9858ba7dca",
+   "name": "Joule with SAP SuccessFactors solutions",
+   "type": "ai_feature",
+   "shortDescription": "Elevate the employee experience with an AI copilot.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    },
+    {
+     "productName": "Joule"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "0270dc31-dd49-4b30-a42a-5c6c3c16b11b",
+   "name": "Microsoft Teams Chat",
+   "type": "ai_feature_package",
+   "shortDescription": "Interact using natural language, get to your features and information faster.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "81fc725e-d4e3-4df1-a46d-085c2f2e0fb1",
+   "name": "SAP Document AI, embedded edition",
+   "type": "ai_feature",
+   "shortDescription": "Automated data extraction and import from uploaded National ID documents.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "653d712b-c53c-4f46-a75f-b3235313373c",
+   "name": "Skill Identification from Resume",
+   "type": "ai_feature_package",
+   "shortDescription": "Identify skills from a resume and display the skills on the Growth Portfolio.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "4fb112d7-8daf-4a5f-9a7c-d132c129b193",
+   "name": "Skills Architecture Creation",
+   "type": "ai_feature_package",
+   "shortDescription": "Create an AI-based skills library from job profiles.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a2a77a5f-3ce0-4257-bbac-51de82b90f91",
+   "name": "Skills Standardization",
+   "type": "ai_feature",
+   "shortDescription": "Use the industry-standard skill names in the Attributes Library.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "84324196-d27c-419b-ab13-10bfd6deddb8",
+   "name": "Text Analyzer",
+   "type": "ai_feature_package",
+   "shortDescription": "Analyze content within supported text areas for bias, safety, and responsibility",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "56f727c9-1bb9-4b39-91c6-1928e855ce99",
+   "name": "Writing - translation",
+   "type": "ai_feature_package",
+   "shortDescription": "Translate written content in supported text areas.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.3",
+   "products": [
+    {
+     "productName": "SAP SuccessFactors solutions"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "c2b939fa-8655-446c-8d24-81e945c7ecd6",
+   "name": "ESG Report Generation",
+   "type": "ai_feature",
+   "shortDescription": "Generate comprehensive sustainability reports using ESG metrics data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.7,PP.9",
+   "products": [
+    {
+     "productName": "SAP Sustainability Control Tower"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "a9d57852-e779-4345-a93a-b5ced1a8cf1e",
+   "name": "Qualitative ESG Data Summary",
+   "type": "ai_feature",
+   "shortDescription": "Generate textual summaries by analyzing qualitative ESG metric data.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.9",
+   "products": [
+    {
+     "productName": "SAP Sustainability Control Tower"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "6de0ca8d-698a-4fc3-a4e9-93bbcb7ef568",
+   "name": "Automated Emission Factor Mapping",
+   "type": "ai_feature",
+   "shortDescription": "Map purchased products and purchased product groups with AI.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.9",
+   "products": [
+    {
+     "productName": "SAP Sustainability Footprint Management"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "be8326cc-f24b-4b4b-81fd-f3980762aa32",
+   "name": "Error Analysis",
+   "type": "ai_feature",
+   "shortDescription": "Analyze and resolve errors in serialization data exchange.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "SAP Traceability Hub"
+    }
+   ],
+   "partner": "",
+   "isBillable": true
+  },
+  {
+   "id": "48d7b321-7f38-4f7b-a88a-8ac08c8cc19b",
+   "name": "Joule with UI theme designer",
+   "type": "ai_feature",
+   "shortDescription": "Help users ask questions related to theming.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "UI Theme Designer"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "e3a937c7-7938-4e38-a448-be139eafca13",
+   "name": "AI Knowledge Indexing",
+   "type": "ai_feature",
+   "shortDescription": "Make company documentation accessible to WalkMe AI services.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "WalkMe"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "5f7ecd57-4852-4915-933d-2a70d2bc78c7",
+   "name": "AI Knowledge Referencing",
+   "type": "ai_feature",
+   "shortDescription": "Fetch curated information from company resources when conditions are met.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "WalkMe"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "8033cbfa-7af4-4c7f-a9ed-59db6cbb20a4",
+   "name": "On-Demand AI",
+   "type": "ai_feature",
+   "shortDescription": "Make company knowledge discoverable everywhere via conversational AI interface.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "WalkMe"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  },
+  {
+   "id": "84c88f1a-9cc9-462f-a327-07aa0edac4e6",
+   "name": "Pinned AI",
+   "type": "ai_feature",
+   "shortDescription": "Attach helpful AI functionality directly to specific on-screen elements.",
+   "domain": "",
+   "processes": "",
+   "productCategories": "PP.4",
+   "products": [
+    {
+     "productName": "WalkMe"
+    }
+   ],
+   "partner": "",
+   "isBillable": false
+  }
+ ]
+}
